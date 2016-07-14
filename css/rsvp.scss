@@ -1,0 +1,203 @@
+body, div, h1,h2, form, fieldset, input, textarea, footer,p {
+	margin: 0; padding: 0; border: 0; outline: none;
+}
+
+
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+}
+
+p {text-shadow:0 1px 0 #fff; font-size:0.75rem;}
+#wrap {
+	width:530px; 
+	margin: 6.5em auto 0; 
+	height:80%; 
+	min-height: 500px;
+	padding: 50px 0;
+}
+
+
+#form_wrap { overflow:hidden; height:446px; position:relative; top:0px;
+	-webkit-transition: all 1s ease-in-out .3s;
+	-moz-transition: all 1s ease-in-out .3s;
+	-o-transition: all 1s ease-in-out .3s;
+	transition: all 1s ease-in-out .3s;}
+
+#form_wrap:before {
+	content:"";
+	position:absolute;
+	bottom:128px;
+	left:0px;
+	background:url('../images/before.png');
+	width:530px;
+	height: 316px;
+}	
+
+#form_wrap:after {
+	content:"";
+	position:absolute;
+	bottom:0px;left:0;
+	background:url('../images/after.png');
+	width:530px;
+	height: 260px; 
+}
+
+
+#form_wrap.hide:after, #form_wrap.hide:before {display:none; }
+#form_wrap:hover {height:676px;top:-150px;}
+#form_wrap.state1 {height:676px;top:-150px;}
+
+form {
+	background:#e3e3e3 url('../images/letter_bg.png'); 
+	position:relative;top:200px;overflow:hidden;
+	height:200px;width:450px;margin:0px auto;padding:20px; 
+	border: 1px solid #fff;
+	border-radius: 3px; 
+	-moz-border-radius: 3px; -webkit-border-radius: 3px;
+	box-shadow: 0px 0px 3px #9d9d9d, inset 0px 0px 27px #fff;
+	-moz-box-shadow: 0px 0px 3px #9d9d9d, inset 0px 0px 14px #fff;
+	-webkit-box-shadow: 0px 0px 3px #9d9d9d, inset 0px 0px 27px #fff;
+	-webkit-transition: all 1s ease-in-out .3s;
+	-moz-transition: all 1s ease-in-out .3s;
+	-o-transition: all 1s ease-in-out .3s;
+	transition: all 1s ease-in-out .3s;
+}
+
+
+#form_wrap:hover form {height:400px;}
+#form_wrap.state1 form {height:400px;}
+
+label {
+	margin: 11px 20px 0 0; 
+	font-size: 1rem;
+	width: 125px;
+	text-shadow: 0px 1px 0px #fff;
+}
+
+input[type=text] {
+	font: 1rem normal normal uppercase helvetica, arial, serif;
+	color: #7c7873;background:none;
+	width: 250px; height: 36px; padding: 0px 10px; margin: 0 0 10px 0;
+	border: 1px solid #C6C4C1;
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+	-moz-box-shadow: inset 0px 0px 1px #726959;
+	-webkit-box-shadow:  inset 0px 0px 1px #b3a895; 
+	box-shadow:  inset 0px 0px 1px #b3a895;
+}	
+
+#form_wrap input[type=submit] {
+	position:relative;
+	padding: 10px; 
+	font-size:1rem; color: #7c7873;
+	text-shadow:0 1px 0 #fff;
+	width:100%; 
+	text-align:center;
+	opacity:0;
+	background:none;
+	cursor: pointer;
+	-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; 
+	-webkit-transition: opacity .6s ease-in-out 0s;
+	-moz-transition: opacity .6s ease-in-out 0s;
+	-o-transition: opacity .6s ease-in-out 0s;
+	transition: opacity .6s ease-in-out 0s;
+}
+
+input[type=text]:focus {
+	background-color: white;
+}
+#form_wrap:hover input[type=submit] {
+	z-index:1;
+	opacity:1;
+	-webkit-transition: opacity .5s ease-in-out 1.3s;
+	-moz-transition: opacity .5s ease-in-out 1.3s;
+	-o-transition: opacity .5s ease-in-out 1.3s;
+	transition: opacity .5s ease-in-out 1.3s;
+}
+
+#form_wrap.state1 input[type=submit] {
+	z-index:1;
+	opacity:1;
+	-webkit-transition: opacity .5s ease-in-out 1.3s;
+	-moz-transition: opacity .5s ease-in-out 1.3s;
+	-o-transition: opacity .5s ease-in-out 1.3s;
+	transition: opacity .5s ease-in-out 1.3s;
+}
+
+#form_wrap:hover input:hover[type=submit] {
+	color:#93c2b2;
+}
+#form_wrap.state1 input:hover[type=submit] {
+	color:#93c2b2;
+}
+
+.error {
+	position: absolute;
+	top: 120px;
+	left: 0;
+	margin: auto;
+	width: 100%;
+	padding: 0 0 5px 0;
+	color: red;
+	font-size: 1rem;
+	text-align: center;
+}
+
+#form_wrap p {
+	text-align: center;
+	padding-bottom: 5px;
+}
+
+p {
+	text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+	#wrap {
+		width: 300px;
+		padding: 20px 0;
+	}
+	#form_wrap {
+		height:274px
+	}
+	#form_wrap:before {
+		width: 300px;
+		height: 179px;
+		bottom:72px;
+		background:url('../images/before_sm.png');
+	}
+	#form_wrap:after {
+		width: 300px;
+		height: 147px; 
+		background:url('../images/after_sm.png');
+	}
+	form {
+		padding: 10px;
+		width: 260px;
+		top:140px
+	}
+	#form_wrap:hover {height:474px;top:-100px;}
+	#form_wrap:hover form {height:530px;}
+	label {
+		margin: 6px 10px;
+		font-size: .6rem;
+		width: 75px;
+	}
+	input[type=text] {
+		padding: 0 5px;
+		font-size: .6rem;
+		width: 130px;
+		height: 20px;
+	}
+	#form_wrap input[type=submit] {font-size:0.6rem;}
+	.error {
+		font-size: .6rem;
+	}
+}
+
+
+
+
+
+
+	
