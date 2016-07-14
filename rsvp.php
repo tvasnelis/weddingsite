@@ -10,30 +10,13 @@ define('DB_PASSWORD', 'TjV.04*23'); 	// MySqlpassword
 define('DB_HOST', 'timandkimberly.com');
 define('DB_PORT', '3306');
 
-// connect to database
-
-try {
-	$db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,"timvasne_tim","TjV.04*23");
-	$db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-	$db->exec("SET NAMES 'utf8'");
-} catch (Exception $e) {
-	$pageTitle = "Tim & Kimberly - RSVP";
-	$section = "rsvp";
-	include("inc/header.php");
-	echo "<link rel='stylesheet type='text/css href='css/rsvp.css'>";
-	//echo "<div id='wrap' class='sub-font'>";
-	echo "<p class='error sub-font'>Database connection error. Please try again later.</p>";
-	// echo "</div>";
-	//echo "</body>";
-	//echo "</html>";
-	exit;
-}
 
 // initialize validation error variables
 $error_db = false;
 $error_firstname = "";
 $error_lastname = "";
 $error_email = "";
+$error_guestname = "";
 
 // initialize session variables
 if (!isset($_GET["status"])) {
@@ -44,7 +27,7 @@ if (!isset($_GET["status"])) {
 	$_SESSION['result'] = array();
 }
 
-// read form data 
+// read POST form data for SUBMIT 1 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit1'])) {
 
 	// validate form data and read values
@@ -74,9 +57,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit1'])) {
 		exit;
 	}
 
+	// connect to database
+	try {
+		$db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,"timvasne_tim","TjV.04*23");
+		$db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		$db->exec("SET NAMES 'utf8'");
+	} catch (Exception $e) {
+		$pageTitle = "Tim & Kimberly - RSVP";
+		$section = "rsvp";
+		include("inc/header.php");
+		echo "<link rel='stylesheet type='text/css href='css/rsvp.css'>";
+		echo "<p class='error sub-font'>Database connection error. Please try again later.</p>";
+		exit;
+	}
+
 	// query database for user name (first and last)
 	try {
-		$results = $db->prepare("SELECT GuestId, FirstName, LastName, GroupId FROM Guests WHERE GroupId = (SELECT GroupID FROM Guests WHERE FirstName = :firstname  AND LastName = :lastname)");
+		$results = $db->prepare("SELECT GuestId, FirstName, LastName, Email, GroupId, Attending FROM Guests WHERE GroupId = (SELECT GroupID FROM Guests WHERE FirstName = :firstname  AND LastName = :lastname)");
 		$results->bindValue(':firstname', $firstname);
 		$results->bindValue(':lastname', $lastname);
 		$results->execute();
@@ -102,9 +99,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit1'])) {
 	}
 }
 
+// read POST form data for SUBMIT 2 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit2'])) {
+
+	// connect to database
+	try {
+		$db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,"timvasne_tim","TjV.04*23");
+		$db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		$db->exec("SET NAMES 'utf8'");
+	} catch (Exception $e) {
+		$pageTitle = "Tim & Kimberly - RSVP";
+		$section = "rsvp";
+		include("inc/header.php");
+		echo "<link rel='stylesheet type='text/css href='css/rsvp.css'>";
+		echo "<p class='error sub-font'>Database connection error. Please try again later.</p>";
+		exit;
+	}
+																																															
+	//update rsvp
+	foreach ($_SESSION['results'] as $guest) {
+		$id = $guest["GuestId"];
+		if (array_key_exists($id, $_POST)) {
+			$sql = "UPDATE Guests SET Attending=" . $_POST[$id] . " WHERE GuestId=" . $id ;
+			try {
+					$stmt = $db->prepare($sql);
+					$stmt->execute();
+				} catch (Exception $e) {
+					$pageTitle = "Tim & Kimberly - RSVP";
+					$section = "rsvp";
+					include("inc/header.php");
+					echo "<link rel='stylesheet type='text/css href='css/rsvp.css'>";
+					echo "<p class='error sub-font'>Error writing to database. Please try again later.</p>";
+					exit;
+				}
+		}
+	}
+
 	header("location:rsvp.php?status=thanks");
 	exit;
+	
 }
 
 
@@ -129,9 +162,6 @@ include("inc/header.php");
     <div id='form_wrap' <?php if ($error_firstname != "" OR $error_lastname != "" OR $error_email != "" OR (isset($_GET["status"]))) { echo "class='state1'"; } ?>>
         <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="rsvp_form">
         	
-			
-
-
 			<?php if (isset($_GET["status"]) && $_GET["status"] == "invite_notfound") {
 				//echo "<p>Sorry, your invitation was not found.  Please try again.</p>";
 				//echo "<p>Enter your name exactly as it appears on your invitation.</p>";
@@ -170,14 +200,26 @@ include("inc/header.php");
 
         	<div id="step2">
 				<p class='sub-font'>Your invitation was found!</p>
-				<p class='sub-font'>Please select all guests attending.</p>
-				<?php foreach ($_SESSION['results'] as $key => $guest) { ?>
-					<input type='checkbox' name=guests[] id=<?php echo '"guest' . $key . '"' ?> ><?php echo $guest['FirstName'] . " " . $guest['LastName'] ?><br>	    
+				<p class='sub-font'>Please mark the check box for all guests that are attending.</p>
+				<?php 
+				// display check box for each guest and set up array for result
+				$i = 1;
+				foreach ($_SESSION['results'] as $guest) {
+					$id = $guest["GuestId"];
+					$fname = $guest['FirstName'];
+					$lname = $guest['LastName'];
+					$att = 	$guest['Attending'];
+				?>
+
+					<input id="<?php echo $id . 'hidden' ?>" type="hidden" value="0" name="<?php echo $id ?>">
+					<input id="<?php echo $id ?>" type="checkbox" value="1" name="<?php echo $id ?>" <?php if ($att==1) {echo " checked='checked'";} ?>>
+					<label for="guests[]" ><?php echo $fname . " " . $lname ?></label><br>
+
 	        	<?php } ?>
 	        	<input type="submit" name ="submit2" value="Submit" />
 	        </div>
 
-	    <?php } ?>
+	<?php } ?>
 
         </form>
 		</div>

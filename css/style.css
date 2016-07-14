@@ -7309,8 +7309,9 @@ body {
   font-size: 16px;
 }
 
-h3.constr {
+h3.const {
   text-align: center;
+  font-size: 1rem;
   padding: 50px;
 }
 
