@@ -11,7 +11,7 @@ body, div, h1, h2, form, fieldset, input, textarea, footer, p {
 }
 p {
   text-shadow: 0 1px 0 #fff;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 
 #wrap {
@@ -56,12 +56,12 @@ p {
 }
 
 #form_wrap:hover {
-  height: 676px;
+  height: 776px;
   top: -150px;
 }
 
 #form_wrap.state1 {
-  height: 676px;
+  height: 776px;
   top: -150px;
 }
 
@@ -70,10 +70,10 @@ form {
   position: relative;
   top: 200px;
   overflow: hidden;
-  height: 200px;
+  height: 150px;
   width: 450px;
   margin: 0px auto;
-  padding: 20px;
+  padding: 10px 30px;
   border: 1px solid #fff;
   border-radius: 3px;
   -moz-border-radius: 3px;
@@ -86,28 +86,28 @@ form {
 }
 
 #form_wrap:hover form {
-  height: 400px;
+  height: 530px;
 }
 
 #form_wrap.state1 form {
-  height: 400px;
+  height: 530px;
 }
 
 label {
-  margin: 11px 20px 0 0;
-  font-size: 1rem;
-  width: 125px;
+  margin: 5px 10px 0 0;
+  font-size: .8rem;
+  width: 120px;
   text-shadow: 0px 1px 0px #fff;
 }
 
 input[type=text] {
-  font: 1rem normal normal uppercase helvetica, arial, serif;
+  font: .8rem normal normal uppercase helvetica, arial, serif;
   color: #7c7873;
   background: none;
   width: 250px;
-  height: 36px;
+  height: 30px;
   padding: 0px 10px;
-  margin: 0 0 10px 0;
+  margin: 0 0 5px 0;
   border: 1px solid #C6C4C1;
   border-radius: 5px;
   box-shadow: inset 0px 0px 1px #b3a895;
@@ -116,7 +116,7 @@ input[type=text] {
 #form_wrap input[type=submit] {
   position: relative;
   padding: 10px;
-  font-size: 1rem;
+  font-size: .8rem;
   color: #7c7873;
   text-shadow: 0 1px 0 #fff;
   width: 100%;
@@ -163,16 +163,7 @@ input[type=text]:focus {
   width: 100%;
   padding: 0 0 5px 0;
   color: red;
-  font-size: 1rem;
-  text-align: center;
-}
-
-#form_wrap p {
-  text-align: center;
-  padding-bottom: 5px;
-}
-
-p {
+  font-size: .8rem;
   text-align: center;
 }
 
@@ -234,6 +225,21 @@ p {
   .error {
     font-size: .6rem;
   }
+}
+.form_header p {
+  text-align: center;
+  font-size: .8rem;
+  font-weight: 800;
+  margin: 5px 0;
+}
+
+.form_body p {
+  font-size: .8rem;
+  margin: 5px 0;
+}
+
+.form_header {
+  margin-bottom: 15px;
 }
 
 /*# sourceMappingURL=rsvp.css.map */

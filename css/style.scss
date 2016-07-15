@@ -57,7 +57,7 @@ body {
 
 h3.const {
     text-align: center;
-    font-size: 1rem;
+    font-size: .8rem;
     padding: 50px;
 }
 
@@ -88,7 +88,7 @@ header {
         }
         h2 {
             margin: 0px auto;
-            font-size: .6rem;
+            font-size: .8rem;
         }
         .accent{
            color: $green;
@@ -132,7 +132,7 @@ header {
         }
         @media screen and (min-width: 480px) {
             li {
-                font-size: .75rem;
+                font-size: .8rem;
                 a {
                     padding: 3px 10px 3px;
                 }
@@ -283,17 +283,17 @@ ul.venues.columns-4 li {
     margin: auto;
 }
 .section.travel h3 {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 800;
     color: black;
 }
 .section.travel p {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     line-height: 1rem;
     color: black;
 }
 .section.travel a {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
 }
 
 .section.travel a.block {
