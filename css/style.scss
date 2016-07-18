@@ -61,6 +61,16 @@ h3.const {
     padding: 50px;
 }
 
+a {
+    color: $green;
+    text-decoration: none;
+}
+a:hover .block {
+    color: $black;
+    text-decoration: none;
+}
+
+
  
 header {
 	width: 100%;
@@ -127,8 +137,9 @@ header {
         li.on a {
             text-decoration: underline;
         }
-        a:hover {
+        li a:hover {
             text-decoration: underline;
+            color: black;
         }
         @media screen and (min-width: 480px) {
             li {
@@ -173,94 +184,6 @@ header {
         width: 100%;
 
     }
-}
-
-ul.venues {
-    list-style: none;
-    padding: 3rem 0 3rem;
-    font-size: 0px;
-    margin: 0;
-    text-align: center;
-}
-ul.venues li {
-    display: inline-block;
-    padding: 20px;
-    max-width: 20rem;
-    font-size: 16px;
-    font-size: .75rem;
-    vertical-align: top;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
-ul.venues li img {
-    max-width: 100%;
-    height: auto;
-     -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    /* box-shadow */
-    -webkit-box-shadow: rgba(0,0,0,0.8) 0px 0 15px;
-    -moz-box-shadow: rgba(0,0,0,0.8) 0 0 15px;
-    box-shadow: rgba(0,0,0,0.8) 0 0 15px;
-}
-ul.venues li h3 {
-    font-size: .75rem;
-    font-weight: 800;
-    margin: 25px 0 15px;
-    color: black;
-}
-ul.venues li p {
-    font-size: .75rem;
-    line-height: 1rem;
-    margin: 0;
-    color: black;
-}
-/* class for 2 columns */
-ul.venues.columns-2 li {
-    width: 47.5%; /* this value + 2.5 should = 50% */
-}
-/* class for 3 columns */
-ul.venues.columns-3 li {
-    width: 30.83%; /* this value + 2.5 should = 33% */
-}
-/* class for 4 columns */
-ul.venues.columns-4 li {
-    width: 22.5%; /* this value + 2.5 should = 25% */
-}
- 
-
-@media (max-width: 768px) {
-    ul.grid-nav li {
-        display: block;
-    }
-    ul.grid-nav li a {
-        display: block;
-    }
-    ul.venues {
-        padding: 2% 0;
-    }
-    ul.venues li {
-        width: 45% !important; /* over-ride all li styles */
-        padding: 5%;
-    }
-}
-
-@media (max-width: 480px) {
-    ul.grid-nav li {
-        display: block;
-    }
-    ul.grid-nav li a {
-        display: block;
-    }
-    ul.venues {
-        padding: 25px 0;
-    }
-    ul.venues li {
-        width: 70% !important; /* over-ride all li styles */
-        margin: 0 0 20px;
-    }
-
 }
 
 #frame-map {
@@ -311,14 +234,6 @@ ul.venues.columns-4 li {
 /*
 * Color
 */
-a {
-    color: $green;
-    text-decoration: none;
-}
-a:hover a.block {
-    color: $black;
-    text-decoration: none;
-}
 
 
 /*

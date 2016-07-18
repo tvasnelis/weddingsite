@@ -6,7 +6,10 @@
         <link href='https://fonts.googleapis.com/css?family=Amaranth|Sacramento|Lato:400,700|Kaushan+Script|Montserrat' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/gallery_grid.css">
+        <link rel="stylesheet" type="text/css" href="css/rsvp.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/form_hide.js"></script>
         <script type="text/javascript" src="js/modernizr.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     </head>
@@ -25,7 +28,7 @@
                     <li class="sub-font <?php if ($section == "travel") { echo " on"; } ?>"><a href="travel.php">Travel</a></li>
                     <li class="sub-font <?php if ($section == "stay") { echo " on"; } ?>"><a href="stay.php">Stay</a></li>
                     <li class="sub-font <?php if ($section == "experience") { echo " on"; } ?>"><a href="experience.php">Experience</a></li>
-                    <li class="sub-font <?php if ($section == "rsvp") { echo " on"; } ?>"><a href="rsvp.php">RSVP</a></li>
+                    <li class="sub-font <?php if ($section == "rsvp") { echo " on"; } ?>"><a href="rsvp_1.php">RSVP</a></li>
                 </ul>
             </nav>
         </header>

@@ -8,10 +8,10 @@ include("inc/header.php"); ?>
 
     <div id="content">
     	<div class="section wedding">
-	    	<ul class="venues sub-font columns-4">
+	    	<ul class="gallery_grid sub-font columns-4">
 	    		<li>
 	    			<img src="images/door_sq.jpg" alt="Rehersal">
-	    			<h3>Rehersal/Welcome Drinks</h3>
+	    			<h3>Rehearsal/Welcome Drinks</h3>
 	    			<p>Friday</p>
 	    			<p>March 24th</p>
 	    			</br>

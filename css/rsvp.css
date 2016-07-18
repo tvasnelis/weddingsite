@@ -73,7 +73,7 @@ form {
   height: 150px;
   width: 450px;
   margin: 0px auto;
-  padding: 10px 30px;
+  padding: 10px 20px;
   border: 1px solid #fff;
   border-radius: 3px;
   -moz-border-radius: 3px;
@@ -104,7 +104,7 @@ input[type=text] {
   font: .8rem normal normal uppercase helvetica, arial, serif;
   color: #7c7873;
   background: none;
-  width: 250px;
+  width: 260px;
   height: 30px;
   padding: 0px 10px;
   margin: 0 0 5px 0;
