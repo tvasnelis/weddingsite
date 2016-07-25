@@ -1,37 +1,17 @@
-<?php 
+<?php
+require("inc/config.php");
 
-include("inc/email_rsvp.php");
-include("inc/rsvp_session.php");
+require(ROOT_PATH . "inc/rsvp_session.php");
+require(ROOT_PATH . "inc/database.php");
+require(ROOT_PATH . "inc/email_rsvp.php");
 
-// copy session variables to local working variables
-$guests = array(
-	'user' => array(
-		'GuestId' => $_SESSION['user']['GuestId'],
-		'FirstName' => $_SESSION['user']['FirstName'],
-		'LastName' => $_SESSION['user']['LastName'],
-		'GroupId' => $_SESSION['user']['GroupId'],
-		'Attending' => $_SESSION['user']['Attending'],
-		'Email' => $_SESSION['user']['Email'],
-		'PlusOne' => $_SESSION['user']['PlusOne']
-	),
-	'guest' => array(
-		'GuestId' => $_SESSION['guest']['GuestId'],
-		'FirstName' => $_SESSION['guest']['FirstName'],
-		'LastName' => $_SESSION['guest']['LastName'],
-		'GroupId' => $_SESSION['guest']['GroupId'],
-		'Attending' => $_SESSION['guest']['Attending'],
-		'Email' => $_SESSION['guest']['Email'],
-		'PlusOne' => $_SESSION['guest']['PlusOne']
-	)
-);
-
-
-$errors = $_SESSION['errors'];
+echo var_dump($_SESSION);
 
 // read POST form data for form 2
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
 	// update guest and session variable with post attending data
+	/* 
 	foreach ($guests as $param => $indv) {
 		$id = $indv['GuestId'];
 		if (array_key_exists($id, $_POST)) {
@@ -39,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     		$_SESSION[$param]['Attending'] = $guests[$param]['Attending'];
     	}
 	}
+	*/
 
     // validate form data and read values
 	if (!empty($_POST["guest_firstname"])) {
@@ -141,14 +122,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 $pageTitle = "Tim & Kimberly - RSVP";
 $section = "rsvp";
 
-include("inc/header.php");
+//include("inc/header.php");
 ?>
  <div id="wrap" class="sub-font">
 	<?php 
 
 	// Check for validation errors
-	if (!empty($errors)) {
-		if (isset($errors['user_email']) OR isset($errors['guest_email'])) {
+	if (!empty($_SESSION['errors'])) {
+		if (isset($_SESSION['errors']['user_email']) OR isset($_SESSION['errors']['guest_email'])) {
 			echo "<p class='error sub-font'>Please enter a valid email address.</p>";
 		}
 	} 
@@ -164,7 +145,7 @@ include("inc/header.php");
     		<?php
     		// check if first submission
     		$new_rsvp = true;
-    		if (!is_null($guests['user']['Attending']) OR !is_null($guests['guest']['Attending'])) {
+    		if (!is_null($_SESSION['user']['Attending']) OR !is_null($_SESSION['guest']['Attending'])) {
     				$new_rsvp = false;
     		}
 
