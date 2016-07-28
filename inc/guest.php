@@ -32,28 +32,12 @@ class Guest	{
 	 echo $this->FirstName;
 	}
 
-	function issetFirstName(){
-	 if ($this->FirstName == "") {
-	 	return false;
-	 } else {
-	 	return true;
-	 }
-	}
-
 	function setLastName($par){
 	 $this->LastName = $par;
 	}
 
 	function getLastName(){
 	 echo $this->LastName;
-	}
-
-	function issetLastName(){
-	 if ($this->LastName == "") {
-	 	return false;
-	 } else {
-	 	return true;
-	 }
 	}
 
 	function setGroupId($par){
@@ -108,6 +92,41 @@ class Guest	{
 	 $this->RsvpUser = $par;
 	}
 
+	function getFullName(){
+	 echo $this->FirstName . " " . $this->LastName;
+	}
+
+	function isAttending(){
+	 if (!is_null($this->Attending) AND $this->Attending == 1) {
+	 	return true;
+	 } else {
+	 	return false;
+	 }
+	}
+
+	function isNotAttending(){
+	 if (!is_null($this->Attending) AND $this->Attending == 0) {
+	 	return true;
+	 } else {
+	 	return false;
+	 }
+	}
+
+	function issetFirstName(){
+	 if ($this->FirstName == "") {
+	 	return false;
+	 } else {
+	 	return true;
+	 }
+	}
+
+	function issetLastName(){
+	 if ($this->LastName == "") {
+	 	return false;
+	 } else {
+	 	return true;
+	 }
+	}
 
 }
 ?>

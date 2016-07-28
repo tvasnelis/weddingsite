@@ -26,24 +26,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 	}
 
 	// validate form data and read values
-	if (empty($_POST["firstname"])) {
-		$_SESSION['errors']["firstname"] = true;
+	if (empty($_POST['firstname'])) {
+		$_SESSION['errors']['firstname'] = true;
     } else {
     	// set session first name after trim and proper case
     	$_SESSION['user']->setFirstName(ucwords(strtolower(trim(filter_input(INPUT_POST, "firstname", FILTER_SANITIZE_STRING)))));
-    	unset($_SESSION['errors']["firstname"]);
+    	unset($_SESSION['errors']['firstname']);
     }
 
-    if (empty($_POST["lastname"])) {
-        $_SESSION['errors']["lastname"] = true;
+    if (empty($_POST['lastname'])) {
+        $_SESSION['errors']['lastname'] = true;
     } else {
     	// set session last name after trim and proper case
-    	$_SESSION['user']->setLastName(ucwords(strtolower(trim(filter_input(INPUT_POST, "lastname", FILTER_SANITIZE_STRING)))));
-    	unset($_SESSION['errors']["lastname"]);
+    	$_SESSION['user']->setLastName(ucwords(strtolower(trim(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING)))));
+    	unset($_SESSION['errors']['lastname']);
     }
 
     // check for input on hidden form field
-	if ($_POST["address"] != "") {
+	if ($_POST['address'] != "") {
 		echo "Bad form input.";
 		exit;
 	}
@@ -225,5 +225,4 @@ $section = "rsvp";
 
 <?php 
 echo var_dump($_SESSION);
-//echo $_SESSION['user']->issetFirstName();
 ?>
