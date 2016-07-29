@@ -18,6 +18,7 @@ if ($_SESSION['counter'] == 1) {
 	$_SESSION['group'] = array();
 	$_SESSION['errors'] = array();
 	$_SESSION['newRsvp'] = true;
+	$_SESSION['temp'] = array();
 } 
 
 ?>

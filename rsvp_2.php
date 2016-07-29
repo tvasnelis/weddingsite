@@ -7,101 +7,154 @@ require(ROOT_PATH . "inc/email_rsvp.php");
 
 // read POST form data for form 2
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-	echo var_dump($_POST);
-	echo var_dump($_SESSION);
 
-	// update session variable with POST attending data for user
-	if (array_key_exists('user_attending', $_POST)) {
+    // update SESSION variable POST attending data for user
+	if (array_key_exists('user_attending', $_POST) AND !empty($_POST['user_attending'])) {
     	$_SESSION['user']->SetAttending($_POST['user_attending']);
+    } else {
+    	$_SESSION['errors']['user_attending'] = true;
     }
-    // update session variable with POST attending data for invited guests
-	foreach ($_SESSION['group'] as $guest) {
-		$id = $guest->GuestId;
-		if (array_key_exists($id . "_attending", $_POST)) {
-    		$guest->setAttending($_POST[$id  . "_attending"]);
-    	}
-	}
-
+    // update SESSION variable POST attending data for invited guests
+	if (isset($_POST['guests'])) {
+		foreach ($_POST['guests'] as $id => $guest) {
+			if (isset($guest['attending'])) {
+				foreach ($_SESSION['group'] as $indv) {
+					$indvId = $indv->GuestId;
+					if ($indvId == $id) {
+			    		$indv->setAttending($guest['attending']);
+			    	}
+		    	}
+		    	unset ($_SESSION['errors']['guest_attending'][$id]);
+		    } else {
+		    	$_SESSION['errors']['guest_attending'][$id] = true;
+		    }
+		    if (empty($_SESSION['errors']['guest_attending'])) {
+		    	unset($_SESSION['errors']['guest_attending']);
+		    }
+		}
+	}	
+	
     // validate form data and read values
-    // validate user email
-	if (empty($_POST["user_email"]) OR !filter_input(INPUT_POST, "user_email", FILTER_VALIDATE_EMAIL))  {
-        $_SESSION['errors']['user_email'] = true;
-    }
-    else {
+    // validate email and update SESSION variable for user
+	if (!empty($_POST["user_email"]) AND filter_input(INPUT_POST, "user_email", FILTER_VALIDATE_EMAIL))  {
         $_SESSION['user']->setEmail(trim(filter_input(INPUT_POST, "user_email", FILTER_SANITIZE_EMAIL)));
         unset($_SESSION['errors']['user_email']);
+    } else {
+    	$_SESSION['errors']['user_email'] = true;  
     }
 
-    // validate guest email
-    foreach ($_POST['guests'] as $id => $guest) {
-	    	if (!filter_var($guest['email'], FILTER_VALIDATE_EMAIL))  {
-	        $_SESSION['errors']['guest_email'] = true;
+    // validate email and update SESSION variable for invited guests
+    if (isset($_POST['guests'])) {
+	    foreach ($_POST['guests'] as $id => $guest) {
+	    	if (!empty($guest['email'])) {
+		    	if (filter_var($guest['email'], FILTER_VALIDATE_EMAIL)) {
+		    		foreach ($_SESSION['group'] as $indv) {
+			        	$indvId = $indv->GuestId;
+			        	if ($indvId == $id) {
+			        		$indv->setEmail(trim(filter_var($guest['email'], FILTER_SANITIZE_EMAIL)));
+			        	}
+			        }
+			        unset($_SESSION['errors']['guest_email'][$id]);
+		    	} else {
+		    		$_SESSION['errors']['guest_email'][$id] = true;
+		    	}
+		    }
 	    }
-	    else {
-	        foreach ($_SESSION['group'] as $indv) {
-	        	$indvId = $indv->GuestId;
-	        	if ($indvId == $id) {
-	        		$indv->setEmail($guest['email']);
-	        	}
-	        }
-	        unset($_SESSION['errors']['guest_email']);
-	    }
-    }
+	}
 
    	// validate PlusOne info
    	if (isset($_POST['PlusOne_attending'])) {
-		if (!empty($_POST["PlusOne_firstname"])) {
-		    $PlusOne['firstname'] = ucwords(strtolower(trim(filter_input(INPUT_POST, "PlusOne_firstname", FILTER_SANITIZE_STRING))));
-		    unset($_SESSION['errors']['PlusOne_firstname']);
-		} else {
-			$_SESSION['errors']['PlusOne_firstname'] = true;
-		}
-
-		if (!empty($_POST["PlusOne_lastname"])) {
-		    $PlusOne['lastname'] = ucwords(strtolower(trim(filter_input(INPUT_POST, "PlusOne_lastname", FILTER_SANITIZE_STRING))));
-		    unset($_SESSION['errors']['PlusOne_lastname']);
-		} else {
-			$_SESSION['errors']['PlusOne_lastname'] = true;
-		}
-
-		if (!empty($_POST["PlusOne_email"])) {
-			if (!filter_input(INPUT_POST, "user_email", FILTER_VALIDATE_EMAIL))  {
-				$_SESSION['errors']['PlusOne_email'] = true;
+   		$PlusOne['attending'] = $_POST['PlusOne_attending'];
+   		if ($PlusOne['attending'] == 1) {
+   			if (!empty($_POST["PlusOne_firstname"])) {
+			    $PlusOne['firstname'] = ucwords(strtolower(trim(filter_input(INPUT_POST, "PlusOne_firstname", FILTER_SANITIZE_STRING))));
+			    unset($_SESSION['errors']['PlusOne_firstname']);
 			} else {
-				$PlusOne['email'] = trim(filter_input(INPUT_POST, "PlusOne_email", FILTER_SANITIZE_EMAIL));
+				$_SESSION['errors']['PlusOne_firstname'] = true;
 			}
-		}
+
+			if (!empty($_POST["PlusOne_lastname"])) {
+			    $PlusOne['lastname'] = ucwords(strtolower(trim(filter_input(INPUT_POST, "PlusOne_lastname", FILTER_SANITIZE_STRING))));
+			    unset($_SESSION['errors']['PlusOne_lastname']);
+			} else {
+				$_SESSION['errors']['PlusOne_lastname'] = true;
+			}
+
+			if (!empty($_POST["PlusOne_email"])) {
+				if (filter_input(INPUT_POST, "PlusOne_email", FILTER_VALIDATE_EMAIL))  {
+					$PlusOne['email'] = trim(filter_input(INPUT_POST, "PlusOne_email", FILTER_SANITIZE_EMAIL));
+					unset($_SESSION['errors']['PlusOne_email']);
+				} else {
+					$_SESSION['errors']['PlusOne_email'] = true;
+				}
+			}
+   		}
+			
    	}
 
-   	//echo var_dump($PlusOne);
-	
    	// validate family info
+   	if (isset($_POST['family_cnt'])) {
+   		$_SESSION['temp']['family_cnt'] = $_POST['family_cnt'];
+   	} else {
+   		$_SESSION['temp']['family_cnt'] = 0;
+   	}
+
+ 	for ($i = 1; $i <= $_SESSION['temp']['family_cnt']; $i++) {
+ 		if (!empty($_POST['family'][$i]['firstname'])) {
+ 			$family[$i]['firstname'] = ucwords(strtolower(trim(filter_var($_POST['family'][$i]['firstname'], FILTER_SANITIZE_STRING))));
+ 			unset($_SESSION['errors']['family_firstname'][$i]);
+ 		} else {
+			$_SESSION['errors']['family_firstname'][$i] = true;
+		}
+		if (!empty($_POST['family'][$i]['lastname'])) {
+ 			$family[$i]['lastname'] = ucwords(strtolower(trim(filter_var($_POST['family'][$i]['lastname'], FILTER_SANITIZE_STRING))));
+ 			unset($_SESSION['errors']['family_lastname'][$i]);
+ 		} else {
+			$_SESSION['errors']['family_firstname'][$i] = true;
+		}
+		if (!empty($_POST['family'][$i]['email'])) {
+			if (filter_var($_POST['family'][$i]['email'], FILTER_VALIDATE_EMAIL))  {
+				$family[$i]['email'] = trim(filter_var($_POST['family'][$i]['email'], FILTER_SANITIZE_EMAIL));
+				unset($_SESSION['errors']['family_email'][$i]);
+			} else {
+				$_SESSION['errors']['family_email'][$i] = true;
+
+			}
+		}
+		if (empty($_SESSION['errors']['family_email'])) {
+			unset($_SESSION['errors']['family_email']);
+		}
+ 	}
+
+
+
+ 	/*
    	if (!empty($_POST['family'])) {
    		foreach ($_POST['family'] as $id => $guest) {
 	   		if (!empty($guest['firstname'])) {
 			    $family[$id]['firstname'] = ucwords(strtolower(trim(filter_var($guest['firstname'], FILTER_SANITIZE_STRING))));
-			    unset($_SESSION['errors']['guest_firstname' . $id]);
+			    unset($_SESSION['errors']['guest_firstname'][$id]);
 			} else {
-				$_SESSION['errors']['guest_firstname' . $id] = true;
+				$_SESSION['errors']['family_firstname'][$id] = true;
 			}
-	   	}
-	   	foreach ($_POST['family'] as $id => $guest) {
-	   		if (!empty($guest['lastname'])) {
+			if (!empty($guest['lastname'])) {
 			    $family[$id]['lastname'] = ucwords(strtolower(trim(filter_var($guest['lastname'], FILTER_SANITIZE_STRING))));
-			    unset($_SESSION['errors']['guest_lastname' . $id]);
+			    unset($_SESSION['errors']['guest_lastname'][$id]);
 			} else {
-				$_SESSION['errors']['guest_lastname' . $id] = true;
+				$_SESSION['errors']['family_lastname'][$id] = true;
+			}
+			if (!empty($guest['email'])) {
+				if (filter_var($guest['email'], FILTER_VALIDATE_EMAIL))  {
+					$family[$id]['email'] = trim(filter_var($guest['email'], FILTER_SANITIZE_EMAIL));
+					unset($_SESSION['errors']['guest_email'][$id]);
+				} else {
+					$_SESSION['errors']['family_email'][$id] = true;
+
+				}
 			}
 	   	}
    	}
-   	
-   	echo var_dump($family); 
-
-
-
-
-
-
+   	*/
 
     // check for input on hidden form field
 	if ($_POST["address2"] != "") {
@@ -109,24 +162,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 		exit;
 	}
 
-	$_SESSION['errors'] = $errors;
-	// set session variables
-	foreach ($guests as $param => $indv) {
-		$_SESSION[$param]['FirstName'] = $guests[$param]['FirstName'];
-		$_SESSION[$param]['LastName'] = $guests[$param]['LastName'];
-		$_SESSION[$param]['Email'] = $guests[$param]['Email'];
+	// store PlusOne and Family data in temporary SESSION variable for error case
+	if (isset($PlusOne)) {
+		$_SESSION['temp']['PlusOne'] = $PlusOne;
 	}
-
+	if (isset($family)) {
+		foreach ($family as $id => $guest) {
+		$_SESSION['temp']['family'][$id] = $guest;
+		}
+	}
+	
 	// if no validation error query database
-	if (empty($errors)) {
+	if (empty($_SESSION['errors'])) {
 
 
 		// TODO: Instantiate new guest for plus one
 
 		// TODO: Instantiate new guests for family
 
+		
 
 
+
+
+		/*
 	    // connect to database
 		try {
 			$db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,"timvasne_tim","TjV.04*23");
@@ -171,10 +230,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 		    echo 'Mailer Error User: ' . $mail_user->ErrorInfo;
 		    exit();
 		} else {
-			header("location:rsvp_2.php?status=thanks");
+			
 			$_SESSION=array();
 			session_destroy();
 		}
+		*/
+
+
+		header("location:rsvp_2.php?status=thanks");
+		
+		
+
 	}
 
 }
@@ -194,23 +260,37 @@ include("js/form_hide.js");
 	<?php 
 
 	// Check for validation errors
-	//$_SESSION['errors']['user_email']
-	//$_SESSION['errors']['guest_email']
+	//$_SESSION['errors']['user_attending']			*
+	//$_SESSION['errors']['user_email'] 			*
+	//$_SESSION['errors']['guest_attending']		* 
+	//$_SESSION['errors']['guest_email']			*
 	//$_SESSION['errors']['PlusOne_firstname']
 	//$_SESSION['errors']['PlusOne_lastname']
-	//$_SESSION['errors']['PlusOne_email']
-
-
+	//$_SESSION['errors']['PlusOne_email'] 			*
+	//$_SESSION['errors']['family_firstname' . $id]
+	//$_SESSION['errors']['family_lastname' . $id]
+	//$_SESSION['errors']['family_email' . $id]
 
 	if (!empty($_SESSION['errors'])) {
-		if (isset($_SESSION['errors']['user_email']) OR isset($_SESSION['errors']['guest_email'])) {
+		if (isset($_SESSION['errors']['user_attending']) OR isset($_SESSION['errors']['guest_attending'])) {
+			echo "<p class='error sub-font'>Please specify Attending or Not Attending for all guests.</p>";
+		}
+		if (isset($_SESSION['errors']['user_email'])) {
+			echo "<p class='error sub-font'>Please enter a valid primary email address.</p>";
+		}
+		if (isset($_SESSION['errors']['guest_email']) OR isset($_SESSION['errors']['PlusOne_email']) OR !empty($_SESSION['errors']['family_email'])) {
 			echo "<p class='error sub-font'>Please enter a valid email address.</p>";
 		}
+		if (isset($_SESSION['errors']['PlusOne_firstname']) OR isset($_SESSION['errors']['PlusOne_lastname']) OR isset($_SESSION['errors']['family_firstname']) OR isset($_SESSION['errors']['family_lastname'])) {
+			echo "<p class='error sub-font'>Please enter a first and last name for all guests.</p>";
+		}
+
 	} 
 	
 	// Thank you page text
 	if (isset($_GET["status"]) && $_GET["status"] == "thanks") {
         		echo "<h3 class='const'>Thank You!</h3>";
+        		echo var_dump($_SESSION);
     } else { ?>
 
     <div id='form_wrap' class='state1'} ?>
@@ -255,7 +335,7 @@ include("js/form_hide.js");
 					name="user_attending" <?php if ($_SESSION['user']->isAttending()) {echo " checked='checked'";} ?>>
 				<label for="<?php echo htmlspecialchars($user_fname . $user_lname . 'Att') ?>" >Attending</label>
 				<input type="radio" id="<?php echo htmlspecialchars($user_fname . $user_lname . "NotAtt"); ?>" value="0" 
-					name="user_attending"<?php if ($_SESSION['user']->isNotAttending()) {echo " checked='checked'";} ?>>
+					name="user_attending" <?php if ($_SESSION['user']->isNotAttending()) {echo " checked='checked'";} ?>>
 				<label for="<?php echo htmlspecialchars($user_fname . $user_lname . 'NotAtt') ?>" >Not Attending</label>
 				<?php
 				// display rsvp for guests
@@ -266,6 +346,7 @@ include("js/form_hide.js");
 						$guest_lname = $guest->LastName;
 						$guest_fullname = $guest->FirstName . " " . $guest->LastName;
 						$guest_id = $guest->GuestId;
+						$guest_email = $guest->Email;
 				?>
 						<label for="<?php echo htmlspecialchars($guest_fname . $guest_lname . "Att") ?>" ><?php echo htmlspecialchars($guest_fullname) ?></label> 
 						<input type="radio" id="<?php echo htmlspecialchars($guest_fname . $guest_lname . "Att") ?>" class="" value="1" name="guests[<?php echo htmlspecialchars($guest_id)?>][attending] ?>" <?php if ($guest->isAttending()) {echo " checked='checked'";} ?>>
@@ -273,7 +354,7 @@ include("js/form_hide.js");
 						<input type="radio" id="<?php echo htmlspecialchars($guest_fname . $guest_lname . "NotAtt"); ?>" value="0" name="guests[<?php echo htmlspecialchars($guest_id)?>][attending] ?>" <?php if ($guest->isNotAttending()) {echo " checked='checked'";} ?>>
 						<label for="<?php echo htmlspecialchars($guest_fname . $guest_lname . "NotAtt") ?>" >Not Attending</label>
 						<label for="<?php echo htmlspecialchars($guest_id . "_email") ?>">Email: </label>
-						<input type="text" name="guests[<?php echo htmlspecialchars($guest_id)?>][email] ?>" id="<?php echo htmlspecialchars($guest_id . "_email") ?>"><br>
+						<input type="text" name="guests[<?php echo htmlspecialchars($guest_id)?>][email] ?>" id="<?php echo htmlspecialchars($guest_id . "_email") ?>" value="<?php echo htmlspecialchars($guest_email); ?>"><br>
 				<?php
 					} 
 				}
@@ -282,19 +363,18 @@ include("js/form_hide.js");
 					echo "<p class='sub-font'>Your invitation includes a guest.</p>";
 				?>
 					<label for="PlusOneAtt" >Guest</label> 
-					<input id="PlusOneAtt" type="radio" class="" value="1" name="PlusOne_attending" onclick='javascript:plusOneCheck();'>
+					<input type="radio" id="PlusOneAtt" class="" value="1" name="PlusOne_attending" onclick='javascript:plusOneCheck();' <?php if (isset($_SESSION['temp']['PlusOne']) AND $_SESSION['temp']['PlusOne']['attending'] == 1) {echo " checked='checked'";} ?>>
 					<label for="PlusOneAtt">Attending</label>
-					<input id="PlusOneNotAtt" type="radio" value="0" name="PlusOne_attending" onclick='javascript:plusOneCheck();'>
+					<input type="radio" id="PlusOneNotAtt" value="0" name="PlusOne_attending" onclick='javascript:plusOneCheck();' <?php if (isset($_SESSION['temp']['PlusOne']) AND $_SESSION['temp']['PlusOne']['attending'] == 0) {echo " checked='checked'";} ?>>
 					<label for="PlusOneNotAtt">Not Attending</label><br>
 					<div id="PlusOne_info" style="display:none">
-	            		<!-- style="display:none" -->
 		            	<p class='sub-font'>Please enter guest information (email is optional).</p>	
 		            	<label for="PlusOne_firstname">First Name: </label>
-            			<input type="text" name="PlusOne_firstname" id="PlusOne_firstname" value="" />
+            			<input type="text" name="PlusOne_firstname" id="PlusOne_firstname" value="<?php if (isset($_SESSION['temp']['PlusOne']['firstname'])) {echo $_SESSION['temp']['PlusOne']['firstname'];} ?>" />
             			<label for="PlusOne_lastname">Last Name: </label>
-            			<input type="text" name="PlusOne_lastname" id="PlusOne_lastname" value="" />
+            			<input type="text" name="PlusOne_lastname" id="PlusOne_lastname" value="<?php if (isset($_SESSION['temp']['PlusOne']['lastname'])) {echo $_SESSION['temp']['PlusOne']['lastname'];} ?>" />
             			<label for="PlusOne_email">Email: </label>
-            			<input type="text" name="PlusOne_email" id="PlusOne_email" value=""/>
+            			<input type="text" name="PlusOne_email" id="PlusOne_email" value="<?php if (isset($_SESSION['temp']['PlusOne']['email'])) {echo $_SESSION['temp']['PlusOne']['email'];} ?>"/>
 		        	</div>
 				<?php
 				}
@@ -302,43 +382,54 @@ include("js/form_hide.js");
 				if ($_SESSION['user']->PlusFamily) { 
 					echo "<p class='sub-font'>Your invitation includes your family.</p>";
 					echo "<p class='sub-font'>How many additional guests are attending?</p>";
-					echo "<input id='family_cnt_1' type='radio' value='1' name='family_cnt' onclick='javascript:familyCheck();'>1";
-					echo "<input id='family_cnt_2' type='radio' value='2' name='family_cnt' onclick='javascript:familyCheck();'>2";
-					echo "<input id='family_cnt_3' type='radio' value='3' name='family_cnt' onclick='javascript:familyCheck();'>3";
-					echo "<input id='family_cnt_4' type='radio' value='4' name='family_cnt' onclick='javascript:familyCheck();'>4";
+					echo "<input id='family_cnt_0' type='radio' value='0' name='family_cnt' onclick='javascript:familyCheck();'";
+						if (isset($_SESSION['temp']['family_cnt']) AND $_SESSION['temp']['family_cnt'] == 0) {echo " checked='checked'";}
+						echo ">0";
+					echo "<input id='family_cnt_1' type='radio' value='1' name='family_cnt' onclick='javascript:familyCheck();'";
+						if (isset($_SESSION['temp']['family_cnt']) AND $_SESSION['temp']['family_cnt'] == 1) {echo " checked='checked'";}
+						echo ">1";
+					echo "<input id='family_cnt_2' type='radio' value='2' name='family_cnt' onclick='javascript:familyCheck();'";
+						if (isset($_SESSION['temp']['family_cnt']) AND $_SESSION['temp']['family_cnt'] == 2) {echo " checked='checked'";} 
+						echo ">2";
+					echo "<input id='family_cnt_3' type='radio' value='3' name='family_cnt' onclick='javascript:familyCheck();'";
+						if (isset($_SESSION['temp']['family_cnt']) AND $_SESSION['temp']['family_cnt'] == 3) {echo " checked='checked'";} 
+						echo ">3";
+					echo "<input id='family_cnt_4' type='radio' value='4' name='family_cnt' onclick='javascript:familyCheck();'";
+						if (isset($_SESSION['temp']['family_cnt']) AND $_SESSION['temp']['family_cnt'] == 4) {echo " checked='checked'";} 
+						echo ">4";
 				?>		
 						<div id="ifOne" style="display:none">
 					        <p class='sub-font'>Please enter guest information (email is optional).</p>	
 			            	<label for="family_1_firstname">First Name: </label>
-	            			<input type="text" name="family[1][firstname]" id="family_1_firstname" value="" />
+	            			<input type="text" name="family[1][firstname]" id="family_1_firstname" value="<?php if (isset($_SESSION['temp']['family'][1]['firstname'])) {echo $_SESSION['temp']['family'][1]['firstname'];} ?>" />
 	            			<label for="family_1_lastname">Last Name: </label>
-	            			<input type="text" name="family[1][lastname]" id="family_1_lastname" value="" />
+	            			<input type="text" name="family[1][lastname]" id="family_1_lastname" value="<?php if (isset($_SESSION['temp']['family'][1]['lastname'])) {echo $_SESSION['temp']['family'][1]['lastname'];} ?>" />
 	            			<label for="family_1_email">Email: </label>
-	            			<input type="text" name="family[1][email]" id="family_1_email" value=""/><br>
+	            			<input type="text" name="family[1][email]" id="family_1_email" value="<?php if (isset($_SESSION['temp']['family'][1]['email'])) {echo $_SESSION['temp']['family'][1]['email'];} ?>"/><br>
 					    </div>
             			<div id="ifTwo" style="display:none">
 			            	<label for="family_2_firstname">First Name: </label>
-	            			<input type="text" name="family[2][firstname]" id="family_2_firstname" value="" />
+	            			<input type="text" name="family[2][firstname]" id="family_2_firstname" value="<?php if (isset($_SESSION['temp']['family'][2]['firstname'])) {echo $_SESSION['temp']['family'][2]['firstname'];} ?>" />
 	            			<label for="family_2_lastname">Last Name: </label>
-	            			<input type="text" name="family[2][lastname]" id="family_2_lastname" value="" />
+	            			<input type="text" name="family[2][lastname]" id="family_2_lastname" value="<?php if (isset($_SESSION['temp']['family'][2]['lastname'])) {echo $_SESSION['temp']['family'][2]['lastname'];} ?>" />
 	            			<label for="family_2_email">Email: </label>
-	            			<input type="text" name="family[2][email]" id="family_2_email" value=""/><br>
+	            			<input type="text" name="family[2][email]" id="family_2_email" value="<?php if (isset($_SESSION['temp']['family'][2]['email'])) {echo $_SESSION['temp']['family'][2]['email'];} ?>"/><br>
 					    </div>
 					    <div id="ifThree" style="display:none">
 			            	<label for="family_3_firstname">First Name: </label>
-	            			<input type="text" name="family[3][firstname]" id="family_3_firstname" value="" />
+	            			<input type="text" name="family[3][firstname]" id="family_3_firstname" value="<?php if (isset($_SESSION['temp']['family'][3]['firstname'])) {echo $_SESSION['temp']['family'][3]['firstname'];} ?>" />
 	            			<label for="family_1_lastname">Last Name: </label>
-	            			<input type="text" name="family[3][lastname]" id="family_3_lastname" value="" />
+	            			<input type="text" name="family[3][lastname]" id="family_3_lastname" value="<?php if (isset($_SESSION['temp']['family'][3]['lastname'])) {echo $_SESSION['temp']['family'][3]['lastname'];} ?>" />
 	            			<label for="family_3_email">Email: </label>
-	            			<input type="text" name="family[3][email]" id="family_3_email" value=""/><br>
+	            			<input type="text" name="family[3][email]" id="family_3_email" value="<?php if (isset($_SESSION['temp']['family'][3]['email'])) {echo $_SESSION['temp']['family'][3]['email'];} ?>"/><br>
 					    </div>
 					    <div id="ifFour" style="display:none">
 			            	<label for="family_4_firstname">First Name: </label>
-	            			<input type="text" name="family[4][firstname]" id="family_4_firstname" value="" />
+	            			<input type="text" name="family[4][firstname]" id="family_4_firstname" value="<?php if (isset($_SESSION['temp']['family'][4]['firstname'])) {echo $_SESSION['temp']['family'][4]['firstname'];} ?>" />
 	            			<label for="family_4_lastname">Last Name: </label>
-	            			<input type="text" name="family[4][lastname]" id="family_4_lastname" value="" />
+	            			<input type="text" name="family[4][lastname]" id="family_4_lastname" value="<?php if (isset($_SESSION['temp']['family'][4]['lastname'])) {echo $_SESSION['temp']['family'][4]['lastname'];} ?>" />
 	            			<label for="family_4_email">Email: </label>
-	            			<input type="text" name="family[4][email]" id="family_4_email" value=""/><br>
+	            			<input type="text" name="family[4][email]" id="family_4_email" value="<?php if (isset($_SESSION['temp']['family'][4]['email'])) {echo $_SESSION['temp']['family'][4]['email'];} ?>"/><br>
 					    </div>
 		        	</div>
 				<?php
@@ -357,6 +448,3 @@ include("js/form_hide.js");
 </body>
 </html>
 
-<?php 
-echo var_dump($_SESSION);
-?>
