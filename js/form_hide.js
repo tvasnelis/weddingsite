@@ -1,4 +1,8 @@
 <script type="text/javascript">
+	window.onload = function() {
+	  familyCheck();
+	  plusOneCheck();
+	};
 	function familyCheck() {
 	    if (document.getElementById('family_cnt_4').checked) {
 	        document.getElementById('ifOne').style.display = 'block';

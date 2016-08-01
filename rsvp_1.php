@@ -8,38 +8,46 @@ require(ROOT_PATH . "inc/email_rsvp.php");
 // read POST form data for form 1
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
+	//check for errors from step 2 (if user used back button after creating step 2 errors) 
+	if (isset($_SESSION['errors_2'])) {
+		$_SESSION['errors_1'] = array();
+		$_SESSION['errors_2'] = array();
+	}
+
 	// check for change to user and reset session variables
 	if ($_SESSION['user']->issetFirstName() AND $_SESSION['user']->FirstName != trim(filter_input(INPUT_POST, "firstname", FILTER_SANITIZE_STRING))) {
 		$temp = $_SESSION['counter'];
 		$_SESSION = array();
 		$_SESSION['user'] = new Guest;
-		$_SESSION['errors'] = array();
+		$_SESSION['errors_1'] = array();
+		$_SESSION['errors_2'] = array();
 		$_SESSION['newRsvp'] = true;
 		$_SESSION['counter'] = $temp;
 	} elseif ($_SESSION['user']->issetLastName() AND $_SESSION['user']->LastName != trim(filter_input(INPUT_POST, "lastname", FILTER_SANITIZE_STRING))) {
 		$temp = $_SESSION['counter'];
 		$_SESSION = array();
 		$_SESSION['user'] = new Guest;
-		$_SESSION['errors'] = array();
+		$_SESSION['errors_1'] = array();
+		$_SESSION['errors_2'] = array();
 		$_SESSION['newRsvp'] = true;
 		$_SESSION['counter'] = $temp;
 	}
 
 	// validate form data and read values
 	if (empty($_POST['firstname'])) {
-		$_SESSION['errors']['firstname'] = true;
+		$_SESSION['errors_1']['firstname'] = true;
     } else {
     	// set session first name after trim and proper case
     	$_SESSION['user']->setFirstName(ucwords(strtolower(trim(filter_input(INPUT_POST, "firstname", FILTER_SANITIZE_STRING)))));
-    	unset($_SESSION['errors']['firstname']);
+    	unset($_SESSION['errors_1']['firstname']);
     }
 
     if (empty($_POST['lastname'])) {
-        $_SESSION['errors']['lastname'] = true;
+        $_SESSION['errors_1']['lastname'] = true;
     } else {
     	// set session last name after trim and proper case
     	$_SESSION['user']->setLastName(ucwords(strtolower(trim(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING)))));
-    	unset($_SESSION['errors']['lastname']);
+    	unset($_SESSION['errors_1']['lastname']);
     }
 
     // check for input on hidden form field
@@ -49,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 	}
 
 	// if no validation error query database
-	if (empty($_SESSION['errors'])) {
+	if (empty($_SESSION['errors_1'])) {
 		
 		// query database on first and last name return Guest info for user
 		try {
@@ -176,36 +184,30 @@ if (isset($_GET['submit'])) {
 $pageTitle = "Tim & Kimberly - RSVP";
 $section = "rsvp";
 
-//include("inc/header.php");
+include("inc/header.php");
 ?>
     <div id="wrap" class="sub-font">
 
 	<?php 
 	// Check for validation errors and output error messages
-	if (!empty($_SESSION['errors'])) {
-		if (isset($_SESSION['errors']['firstname'])) {
-			echo "<p class='error sub-font'>Please enter your first name<br></p>";
-		}
-		if (isset($_SESSION['errors']['lastname'])) {
-			echo "<p class='error sub-font'>Please enter your last name.<br></p>";
-		}
+	if (!empty($_SESSION['errors_1'])) {
+		echo "<p class='error sub-font'>Please enter your first and last name.<br></p>";
 	} 
 
     ?>
 
-    <div id='form_wrap' <?php if (!empty($_SESSION['errors']) OR (isset($_GET["status"]))) { echo "class='state1'"; } ?>>
+    <div id='form_wrap' <?php if (!empty($_SESSION['errors_1']) OR (isset($_GET["status"]))) { echo "class='state1'"; } ?>>
         <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] . "?submit=true"; ?>" id="rsvp_form">
-        	
-			<?php 
-			// output for invitation not found
-			if (isset($_GET["status"]) && $_GET["status"] == "invite_notfound") {
-				echo "<p class='form_header'>Sorry, your invitation was not found.  Please try again.</p>";
-				echo "<p class='form_header'>Enter your name exactly as it appears on your invitation.</p>";
-			} 
-			?>
-
-			<div class="form_header">
-        		<p class='sub-font form_header'>Enter your name to search for your invitation.</p>	
+        	<div class="form_header">
+				<?php 
+				// output for invitation not found
+				if (isset($_GET["status"]) && $_GET["status"] == "invite_notfound") {
+					echo "<p class='form_header'>I can't find you!  Please try again.</p>";
+					echo "<p class='form_header'>Enter your name exactly as it appears on your invitation.</p>";
+				} else {
+					echo "<p class='sub-font form_header'>Enter your name to search for your invitation.</p>";
+				}
+				?>
         	</div>	
 
            	<label for="firstname" class="step1">First Name: </label>
@@ -224,5 +226,5 @@ $section = "rsvp";
 </html>
 
 <?php 
-echo var_dump($_SESSION);
+//echo var_dump($_SESSION);
 ?>

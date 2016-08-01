@@ -16,8 +16,10 @@ if( isset( $_SESSION['counter'] ) ) {
 if ($_SESSION['counter'] == 1) {
 	$_SESSION['user'] = new Guest;
 	$_SESSION['group'] = array();
-	$_SESSION['errors'] = array();
+	$_SESSION['errors_1'] = array();
+	$_SESSION['errors_2'] = array();
 	$_SESSION['newRsvp'] = true;
+	$_SESSION['temp'] = array();
 	$_SESSION['temp'] = array();
 } 
 

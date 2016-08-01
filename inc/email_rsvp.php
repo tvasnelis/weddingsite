@@ -1,6 +1,6 @@
 <?php
 
-function email_rsvp($user, $guest) {
+function email_rsvp($user, $group, $guests) {
 	require_once("inc/phpmailer/PHPMailerAutoload.php");
 
 	// define admin email address
@@ -10,7 +10,7 @@ function email_rsvp($user, $guest) {
 	$mail_admin = new PHPMailer;
 
 	/* verify email address */
-	if (!$mail_admin->ValidateAddress($user['Email'])) {
+	if (!$mail_admin->ValidateAddress($user->Email)) {
 		echo "invalid email address.";
 		exit;
 	}
@@ -25,19 +25,19 @@ function email_rsvp($user, $guest) {
 	$mail_admin->Password = "tkPass775";
 
 	/* setup email */
-	$body_admin = "Test email. The following user has provided an RSVP via timandkimberly.com";
-	$body_admin .= "Name " . $user['FirstName'] . " " . $user['LastName'] . " " . $user['Attending'] . "\n";
-	$body_admin .= "Email " . $user['Email'] . "\n";
-	$body_admin .= "\n";
-	$body_admin .= "Name " . $guest['FirstName'] . " " . $guest['LastName'] . " " . $guest['Attending'] . "\n";
-	$body_admin .= "Email " . $guest['Email'] . "\n";
-
+	$body_admin = "Test email. The following user has provided an RSVP via timandkimberly.com<br/>";
+	$body_admin .= "Name " . $user->FirstName . " " . $user->LastName . " " . $user->Email . "  " . $user->Attending . "<br/>";
+	foreach ($group as $guest) {
+		$body_admin .= "Name: " . $guest->FirstName . " " . $guest->LastName . " Email: " . $guest->Email . " Attending: " . $guest->Attending . "<br/>";
+	}
+	foreach ($guests as $guest) {
+		$body_admin .= "Name: " . $guest->FirstName . " " . $guest->LastName . " Email: " . $guest->Email . " Attending: " . $guest->Attending . "<br/>";
+	}
+	
 	$mail_admin->setFrom($email_admin, "Tim and Kimberly");
 	$mail_admin->addAddress($email_admin, "Tim and Kimberly"); // Add a recipient
-	$mail_admin->Subject = 'Wedding RSVP from ' . $user['FirstName'] . " " . $user['LastName'];
+	$mail_admin->Subject = 'Wedding RSVP from ' . $user->FirstName . " " . $user->LastName;
 	$mail_admin->MsgHTML($body_admin);
-
-
 
 	/* setup email to user */
 	$mail_user = new PHPMailer;
@@ -52,18 +52,26 @@ function email_rsvp($user, $guest) {
 	$mail_user->Password = "tkPass775";
 
 	/* setup email */
-	$body_user = "Test email. Thanks for your response!";
-	$body_user .= "Name " . $user['FirstName'] . " " . $user['LastName'] . " " . $user['Attending'] . "\n";
-	$body_user .= "Email " . $user['Email'] . "\n";
-	$body_user .= "\n";
-	$body_user .= "Name " . $guest['FirstName'] . " " . $guest['LastName'] . " " . $guest['Attending'] . "\n";
-	$body_user .= "Email " . $guest['Email'] . "\n";
-
+	$body_user = "Test email. Thanks for your response!<br/>";
+	$body_user .= "Name " . $user->FirstName . " " . $user->LastName . " " . $user->Email . "  " . $user->Attending . "<br/>";
+	foreach ($group as $guest) {
+		$body_admin .= "Name: " . $guest->FirstName . " " . $guest->LastName . " Email: " . $guest->Email . " Attending: " . $guest->Attending . "<br/>";
+	}
+	foreach ($guests as $guest) {
+		$body_admin .= "Name: " . $guest->FirstName . " " . $guest->LastName . " Email: " . $guest->Email . " Attending: " . $guest->Attending . "<br/>";
+	}
 
 	$mail_user->setFrom($email_admin, "Tim and Kimberly");
-	$mail_user->addAddress($user['Email'], $user['FirstName'] . " " . $user['LastName']); // Add a recipient
-	if (isset($guest['Email'])) {
-		$mail_user->addCC($guest['Email'], $guest['FirstName'] . " " . $guest['LastName']); // Add a recipient
+	$mail_user->addAddress($user->Email, $user->FirstName . " " . $user->LastName); // Add a recipient
+	foreach ($group as $guest) {
+		if (isset($guest->Email)) {
+			$mail_user->addCC($guest->Email, $guest->FirstName . " " . $guest->LastName); // Add a recipient
+		}
+	}
+	foreach ($guests as $guest) {
+		if (isset($guest->Email)) {
+			$mail_user->addCC($guest->Email, $guest->FirstName . " " . $guest->LastName); // Add a recipient
+		}
 	}
 	$mail_user->Subject = 'Tim and Kimberly Wedding RSVP';
 	$mail_user->MsgHTML($body_user);                                 // Set email format to HTML
