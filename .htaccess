@@ -1,0 +1,7 @@
+RewriteEngine On    # Turn on the rewriting engine
+RewriteRule    ^rsvp/?$    rsvp_1.php    [NC,L]    # Handle requests for "rsvp"
+RewriteRule    ^rsvp2$    rsvp_2.php    [NC,L]    # Handle requests for "rsvp"
+RewriteRule    ^wedding$    wedding.php    [NC,L]    # Handle requests for "rsvp"
+RewriteRule    ^travel$    travel.php    [NC,L]    # Handle requests for "rsvp"
+RewriteRule    ^stay$    stay.php    [NC,L]    # Handle requests for "rsvp"
+RewriteRule    ^experience$    experience.php    [NC,L]    # Handle requests for "rsvp"

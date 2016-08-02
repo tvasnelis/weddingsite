@@ -45,8 +45,8 @@ p {text-shadow:0 1px 0 #fff; font-size:0.8rem;}
 
 
 #form_wrap.hide:after, #form_wrap.hide:before {display:none; }
-#form_wrap:hover {height:776px;top:-150px;}
-#form_wrap.state1 {height:776px;top:-150px;}
+#form_wrap:hover {height:626px;top:-150px;}
+
 
 form {
 	background:#e3e3e3 url('../images/letter_bg.png'); 
@@ -66,37 +66,8 @@ form {
 
 
 #form_wrap:hover form {height:530px;}
-#form_wrap.state1 form {height:530px;}
-
-label {
-	margin: 5px 10px 0 0; 
-	font-size: .8rem;
-	width: 6rem;
-	text-shadow: 0px 1px 0px #fff;
-}
-
-label.form_col_1 {
-	width: 140px;
-	margin-right: 5px;
-	height: 30px;
-}
-
-label.name {
-	width: 80px;
-
-}
-
-label.email {
-	width: 40px;
-	font-weight: 400;
-}
 
 
-label.form_col_2 {
-	width: 30px;
-	margin-right: 2px;
-	font-weight: 400;
-}
 
 
 
@@ -116,7 +87,7 @@ input.name {
 }
 
 input.email {
-	width: 140px;
+	width: 250px;
 }
 
 #form_wrap input[type=submit] {
@@ -130,10 +101,10 @@ input.email {
 	background:none;
 	cursor: pointer;
 	-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; 
-	-webkit-transition: opacity .6s ease-in-out 0s;
-	-moz-transition: opacity .6s ease-in-out 0s;
-	-o-transition: opacity .6s ease-in-out 0s;
-	transition: opacity .6s ease-in-out 0s;
+	-webkit-transition: opacity .25s ease-in-out 0s;
+	-moz-transition: opacity .25s ease-in-out 0s;
+	-o-transition: opacity .25s ease-in-out 0s;
+	transition: opacity .25s ease-in-out 0s;
 }
 
 input[type=text]:focus {
@@ -142,27 +113,17 @@ input[type=text]:focus {
 #form_wrap:hover input[type=submit] {
 	z-index:1;
 	opacity:1;
-	-webkit-transition: opacity .5s ease-in-out 1.3s;
-	-moz-transition: opacity .5s ease-in-out 1.3s;
-	-o-transition: opacity .5s ease-in-out 1.3s;
-	transition: opacity .5s ease-in-out 1.3s;
+	-webkit-transition: opacity .25s ease-in-out 1s;
+	-moz-transition: opacity .25s ease-in-out 1s;
+	-o-transition: opacity .25s ease-in-out 1s;
+	transition: opacity .25s ease-in-out 1s;
 }
 
-#form_wrap.state1 input[type=submit] {
-	z-index:1;
-	opacity:1;
-	-webkit-transition: opacity .5s ease-in-out 1.3s;
-	-moz-transition: opacity .5s ease-in-out 1.3s;
-	-o-transition: opacity .5s ease-in-out 1.3s;
-	transition: opacity .5s ease-in-out 1.3s;
-}
 
 #form_wrap:hover input:hover[type=submit] {
 	color:#93c2b2;
 }
-#form_wrap.state1 input:hover[type=submit] {
-	color:#93c2b2;
-}
+
 
 #error_wrap {
 	position: absolute;
@@ -175,47 +136,6 @@ input[type=text]:focus {
 	font-size: .8rem;
 	text-align: center;
 }
-
-
-table {
-	position: relative;
-  	table-layout: fixed;
-  	width: 100%;
-
-}
-
-col.col_1 {
-	width: 35%;
-}
-
-col.col_2 {
-	width: 10%;
-}
-
-col.col_3 {
-	width: 10%;
-}
-
-col.col_4 {
-	width: 45%;
-}
-
-
-th, td {
-	font-size: .8rem;
-	border: 1px solid black;
-}
-
-th.table_cntr {
-	text-align: center;
-}
-
-td.table_cntr {
-	text-align: center;
-}
-
-
-
 
 
 @media screen and (max-width: 480px) {
@@ -279,9 +199,77 @@ td.table_cntr {
 	margin-bottom: 15px;
 }
 
+.form_body input.att[type="radio"] {
+    display:none; 
+}
 
 
 
+
+
+
+.form_body label {
+	margin: 0 0px 0px 0; 
+	font-size: .8rem;
+	text-shadow: 0px 1px 0px #fff;
+}
+
+.form_body label.name {
+	min-width: 158px;
+	padding:4px 0px;
+	margin:3px 0;
+	font-weight: 400;
+}
+
+label.form_button {
+    display:inline-block;
+    width: 45px;
+    padding:4px 0;
+    margin: 0 3px;
+    font-size:.8rem;
+    font-weight: 400;
+	background-color:#ddd;
+	text-align: center;
+	border-radius: 2px 2px;
+}
+
+.form_body input[type="radio"]:checked + label {
+    background-color:#93c2b2;
+}
+
+.form_body label.email {
+	width: 90px;
+	font-weight: 400;
+}
+
+label.guest_name {
+	font-size:.8rem;
+    font-weight: 400;
+	width: 80px;
+	margin-left: 5px;
+}
+
+input[type="text"].guest_name {
+	width: 120px;
+}
+
+
+#form_wrap.default {height:676px;top:-150px;}
+#form_wrap.default form {height:530px;}
+
+#form_wrap.state0 {height:776px;top:-150px;}
+
+#form_wrap.state0 form {height:530px;}
+
+
+#form_wrap.state1 {height:834px;top:-150px;}
+#form_wrap.state1 form {height:588px;}
+#form_wrap.state2 {height:869px;top:-150px;}
+#form_wrap.state2 form {height:623px;}
+#form_wrap.state3 {height:903px;top:-150px;}
+#form_wrap.state3 form {height:658px;}
+#form_wrap.state4 {height:937px;top:-150px;}
+#form_wrap.state4 form {height:693px;}
 
 
 

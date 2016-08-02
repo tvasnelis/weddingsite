@@ -24,11 +24,11 @@
 
             <nav>
                 <ul>
-                    <li class="sub-font <?php if ($section == "wedding") { echo " on"; } ?>"><a href="wedding.php">Wedding</a></li>
-                    <li class="sub-font <?php if ($section == "travel") { echo " on"; } ?>"><a href="travel.php">Travel</a></li>
-                    <li class="sub-font <?php if ($section == "stay") { echo " on"; } ?>"><a href="stay.php">Stay</a></li>
-                    <li class="sub-font <?php if ($section == "experience") { echo " on"; } ?>"><a href="experience.php">Experience</a></li>
-                    <li class="sub-font <?php if ($section == "rsvp") { echo " on"; } ?>"><a href="rsvp_1.php">RSVP</a></li>
+                    <li class="sub-font <?php if ($section == "wedding") { echo " on"; } ?>"><a href="wedding">Wedding</a></li>
+                    <li class="sub-font <?php if ($section == "travel") { echo " on"; } ?>"><a href="travel">Travel</a></li>
+                    <li class="sub-font <?php if ($section == "stay") { echo " on"; } ?>"><a href="stay">Stay</a></li>
+                    <li class="sub-font <?php if ($section == "experience") { echo " on"; } ?>"><a href="experience">Experience</a></li>
+                    <li class="sub-font <?php if ($section == "rsvp") { echo " on"; } ?>"><a href="rsvp">RSVP</a></li>
                 </ul>
             </nav>
         </header>

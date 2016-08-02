@@ -6,8 +6,25 @@ $section = "stay";
 include("inc/header.php"); ?>
 
     <div id="content">
-    	<h3 class="const">Coming Soon!</h3>
+    	<div class="section wedding">
+	    	<ul class="gallery_grid sub-font columns-4">
+	    		<li>
+	    			<img src="images/montelone.jpg" alt="Hotel Monteleone">
+	    			<h3><a href="http://www.hotelmonteleone.com/" target="_blank">Hotel Monteleone</a></h3>
+	    			<p>214 Royal St.</p>
+	    		</li>
+	    		<li>
+	    			<img src="images/bienville.jpg" alt="Bienville House">
+	    			<h3><a href="http://bienvillehouse.com/" target="_blank">Bienville House</a></h3>
+	    			<p>320 Decatur St.</p>
+	    		</li>
+	   
+    	</div>
+    	<section id="frame-map">
+            <div id="map"></div>
+            <script type="text/javascript" src="js/map.js"></script>
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyAoAm89NdoOx95_nHcfWmxVyCkmOnUwcDk" async defer></script>
+        </section>
     </div>
-
 </body>
 </html>

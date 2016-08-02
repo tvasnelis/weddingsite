@@ -165,7 +165,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
 		// if no data found redirect to step 2
 		if (!empty($user_tblGuests)) {
-		    header("location:rsvp_2.php");
+		    header("location:rsvp2");
 		    exit;
 		}
 	}
@@ -196,7 +196,7 @@ include("inc/header.php");
 
     ?>
 
-    <div id='form_wrap' <?php if (!empty($_SESSION['errors_1']) OR (isset($_GET["status"]))) { echo "class='state1'"; } ?>>
+    <div id='form_wrap' <?php if (!empty($_SESSION['errors_1']) OR (isset($_GET["status"]))) { echo "class='default'"; } ?>>
         <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] . "?submit=true"; ?>" id="rsvp_form">
         	<div class="form_header">
 				<?php 
@@ -210,9 +210,9 @@ include("inc/header.php");
 				?>
         	</div>	
 
-           	<label for="firstname" class="step1">First Name: </label>
+           	<label for="firstname" class="guest_name">First Name: </label>
             <input type="text" name="firstname" id="firstname" value="<?php echo htmlspecialchars($_SESSION['user']->getFirstName());?>" />
-            <label for="lastname">Last Name: </label>
+            <label for="lastname" class="guest_name">Last Name: </label>
             <input type="text" name="lastname" id="lastname" value="<?php echo htmlspecialchars($_SESSION['user']->getLastName());?>" />
 			<textarea style="display:none" id="address" name="address"></textarea>
 			<p  style="display:none">Please leave this field blank.</p>
