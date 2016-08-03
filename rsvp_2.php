@@ -295,7 +295,7 @@ include("inc/header.php");
 				echo "<p class='error sub-font'>Please specify In or Out for all guests.</p>";
 			}
 			if (isset($_SESSION['errors_2']['user_email'])) {
-				echo "<p class='error sub-font'>Please enter a valid primary email address.</p>";
+				echo "<p class='error sub-font'>Please enter a valid email address.</p>";
 			}
 			if (isset($_SESSION['errors_2']['guest_email']) OR isset($_SESSION['errors_2']['PlusOne_email']) OR !empty($_SESSION['errors_2']['family_email'])) {
 				echo "<p class='error sub-font'>Please make sure all email addresses are valid (or leave blank).</p>";
@@ -334,13 +334,13 @@ include("inc/header.php");
     		<div class="form_header">
         		<p class='sub-font new_rsvp form_header'>Your invitation was found!</p>	
         		<p class='sub-font old_rsvp form_header'>Your previous response was found!</p>	
-        		<p class='sub-font old_rsvp form_header'>Make changes for each guest below.</p>
+        		<p class='sub-font old_rsvp form_header'>Make changes below.</p>
         	</div>
 
         	<div class="form_body">
-        		<p class='sub-font'>Please provide a primary email address for confirmation.</p>
+        		<p class='sub-font new_rsvp'>Please provide an email address for confirmation.</p>
         		<label for="user_email" class="email">Email: </label>
-            	<input type="text" name="user_email" id="user_email" <?php if (isset($_SESSION['errors_2']['user_email'])) {echo "style='border: 1px solid red'";} ?> value="<?php htmlspecialchars($_SESSION['user']->getEmail());?>" class="email"><br>
+            	<input type="text" name="user_email" id="user_email" value="<?php htmlspecialchars($_SESSION['user']->getEmail());?>" class=<?php echo "'email"; if (isset($_SESSION['errors_2']['user_email'])) {echo " error_border";} echo "'"?>><br>
         		<p class='sub-font'>Your invitation includes the following guests.  Who's in?</p>
         	
 				<?php 
@@ -359,9 +359,8 @@ include("inc/header.php");
 				
 				<?php
 				// display rsvp for guests
-				$guest_counter=0;
+				$guest_counter=1;
 				if (!empty($_SESSION['group'])) { 
-					$guest_counter += 1;
 					foreach ($_SESSION['group'] as $guest) {
 						$guest_fname = $guest->FirstName;
 						$guest_lname = $guest->LastName;
@@ -375,15 +374,15 @@ include("inc/header.php");
 				<input type="radio" class="att" id="<?php echo htmlspecialchars($guest_fname . $guest_lname . "NotAtt"); ?>" <?php if ($guest->isNotAttending()) {echo " checked='checked'";} ?>value="0" name="guests[<?php echo htmlspecialchars($guest_id)?>][attending] ?>" >
 				<label for="<?php echo htmlspecialchars($guest_fname . $guest_lname . "NotAtt") ?>" class="form_button">Out</label><br>
 				<!-- <label for="<?php echo htmlspecialchars($guest_id . "_email") ?>" class="email">Email: </label> -->
-				<!-- <input type="text" name="guests[<?php echo htmlspecialchars($guest_id)?>][email] ?>" id="<?php echo htmlspecialchars($guest_id . "_email") ?>" <?php if (isset($_SESSION['errors_2']['guest_email'][$guest_id])) {echo "style='border: 1px solid red'";} ?>value="<?php echo htmlspecialchars($guest_email); ?>" class="email"><br> -->
+				<!-- <input type="text" name="guests[<?php echo htmlspecialchars($guest_id)?>][email] ?>" id="<?php echo htmlspecialchars($guest_id . "_email") ?>" value="<?php echo htmlspecialchars($guest_email); ?>" class=<?php echo "'email"; if (isset($_SESSION['errors_2']['guest_email'][$guest_id])) {echo " error_border";} echo "'"?>><br> -->
 				<?php
-				echo "<script> plusClass(" . $guest_counter. "); </script>";
+				$guest_counter += 1;
+				echo "<script> guestClass(" . $guest_counter. "); </script>";
 					} 
 				}
 				
 				// display rsvp for Plus One
 				if ($_SESSION['user']->PlusOne) {
-				$guest_counter += 1; 
 				?>
 				<label for="PlusOneAtt" class="name">Guest</label> 
 				<input type="radio" class="att" id="PlusOneAtt" class="" value="1" name="PlusOne_attending" onclick='javascript:plusOneCheck();' <?php if (isset($_SESSION['temp']['PlusOne']) AND $_SESSION['temp']['PlusOne']['attending'] == 1) {echo " checked='checked'";} ?>>
@@ -391,20 +390,30 @@ include("inc/header.php");
 				<input type="radio" class="att" id="PlusOneNotAtt" value="0" name="PlusOne_attending" onclick='javascript:plusOneCheck();' <?php if (isset($_SESSION['temp']['PlusOne']) AND $_SESSION['temp']['PlusOne']['attending'] == 0) {echo " checked='checked'";} ?>>
 				<label for="PlusOneNotAtt" class="form_button">Out</label><br>
 				<div id="PlusOne_info" style="display:none">
-	            	<p class='sub-font'>Please enter guest information.</p>	
-	            	<label for="PlusOne_firstname" class="guest_name">First Name: </label>
-        			<input type="text" name="PlusOne_firstname" id="PlusOne_firstname" class="guest_name"<?php if (isset($_SESSION['errors_2']['PlusOne_firstname'])) {echo "style='border: 1px solid red'";} ?>value="<?php if (isset($_SESSION['temp']['PlusOne']['firstname'])) {echo $_SESSION['temp']['PlusOne']['firstname'];} ?>" />
-        			<label for="PlusOne_lastname" class="guest_name">Last Name: </label>
-        			<input type="text" name="PlusOne_lastname" id="PlusOne_lastname" class="guest_name" <?php if (isset($_SESSION['errors_2']['PlusOne_lastname'])) {echo "style='border: 1px solid red'";} ?>value="<?php if (isset($_SESSION['temp']['PlusOne']['lastname'])) {echo $_SESSION['temp']['PlusOne']['lastname'];} ?>" />
+	            	<p class='sub-font'>Please enter your guest's name.</p>	
+	            	<label for="PlusOne_firstname" class="guest_name">First: </label>
+        			<input type="text" name="PlusOne_firstname" id="PlusOne_firstname" class=<?php echo "'guest_name"; if (isset($_SESSION['errors_2']['PlusOne_firstname'])) {echo " error_border";} echo "'"?> value="<?php if (isset($_SESSION['temp']['PlusOne']['firstname'])) {echo $_SESSION['temp']['PlusOne']['firstname'];} ?>" />
+        			<label for="PlusOne_lastname" class="guest_name">Last: </label>
+        			<input type="text" name="PlusOne_lastname" id="PlusOne_lastname" class=<?php echo "'guest_name"; if (isset($_SESSION['errors_2']['PlusOne_lastname'])) {echo " error_border";} echo "'"?> value="<?php if (isset($_SESSION['temp']['PlusOne']['lastname'])) {echo $_SESSION['temp']['PlusOne']['lastname'];} ?>" />
         			<!-- <label for="PlusOne_email">Email: </label> -->
-        			<!-- <input type="text" name="PlusOne_email" id="PlusOne_email" class="email"<?php if (isset($_SESSION['errors_2']['PlusOne_email'])) {echo "style='border: 1px solid red'";} ?>value="<?php if (isset($_SESSION['temp']['PlusOne']['email'])) {echo $_SESSION['temp']['PlusOne']['email'];} ?>"/>  -->
+        			<!-- <input type="text" name="PlusOne_email" id="PlusOne_email" class="email <?php echo htmlspecialchars($guest_email); ?>" class=<?php echo "'email"; if (isset($_SESSION['errors_2']['PlusOne_email'])) {echo " error_border";} echo "'"?> value="<?php if (isset($_SESSION['temp']['PlusOne']['email'])) {echo $_SESSION['temp']['PlusOne']['email'];} ?>"/>  -->
 	        	</div>
 				<?php
-				echo "<script> plusClass(" . $guest_counter. "); </script>";				
+				$guest_counter += 1; 
+				echo "<script> guestClass(" . $guest_counter. "); </script>";				
 				}
 
 				// display rsvp for Plus Family
 				if ($_SESSION['user']->PlusFamily) { 
+					echo "<script> plusClass(); </script>";
+					echo "<script> plusClass(); </script>";
+					echo "<script> plusClass(); </script>";
+					echo "<script> plusClass(); </script>";
+					echo "<script> plusClass(); </script>";
+					echo "<script> plusClass(); </script>";
+					echo "<script> plusClass(); </script>";
+					echo "<script> plusClass(); </script>";
+					echo "<script> plusClass(); </script>";
 					echo "<p class='sub-font'>Your invitation includes your family.</p>";
 					echo "<p class='sub-font'>How many additional guests are attending?</p>";
 					echo "<input id='family_cnt_0' type='radio' value='0' name='family_cnt' onclick='javascript:familyCheck();'";
@@ -425,30 +434,25 @@ include("inc/header.php");
 				?>	
 
 						<div id="ifOne" style="display:none">
-					        <p class='sub-font'>Please enter additional guest names.</p>	
-			            	<label for="family_1_firstname" class="guest_name">First Name: </label>
-	            			<input type="text" name="family[1][firstname]" id="family_1_firstname" class="guest_name"
-	            				<?php if (isset($_SESSION['errors_2']['family_firstname'][1])) {echo "style='border: 1px solid red'";} ?>
+					        <p class='sub-font'>Please enter your guests' names.</p>	
+			            	<label for="family_1_firstname" class="guest_name">First: </label>
+	            			<input type="text" name="family[1][firstname]" id="family_1_firstname" class=<?php echo "'guest_name"; if (isset($_SESSION['errors_2']['family_firstname'][1])) {echo " error_border";} echo "'"?>
 	            				value="<?php if (isset($_SESSION['temp']['family'][1]['firstname'])) {echo $_SESSION['temp']['family'][1]['firstname'];} ?>" />
-	            			<label for="family_1_lastname" class="guest_name">Last Name: </label>
-	            			<input type="text" name="family[1][lastname]" id="family_1_lastname" class="guest_name"
-	            				<?php if (isset($_SESSION['errors_2']['family_lastname'][1])) {echo "style='border: 1px solid red'";} ?>
+	            			<label for="family_1_lastname" class="guest_name">Last: </label>
+	            			<input type="text" name="family[1][lastname]" id="family_1_lastname" class=<?php echo "'guest_name"; if (isset($_SESSION['errors_2']['family_lastname'][1])) {echo " error_border";} echo "'"?>
 	            				value="<?php if (isset($_SESSION['temp']['family'][1]['lastname'])) {echo $_SESSION['temp']['family'][1]['lastname'];} ?>" />
 	            			<?php /*
 	            			<label for="family_1_email">Email: </label>
-	            			<input type="text" name="family[1][email]" id="family_1_email" class="email"
-	            				<?php if (isset($_SESSION['errors_2']['family_email'][1])) {echo "style='border: 1px solid red'";} ?> 
+	            			<input type="text" name="family[1][email]" id="family_1_email" class="email<?php if (isset($_SESSION['errors_2']['user_email'])) {echo " error_border";} ?>"
 	            				value="<?php if (isset($_SESSION['temp']['family'][1]['email'])) {echo $_SESSION['temp']['family'][1]['email'];} ?>"/><br>
 							*/ ?>
 					    </div>
             			<div id="ifTwo" style="display:none">
-			            	<label for="family_2_firstname" class="guest_name">First Name: </label>
-	            			<input type="text" name="family[2][firstname]" id="family_2_firstname" class="guest_name"
-	            				<?php if (isset($_SESSION['errors_2']['family_firstname'][2])) {echo "style='border: 1px solid red'";} ?>
+			            	<label for="family_2_firstname" class="guest_name">First: </label>
+	            			<input type="text" name="family[2][firstname]" id="family_2_firstname" class=<?php echo "'guest_name"; if (isset($_SESSION['errors_2']['family_firstname'][2])) {echo " error_border";} echo "'"?>
 	            				value="<?php if (isset($_SESSION['temp']['family'][2]['firstname'])) {echo $_SESSION['temp']['family'][2]['firstname'];} ?>" />
-	            			<label for="family_2_lastname" class="guest_name">Last Name: </label>
-	            			<input type="text" name="family[2][lastname]" id="family_2_lastname" class="guest_name"
-	            				<?php if (isset($_SESSION['errors_2']['family_lastname'][2])) {echo "style='border: 1px solid red'";} ?>
+	            			<label for="family_2_lastname" class="guest_name">Last: </label>
+	            			<input type="text" name="family[2][lastname]" id="family_2_lastname" class=<?php echo "'guest_name"; if (isset($_SESSION['errors_2']['family_lastname'][2])) {echo " error_border";} echo "'"?>
 	            				value="<?php if (isset($_SESSION['temp']['family'][2]['lastname'])) {echo $_SESSION['temp']['family'][2]['lastname'];} ?>" />
 	            			<?php /*
 	            			<label for="family_2_email">Email: </label>
@@ -458,34 +462,29 @@ include("inc/header.php");
 	            			*/ ?>
 					    </div>
 					    <div id="ifThree" style="display:none">
-			            	<label for="family_3_firstname" class="guest_name">First Name: </label>
-	            			<input type="text" name="family[3][firstname]" id="family_3_firstname" class="guest_name"
-	            				<?php if (isset($_SESSION['errors_2']['family_firstname'][3])) {echo "style='border: 1px solid red'";} ?>
+			            	<label for="family_3_firstname" class="guest_name">First: </label>
+	            			<input type="text" name="family[3][firstname]" id="family_3_firstname" class=<?php echo "'guest_name"; if (isset($_SESSION['errors_2']['family_firstname'][3])) {echo " error_border";} echo "'"?>
 	            				value="<?php if (isset($_SESSION['temp']['family'][3]['firstname'])) {echo $_SESSION['temp']['family'][3]['firstname'];} ?>" />
-	            			<label for="family_1_lastname" class="guest_name">Last Name: </label>
-	            			<input type="text" name="family[3][lastname]" id="family_3_lastname" class="guest_name" 
-	            				<?php if (isset($_SESSION['errors_2']['family_lastname'][3])) {echo "style='border: 1px solid red'";} ?>
+	            			<label for="family_1_lastname" class="guest_name">Last: </label>
+	            			<input type="text" name="family[3][lastname]" id="family_3_lastname" class=<?php echo "'guest_name"; if (isset($_SESSION['errors_2']['family_lastname'][3])) {echo " error_border";} echo "'"?>
 	            				value="<?php if (isset($_SESSION['temp']['family'][3]['lastname'])) {echo $_SESSION['temp']['family'][3]['lastname'];} ?>" />
 	            			<?php /*
 	            			<label for="family_3_email">Email: </label>
-	            			<input type="text" name="family[3][email]" id="family_3_email" class="email"
-	            				<?php if (isset($_SESSION['errors_2']['family_email'][3])) {echo "style='border: 1px solid red'";} ?>
+	            			<input type="text" name="family[3][email]" id="family_3_email" class="email<?php if (isset($_SESSION['errors_2']['user_email'])) {echo " error_border";} ?>"
+
 	            				value="<?php if (isset($_SESSION['temp']['family'][3]['email'])) {echo $_SESSION['temp']['family'][3]['email'];} ?>"/><br>
 							*/ ?>
 					    </div>
 					    <div id="ifFour" style="display:none">
-			            	<label for="family_4_firstname" class="guest_name">First Name: </label>
-	            			<input type="text" name="family[4][firstname]" id="family_4_firstname" class="guest_name"
-	            				<?php if (isset($_SESSION['errors_2']['family_firstname'][4])) {echo "style='border: 1px solid red'";} ?>
+			            	<label for="family_4_firstname" class="guest_name">First: </label>
+	            			<input type="text" name="family[4][firstname]" id="family_4_firstname" class=<?php echo "'guest_name"; if (isset($_SESSION['errors_2']['family_firstname'][4])) {echo " error_border";} echo "'"?>
 	            				value="<?php if (isset($_SESSION['temp']['family'][4]['firstname'])) {echo $_SESSION['temp']['family'][4]['firstname'];} ?>" />
-	            			<label for="family_4_lastname" class="guest_name">Last Name: </label>
-	            			<input type="text" name="family[4][lastname]" id="family_4_lastname" class="guest_name"
-	            				<?php if (isset($_SESSION['errors_2']['family_lastname'][4])) {echo "style='border: 1px solid red'";} ?>
+	            			<label for="family_4_lastname" class="guest_name">Last: </label>
+	            			<input type="text" name="family[4][lastname]" id="family_4_lastname" class=<?php echo "'guest_name"; if (isset($_SESSION['errors_2']['family_lastname'][4])) {echo " error_border";} echo "'"?>
 	            				value="<?php if (isset($_SESSION['temp']['family'][4]['lastname'])) {echo $_SESSION['temp']['family'][4]['lastname'];} ?>" />
 	            			<?php /*
 	            			<label for="family_4_email">Email: </label>
-	            			<input type="text" name="family[4][email]" id="family_4_email" class="email"
-	            				<?php if (isset($_SESSION['errors_2']['family_email'][4])) {echo "style='border: 1px solid red'";} ?>
+	            			<input type="text" name="family[4][email]" id="family_4_email" class="email<?php if (isset($_SESSION['errors_2']['user_email'])) {echo " error_border";} ?>"
 	            				value="<?php if (isset($_SESSION['temp']['family'][4]['email'])) {echo $_SESSION['temp']['family'][4]['email'];} ?>"/><br>
 							*/ ?>
 					    </div>
@@ -502,6 +501,7 @@ include("inc/header.php");
 
         </form>
     </div>
-
+<script> plusOneCheck(); </script>
+<script> familyCheck(); </script>
 </body>
 </html>

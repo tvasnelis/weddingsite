@@ -1,36 +1,91 @@
 <?php
 
+require("../inc/guest.php");
+$user = new Guest;
+$user->FirstName='Tim';
+$user->LastName='Vasnelis';
+$user->Email='tim.vasnelis@gmail.com';
+$user->Attending='1';
+
+$group=array();
+$group1=new Guest;
+$group1->FirstName='Kimberly';
+$group1->LastName='Bean';
+$group1->Email='timvkimb@gmail.com';
+$group1->Attending='1';
+
+$group=array();
+$group2=new Guest;
+$group2->FirstName='Penny';
+$group2->LastName='Lane';
+$group2->Email='plane@timandkimberly.com';
+$group2->Attending='1';
+
+$group[]=$group1;
+$group[]=$group2;
+
+$guests=array();
+$guest1=new Guest;
+$guest1->FirstName='John';
+$guest1->LastName='Doe';
+$guest1->mail='jdoe@timandkimberly.com';
+$guest1->Attending='1';
+
+$guest=array();
+$guest2=new Guest;
+$guest2->FirstName='Jane';
+$guest2->LastName='Doe';
+$guest2->Email='janedoe@timandkimberly.com';
+$guest2->Attending='0';
+
+$guests[]=$guest1;
+$guests[]=$guest2;
+
+
+email_rsvp($user, $group, $guests);
+
+
 function email_rsvp($user, $group, $guests) {
 
 	//require_once("inc/phpmailer/PHPMailerAutoload.php");
 
-	$message  = "<html><body>";
-	$message .= "<table width='100%' bgcolor='#93c2b2' cellpadding='0' cellspacing='0' border='0'>";  
-	$message .= "<tr><td>"; 
-	$message .= "<table align='center' width='100%' border='0' cellpadding='0' cellspacing='0' style='max-width:700px; background-color:#fff; font-family:Montserrat, Geneva, sans-serif;'>";  
-	$message .= "<thead>
-	  <tr height='80'>
-	  <th colspan='4' style='background-color:#fff; border-bottom:solid 1px #bdbdbd; font-family:Montserrat, Geneva, sans-serif; color:#000; font-size:24px;' >Success!</th>
-	  </tr>
-	             </thead>";    
-	$message .= "<tbody>
-	       <tr>
-	       <td colspan='4' style='padding:15px;'>
-	       <p style='font-size:16px;'>Hi ".$user->FirstName.",</p>
-	       <p style='font-size:16px;'>
-	       	Your RSVP has been received.  Please confirm that the information below is correct.
-	       </p>";
-	$message .= "<p>" . $user->FirstName . " " . $user->LastName .($user->Attending==1 ? " is attending." : " is not attending.");
-	foreach ($group as $guest) {
-		$message .= "<p>" . $guest->FirstName . " " . $guest->LastName .($guest->Attending==1 ? " is attending." : " is not attending.");
-	}
-	foreach ($guests as $guest) {
-		$message .= "<p>" . $guest->FirstName . " " . $guest->LastName .($guest->Attending==1 ? " is attending." : " is not attending.");
-	}
 
-	$message .= "<p>Tim and Kimberly</p>";
-	$message .= "<p><a href='www.timandkimberly.com' target='blank'>Wedding Homepage</a></p>";
-	$message .= "<p><a href='mailto:rsvp@timandkimberly.com' target='_top'>Email Us</a></p>";
+
+$message = "<html><body>
+	<table width='98%' bgcolor='#93c2b2' cellpadding='0' cellspacing='0' border='0'>
+		<tr>
+			<td>
+				<table align='center' valign='top' width='60%' max-width='600px' border='0' cellpadding='0' cellspacing='0' bgcolor='#fff'; font-family:Montserrat, Helvetica, sans-serif;>
+					<tr><td align='center' colspan=5><a href='/timandkimberly'><img src='../images/email_header.jpg'></a></td></tr>
+					<!--<tr height='30px' align='center' valign='bottom' >
+						<td style='width:20%'><a href='../wedding' target='_top' style='text-decoration:none; color:black'>Wedding</a></td>
+						<td style='width:20%'><a href='../travel' target='_top' style='text-decoration:none; color:black'>Travel</a></td>
+						<td style='width:20%'><a href='../stay' target='_top' style='text-decoration:none; color:black'>Stay</a></td>
+						<td style='width:20%'><a href='../experience' target='_top' style='text-decoration:none; color:black'>Experience</a></td>
+						<td style='width:20%'><a href='../RSVP' target='_top' style='text-decoration:none; color:black'>RSVP</a></td>
+					</tr>-->
+				</table>
+			</td>
+		</tr>
+		<tr height='20px'></tr>
+		<tr>
+			<td>
+				<table align='center' valign='top' width='60%' max-width='600px' border='0' cellpadding='20px' cellspacing='0' bgcolor='#fff'; font-family:Montserrat, Helvetica, sans-serif;>
+					<tr> 
+						<td>Success!</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+
+
+
+
+
+
+
+	";
 
 
 	echo $message;

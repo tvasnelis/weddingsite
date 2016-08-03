@@ -19,6 +19,20 @@ var map_locations = [{
             "lat": 29.959763,
             "lng": -90.062985
     }
+}, {
+    "name": "Hotel Monteleone",
+    "description": "Hotel",
+    "position": {
+            "lat": 29.954296,
+            "lng": -90.067787
+    }
+}, {
+    "name": "Bienville House",
+    "description": "Hotel",
+    "position": {
+            "lat": 29.953831,
+            "lng": -90.065279
+    }
 }]
 
 var markers = [];

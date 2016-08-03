@@ -210,14 +210,15 @@ include("inc/header.php");
 				?>
         	</div>	
 
-           	<label for="firstname" class="guest_name">First Name: </label>
-            <input type="text" name="firstname" id="firstname" value="<?php echo htmlspecialchars($_SESSION['user']->getFirstName());?>" />
-            <label for="lastname" class="guest_name">Last Name: </label>
-            <input type="text" name="lastname" id="lastname" value="<?php echo htmlspecialchars($_SESSION['user']->getLastName());?>" />
-			<textarea style="display:none" id="address" name="address"></textarea>
-			<p  style="display:none">Please leave this field blank.</p>
-            <input type="submit" name ="submit" value="Find Invitation" />
-
+        	<div class="form_body">
+	           	<label for="firstname" class="guest_name_lg">First Name: </label>
+	            <input type="text" name="firstname" id="firstname" value="<?php echo htmlspecialchars($_SESSION['user']->getFirstName());?>" class=<?php if (isset($_SESSION['errors_1']['firstname'])) {echo "'error_border'";} ?>/>
+	            <label for="lastname" class="guest_name_lg">Last Name: </label>
+	            <input type="text" name="lastname" id="lastname" value="<?php echo htmlspecialchars($_SESSION['user']->getLastName());?>" class=<?php if (isset($_SESSION['errors_1']['lastname'])) {echo "'error_border'";} ?>/>
+				<textarea style="display:none" id="address" name="address"></textarea>
+				<p  style="display:none">Please leave this field blank.</p>
+	            <input type="submit" name ="submit" value="Find Invitation" />
+	        </div>    
         </form>
 		</div>
     </div>

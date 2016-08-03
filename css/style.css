@@ -7320,6 +7320,11 @@ a {
   text-decoration: none;
 }
 
+a:visited {
+  color: #93c2b2;
+  text-decoration: none;
+}
+
 a:hover .block {
   color: #000;
   text-decoration: none;
@@ -7389,9 +7394,14 @@ header nav li a {
 }
 header nav li.on a {
   text-decoration: underline;
+  color: black;
 }
 header nav li a:hover {
   text-decoration: underline;
+  color: black;
+}
+header nav li a:visited {
+  text-decoration: none;
   color: black;
 }
 @media screen and (min-width: 480px) {
