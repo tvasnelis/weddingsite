@@ -42,7 +42,7 @@ var map;
 function initMap() {
                     var mapOptions = {
                     zoom: 17,
-                    center: new google.maps.LatLng(29.955714,-90.065112), 
+                    center: new google.maps.LatLng(29.954914,-90.065112), 
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
                     zoomControl: true,
                     disableDoubleClickZoom: false,

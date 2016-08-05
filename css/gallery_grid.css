@@ -62,12 +62,12 @@ ul.gallery_grid.columns-4 li {
   /* this value + 2.5 should = 25% */
 }
 
-a {
+ul.gallery_grid li a {
   display: block;
   color: #93c2b2;
 }
 
-a:hover {
+ul.gallery_grid a:hover {
   color: #000;
   text-decoration: none;
 }

@@ -270,8 +270,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 				//echo 'Message could not be sent.' . '</br>';
 			    exit();
 			} else {
-				header("location:rsvp_2.php?status=thanks");
+				header("location:thanks");
 				session_destroy();
+				exit();
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 <?php
-
-require("../inc/guest.php");
+/*
+require("guest.php");
 $user = new Guest;
 $user->FirstName='Tim';
 $user->LastName='Vasnelis';
@@ -41,56 +41,106 @@ $guest2->Attending='0';
 $guests[]=$guest1;
 $guests[]=$guest2;
 
-
 email_rsvp($user, $group, $guests);
-
+*/
 
 function email_rsvp($user, $group, $guests) {
 
-	//require_once("inc/phpmailer/PHPMailerAutoload.php");
+	require_once("inc/phpmailer/PHPMailerAutoload.php");
 
+	$guest_att = 0;
+	$guest_cnt = 1;
+	if ($user->isAttending()) {
+		$guest_att += 1;
+	}
+	foreach ($group as $guest) {
+		$guest_cnt += 1;
+		if ($guest->isAttending()) {
+			$guest_att += 1;
+		}
+	}
+	foreach ($guests as $guest) {
+		$guest_cnt += 1;
+		if ($guest->isAttending()) {
+			$guest_att += 1;
+		}
+	}
 
+	$guest_status = '';
+	if ($guest_att == $guest_cnt) {
+		$guest_status = 'all';
+	} elseif ($guest_att == 0) {
+		$guest_status = 'none';
+	} else {
+		$guest_status = 'some';
+	}
 
-$message = "<html><body>
-	<table width='98%' bgcolor='#93c2b2' cellpadding='0' cellspacing='0' border='0'>
-		<tr>
-			<td>
-				<table align='center' valign='top' width='60%' max-width='600px' border='0' cellpadding='0' cellspacing='0' bgcolor='#fff'; font-family:Montserrat, Helvetica, sans-serif;>
-					<tr><td align='center' colspan=5><a href='/timandkimberly'><img src='../images/email_header.jpg'></a></td></tr>
-					<!--<tr height='30px' align='center' valign='bottom' >
-						<td style='width:20%'><a href='../wedding' target='_top' style='text-decoration:none; color:black'>Wedding</a></td>
-						<td style='width:20%'><a href='../travel' target='_top' style='text-decoration:none; color:black'>Travel</a></td>
-						<td style='width:20%'><a href='../stay' target='_top' style='text-decoration:none; color:black'>Stay</a></td>
-						<td style='width:20%'><a href='../experience' target='_top' style='text-decoration:none; color:black'>Experience</a></td>
-						<td style='width:20%'><a href='../RSVP' target='_top' style='text-decoration:none; color:black'>RSVP</a></td>
-					</tr>-->
+	$message = "<html><head>
+	<style type='text/css'>
+    @media screen and (max-width:650px) {
+		.wrapper {
+			width:90% !important;
+		}
+	}
+	</style>
+	<body>
+		<table bgcolor='#93c2b2' cellpadding='0' cellspacing='0' border='0' style='width: 98%;'>
+			<tr height='20px'></tr>
+			<tr><td>
+				<table align='center' valign='top' border='0' cellpadding='0' cellspacing='0' bgcolor='#fff'; font-family:Montserrat, Helvetica, sans-serif; style='width:60%; max-width:600px' class='wrapper'>
+					<tr><td align='center' colspan=5><a href='www.timandkimberly.com'><img src='../timandkimberly/images/email_header.jpg' alt='Tim & Kimberly' style='max-width:200px;'></a></td></tr>
 				</table>
-			</td>
-		</tr>
-		<tr height='20px'></tr>
-		<tr>
-			<td>
-				<table align='center' valign='top' width='60%' max-width='600px' border='0' cellpadding='20px' cellspacing='0' bgcolor='#fff'; font-family:Montserrat, Helvetica, sans-serif;>
-					<tr> 
-						<td>Success!</td>
-					</tr>
+			</td></tr>
+			<tr height='20px'></tr>
+			<tr><td>
+				<table align='center' valign='top' border='0' cellpadding='20px' cellspacing='0' bgcolor='#fff'; font-family:Montserrat, Helvetica, sans-serif; style='width:60%; max-width:600px' class='wrapper'>
+					<tr align='center'><td>Success!  We recevied your RSVP.</td></tr>
 				</table>
-			</td>
-		</tr>
-	</table>
+			</td></tr>
+			<tr height='20px'></tr>
+			<tr><td>
+				<table align='center' valign='top' width='60%' border='0' cellpadding='15px' cellspacing='0' bgcolor='#fff'; font-family:Montserrat, Helvetica, sans-serif; style='width:60%; max-width:600px' class='wrapper'>	
+					<tr><td>
+						<p>Dear " . $user->FirstName . ", </p>";
+						if ($guest_status == 'all' OR $guest_status == 'some') {
+							$message .= "<p>We are so happy you are able to join us in New Orleans!  Please confirm the information below and reply to this email if there are any issues.";				
+							$message .= "</p>";
+							$message .= "<table align='left' width='50%''><th>Attending</th>";
+							if ($user->isAttending()) {$message .= "<tr align='center'><td>" . $user->FirstName . " " . $user->LastName . "</td></tr>";}
+							foreach ($group as $guest) {
+								if ($guest->isAttending()) {$message .= "<tr align='center'><td>" . $guest->FirstName . " " . $guest->LastName . "</td></tr>";}
+							}
+							foreach ($guests as $guest) {
+								if ($guest->isAttending()) {$message .= "<tr align='center'><td>" . $guest->FirstName . " " . $guest->LastName . "</td></tr>";}
+							}
+							$message .= "</table>";
+							if ($guest_status == 'some') {
+								$message .= "<table align='left' width='50%''><th>Not Attending</th>";
+								if (!$user->isAttending()) {$message .= "<tr align='center'><td>" . $user->FirstName . " " . $user->LastName . "/td></tr>";}
+								foreach ($group as $guest) {
+									if (!$guest->isAttending()) {$message .= "<tr align='center'><td>" . $guest->FirstName . " " . $guest->LastName . "</td></tr>";}
+								}
+								foreach ($guests as $guest) {
+									if (!$guest->isAttending()) {$message .= "<tr align='center'><td>" . $guest->FirstName . " " . $guest->LastName . "</td></tr>";}
+								}
+								$message .= "</table>";
+							} 
+						} else {
+							$message .= "<tr><p>We are sorry you are unable to join us in New Orleans.  You will be missed!  If your plans change, please stop back and let us know!</p>";				
+						}
+					$message .= "</td></tr>";
+					$message .= "<tr><td style='padding: 5px 15px;'><p>Once you've' made your travel plans, let us know your arrival and departure dates and where you are staying.  We'll keep you up to date on all the details.  We look forward to seeing you there!</p>";
+					$message .= "<tr><td style='padding: 5px 15px;'>Sincerely, </td></tr>";
+					$message .= "<tr><td style='padding: 5px 15px 15px;'>Tim & Kimberly</td></tr>
+				</table>
+			</td></tr>
+			<tr height='20px'></tr>
+		</table>
+
+		";
 
 
-
-
-
-
-
-	";
-
-
-	echo $message;
-
-	/*
+	//echo $message;
 
 	// define admin email address
 	$email_admin = "rsvp@timandkimberly.com";
@@ -114,19 +164,35 @@ $message = "<html><body>
 	$mail_admin->Password = "tkPass775";
 
 	// setup email 
-	$body_admin = "Test email. The following user has provided an RSVP via timandkimberly.com<br/>";
-	$body_admin .= "Name " . $user->FirstName . " " . $user->LastName . " " . $user->Email . "  " . $user->Attending . "<br/>";
+	$body_admin = "The following user has provided an RSVP via timandkimberly.com<br/>";
+	$body_admin .= $user->Email . "<br/>";
+	$body_admin .= "Name: " . $user->FirstName . " " . $user->LastName;
+	if ($user->Attending == 1) {
+			$body_admin .= " Attending<br/>";
+		} else {
+			$body_admin .= " Not Attending<br/>";
+		}
 	foreach ($group as $guest) {
-		$body_admin .= "Name: " . $guest->FirstName . " " . $guest->LastName . " Email: " . $guest->Email . " Attending: " . $guest->Attending . "<br/>";
+		$body_admin .= "Name: " . $guest->FirstName . " " . $guest->LastName;
+		if ($guest->Attending == 1) {
+			$body_admin .= " Attending<br/>";
+		} else {
+			$body_admin .= " Not Attending<br/>";
+		}
 	}
 	foreach ($guests as $guest) {
-		$body_admin .= "Name: " . $guest->FirstName . " " . $guest->LastName . " Email: " . $guest->Email . " Attending: " . $guest->Attending . "<br/>";
+		$body_admin .= "Name: " . $guest->FirstName . " " . $guest->LastName;
+		if ($guest->Attending == 1) {
+			$body_admin .= " Attending<br/>";
+		} else {
+			$body_admin .= " Not Attending<br/>";
+		}
 	}
 	
 	$mail_admin->setFrom($email_admin, "Tim and Kimberly");
 	$mail_admin->addAddress($email_admin, "Tim and Kimberly"); // Add a recipient
 	$mail_admin->Subject = 'Wedding RSVP from ' . $user->FirstName . " " . $user->LastName;
-	$mail_admin->MsgHTML($message);
+	$mail_admin->MsgHTML($body_admin);
 
 	// setup email to user 
 	$mail_user = new PHPMailer;
@@ -139,16 +205,6 @@ $message = "<html><body>
 	$mail_user->Port = 465;
 	$mail_user->Username = $email_admin;
 	$mail_user->Password = "tkPass775";
-
-	// setup email 
-	$body_user = "Test email. Thanks for your response!<br/>";
-	$body_user .= "Name " . $user->FirstName . " " . $user->LastName . " " . $user->Email . "  " . $user->Attending . "<br/>";
-	foreach ($group as $guest) {
-		$body_admin .= "Name: " . $guest->FirstName . " " . $guest->LastName . " Email: " . $guest->Email . " Attending: " . $guest->Attending . "<br/>";
-	}
-	foreach ($guests as $guest) {
-		$body_admin .= "Name: " . $guest->FirstName . " " . $guest->LastName . " Email: " . $guest->Email . " Attending: " . $guest->Attending . "<br/>";
-	}
 
 	$mail_user->setFrom($email_admin, "Tim and Kimberly");
 	$mail_user->addAddress($user->Email, $user->FirstName . " " . $user->LastName); // Add a recipient
@@ -172,6 +228,5 @@ $message = "<html><body>
 	} else {
 		return true;
 	}
-*/
 }
 

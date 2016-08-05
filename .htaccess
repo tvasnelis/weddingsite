@@ -5,3 +5,4 @@ RewriteRule    ^wedding$    wedding.php    [NC,L]    # Handle requests for "rsvp
 RewriteRule    ^travel$    travel.php    [NC,L]    # Handle requests for "rsvp"
 RewriteRule    ^stay$    stay.php    [NC,L]    # Handle requests for "rsvp"
 RewriteRule    ^experience$    experience.php    [NC,L]    # Handle requests for "rsvp"
+RewriteRule    ^thanks$    rsvp_2.php?status=thanks    [NC,L]    # Handle requests for "rsvp

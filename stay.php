@@ -12,11 +12,15 @@ include("inc/header.php"); ?>
 	    			<img src="images/montelone.jpg" alt="Hotel Monteleone">
 	    			<h3><a href="http://www.hotelmonteleone.com/" target="_blank">Hotel Monteleone</a></h3>
 	    			<p>214 Royal St.</p>
+	    			<p>The wedding party's homebase</p>
+	    			<!--<p>The wedding party's homebase. A historic landmark opened in 1886 and home to the Carousel Piano Bar and Lounge.</p> -->
+	    			<!--<p>(Reference 'Bean & Vasnelis Wedding')</p> -->
 	    		</li>
 	    		<li>
 	    			<img src="images/bienville.jpg" alt="Bienville House">
 	    			<h3><a href="http://bienvillehouse.com/" target="_blank">Bienville House</a></h3>
 	    			<p>320 Decatur St.</p>
+
 	    		</li>
 	   
     	</div>

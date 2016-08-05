@@ -69,7 +69,11 @@ a:visited {
     color: $green;
     text-decoration: none;
 }
-a:hover .block {
+a:active {
+    color: $green;
+    text-decoration: none;
+}
+a:hover {
     color: $black;
     text-decoration: none;
 }

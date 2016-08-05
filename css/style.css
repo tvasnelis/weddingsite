@@ -7325,7 +7325,12 @@ a:visited {
   text-decoration: none;
 }
 
-a:hover .block {
+a:active {
+  color: #93c2b2;
+  text-decoration: none;
+}
+
+a:hover {
   color: #000;
   text-decoration: none;
 }
