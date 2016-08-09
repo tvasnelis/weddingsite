@@ -7427,13 +7427,14 @@ header nav li a:visited {
 #frame-doors {
   width: 100%;
   min-width: 320px;
-  height: 100%;
+  height: calc(100% - $head-height);
   overflow: hidden;
 }
 
 #frame-doors img {
   position: relative;
   width: 600px;
+  height: calc(100% - $head-height);
   left: 50%;
   margin-left: -300px;
   z-index: -1;
@@ -7444,6 +7445,7 @@ header nav li a:visited {
     left: auto;
     margin: 0;
     width: 100%;
+    height: calc(100% - $head-height);
   }
 }
 

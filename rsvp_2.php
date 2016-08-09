@@ -267,7 +267,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
 			// send email to user	
 			if (!email_rsvp($_SESSION['user'],$_SESSION['group'],$toDb)) {
-				//echo 'Message could not be sent.' . '</br>';
+				echo 'Message could not be sent.' . '</br>';
 			    exit();
 			} else {
 				header("location:thanks");
@@ -496,7 +496,7 @@ include("inc/header.php");
 
 				<input type="hidden" name="formid" value="<?php echo $_SESSION["formid"]; ?>" />
 
-		        <input type="submit" name ="submit" value="Submit" />
+		        <input type="submit" name ="submit" value="Submit" class="rsvp_2"/>
 		    </div>
 	<?php } ?>
 

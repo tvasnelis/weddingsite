@@ -78,8 +78,6 @@ a:hover {
     text-decoration: none;
 }
 
-
- 
 header {
 	width: 100%;
 	min-width: 320px;
@@ -167,8 +165,6 @@ header {
     }
 }
 
-
-
 #content {
     display:block;
 	width: 100%;
@@ -176,17 +172,17 @@ header {
 }
 
 
-
 #frame-doors {
 	width: 100%;
 	min-width: 320px;
-	height: 100%;
+	height: calc(100% - $head-height);
 	overflow: hidden;
 }
 
 #frame-doors img{
 	position: relative;
 	width: 600px;
+    height: calc(100% - $head-height);
 	left: 50%;
 	margin-left: -300px;
     z-index: -1;
@@ -196,7 +192,7 @@ header {
         left: auto;
         margin: 0;
         width: 100%;
-
+        height: calc(100% - $head-height);
     }
 }
 

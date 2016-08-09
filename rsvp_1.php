@@ -1,5 +1,5 @@
 <?php 
-require("inc/config.php");
+require_once("inc/config.php");
 
 require(ROOT_PATH . "inc/rsvp_session.php");
 require(ROOT_PATH . "inc/database.php");
@@ -168,16 +168,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 		    header("location:rsvp2");
 		    exit;
 		}
-	}
-}
-
-// check for form refresh
-if (isset($_GET['submit'])) {
-	$old_submit = $_GET['submit'];
-	$current_url = "rsvp_1.php";
-	if ($old_submit == "true") {
-		header("Location: $current_url");
-		$old_submit = “false”;
 	}
 }
 

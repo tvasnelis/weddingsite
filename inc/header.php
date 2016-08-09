@@ -16,7 +16,7 @@
     <body>
         <header>
             <div class="head_title fancy-font">
-                <h1><a href="/timandkimberly">Tim<span class="accent"> & </span>Kimberly</a></h1>
+                <h1><a href="/">Tim<span class="accent"> & </span>Kimberly</a></h1>
                 <h2 class="sub-font">March 25, 2017</h2>
                 <h2 class="sub-font">New Orleans, LA</h2>
             </div>

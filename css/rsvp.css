@@ -136,6 +136,10 @@ input[type=text]:focus {
   color: #93c2b2;
 }
 
+#form_wrap input[type=submit].rsvp_2 {
+  opacity: 1;
+}
+
 #error_wrap {
   position: absolute;
   top: 120px;

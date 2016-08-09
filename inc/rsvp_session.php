@@ -1,8 +1,9 @@
 <?php
 require(ROOT_PATH . "inc/guest.php");
+require(ROOT_PATH . "inc/functions.php");
 
 // Start Session
-session_start();
+sec_session_start();
 
 //Set Session Counter
 if( isset( $_SESSION['counter'] ) ) {

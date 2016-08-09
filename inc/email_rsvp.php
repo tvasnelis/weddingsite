@@ -1,4 +1,6 @@
 <?php
+
+
 /*
 require("guest.php");
 $user = new Guest;
@@ -46,7 +48,7 @@ email_rsvp($user, $group, $guests);
 
 function email_rsvp($user, $group, $guests) {
 
-	require_once("inc/phpmailer/PHPMailerAutoload.php");
+	require(ROOT_PATH . "inc/phpmailer/PHPMailerAutoload.php");
 
 	$guest_att = 0;
 	$guest_cnt = 1;
