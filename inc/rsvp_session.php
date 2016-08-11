@@ -1,12 +1,13 @@
 <?php
 require(ROOT_PATH . "inc/guest.php");
-require(ROOT_PATH . "inc/functions.php");
+require(ROOT_PATH . "inc/session.class.php");
 
 // Start Session
-sec_session_start();
+//SessionManager::sessionStart('InstallationName');
+session_start();
 
 //Set Session Counter
-if( isset( $_SESSION['counter'] ) ) {
+if(isset($_SESSION['counter'])) {
 	$_SESSION['counter'] += 1;
 }else {
 	$_SESSION = array();

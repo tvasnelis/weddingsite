@@ -13,6 +13,7 @@ include("inc/header.php"); ?>
 	    			<h3><a href="http://www.hotelmonteleone.com/" target="_blank">Hotel Monteleone</a></h3>
 	    			<p>214 Royal St.</p>
 	    			<p>The wedding party's homebase</p>
+	    			<p>Use 'Bean & Vasnelis Wedding' for group rates.</p>
 	    			<!--<p>The wedding party's homebase. A historic landmark opened in 1886 and home to the Carousel Piano Bar and Lounge.</p> -->
 	    			<!--<p>(Reference 'Bean & Vasnelis Wedding')</p> -->
 	    		</li>

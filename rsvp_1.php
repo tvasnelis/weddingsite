@@ -1,7 +1,11 @@
 <?php 
-require_once("inc/config.php");
 
+$pageTitle = "Tim & Kimberly - RSVP";
+$section = "rsvp";
+
+require_once("inc/config.php");
 require(ROOT_PATH . "inc/rsvp_session.php");
+require(ROOT_PATH . "inc/functions.php");
 require(ROOT_PATH . "inc/database.php");
 require(ROOT_PATH . "inc/email_rsvp.php");
 
@@ -170,9 +174,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 		}
 	}
 }
-
-$pageTitle = "Tim & Kimberly - RSVP";
-$section = "rsvp";
 
 include("inc/header.php");
 ?>

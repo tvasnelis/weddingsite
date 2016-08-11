@@ -1,7 +1,11 @@
 <?php
-require("inc/config.php");
 
+$pageTitle = "Tim & Kimberly - RSVP";
+$section = "rsvp";
+
+require_once("inc/config.php");
 require(ROOT_PATH . "inc/rsvp_session.php");
+require(ROOT_PATH . "inc/functions.php");
 require(ROOT_PATH . "inc/database.php");
 require(ROOT_PATH . "inc/email_rsvp.php");
 
@@ -240,11 +244,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 						$sql[] = "UPDATE Guests SET Email='" . $guest->Email . "' WHERE GuestId=" . $guest->GuestId; 
 						$sql[] = "INSERT INTO RSVP (GuestId, Attending, UserId, SubDate) VALUES (" . $guest->GuestId . ", " . $guest->Attending . ", " . $_SESSION['user']->GuestId . ", NOW())" ;
 					} catch (Exception $e) {
-						$pageTitle = "Tim & Kimberly - RSVP";
-						$section = "rsvp";
-						//include("inc/header.php");
-						echo "<link rel='stylesheet type='text/css href='css/rsvp.css'>";
-						echo "<p class='error sub-font'>Error writing to database. Please try again later.</p>";
+						error_message("Error writing to database. Please try again later.");
 						exit;
 					}
 				}				
@@ -256,18 +256,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 					$sqlstmt = $db->prepare($stmt);
 					$sqlstmt->execute();
 				} catch (Exception $e) {
-					$pageTitle = "Tim & Kimberly - RSVP";
-					$section = "rsvp";
-					//include("inc/header.php");
-					echo "<link rel='stylesheet type='text/css href='css/rsvp.css'>";
-					echo "<p class='error sub-font'>Error writing to database. Please try again later.</p>";
+					error_message("Error writing to database. Please try again later.");
 					exit;
 				}
 			}
 
 			// send email to user	
 			if (!email_rsvp($_SESSION['user'],$_SESSION['group'],$toDb)) {
-				echo 'Message could not be sent.' . '</br>';
+				error_message("Message could not be sent. Please try again later.");
 			    exit();
 			} else {
 				header("location:thanks");
@@ -280,9 +276,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 } else {
 	$_SESSION["formid"] = md5(rand(0,10000000));
 }
-
-$pageTitle = "Tim & Kimberly - RSVP";
-$section = "rsvp";
 
 include("inc/header.php");
 ?>
@@ -506,3 +499,7 @@ include("inc/header.php");
 <script> familyCheck(); </script>
 </body>
 </html>
+
+<?php
+//echo var_dump($_SESSION);
+?>

@@ -1,6 +1,5 @@
 <?php
 
-
 /*
 require("guest.php");
 $user = new Guest;
@@ -105,7 +104,7 @@ function email_rsvp($user, $group, $guests) {
 					<tr><td>
 						<p>Dear " . $user->FirstName . ", </p>";
 						if ($guest_status == 'all' OR $guest_status == 'some') {
-							$message .= "<p>We are so happy you are able to join us in New Orleans!  Please confirm the information below and reply to this email if there are any issues.";				
+							$message .= "<p>We are so happy you are able to join us in New Orleans!  Please confirm the information below.";				
 							$message .= "</p>";
 							$message .= "<table align='left' width='50%''><th>Attending</th>";
 							if ($user->isAttending()) {$message .= "<tr align='center'><td>" . $user->FirstName . " " . $user->LastName . "</td></tr>";}
@@ -131,7 +130,7 @@ function email_rsvp($user, $group, $guests) {
 							$message .= "<tr><p>We are sorry you are unable to join us in New Orleans.  You will be missed!  If your plans change, please stop back and let us know!</p>";				
 						}
 					$message .= "</td></tr>";
-					$message .= "<tr><td style='padding: 5px 15px;'><p>Once you've' made your travel plans, let us know your arrival and departure dates and where you are staying.  We'll keep you up to date on all the details.  We look forward to seeing you there!</p>";
+					$message .= "<tr><td style='padding: 5px 15px;'><p>Once you've made your travel plans, let us know your arrival and departure dates and where you are staying.  We'll keep you up to date on all the details.  We look forward to seeing you there!</p>";
 					$message .= "<tr><td style='padding: 5px 15px;'>Sincerely, </td></tr>";
 					$message .= "<tr><td style='padding: 5px 15px 15px;'>Tim & Kimberly</td></tr>
 				</table>
