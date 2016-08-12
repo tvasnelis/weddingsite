@@ -88,7 +88,7 @@ input.email {
 
 #form_wrap input[type=submit] {
 	position:relative;
-	padding: 10px; 
+	padding: 15px; 
 	font-size: .8rem; color: #7c7873;
 	text-shadow:0 1px 0 #fff;
 	width:100%; 
@@ -138,8 +138,6 @@ input[type=text]:focus {
 }
 
 
-
-
 .form_header p {
 	text-align: center;
 	font-size: .8rem;
@@ -158,9 +156,6 @@ input[type=text]:focus {
 	margin-bottom: 15px;
 }
 
-.form_body input.att[type="radio"] {
-    display:none; 
-}
 
 .form_body label {
 	margin: 0 0px 0px 0; 
@@ -185,10 +180,23 @@ label.form_button {
 	background-color:#ddd;
 	text-align: center;
 	border-radius: 2px 2px;
+	cursor: pointer;
+	-webkit-box-shadow: rgba(0,0,0,0.6) 0px 0 3px;
+	-moz-box-shadow: rgba(0,0,0,0.6) 0 0 3px;
+	box-shadow: rgba(0,0,0,0.6) 0 0 3px;
+}
+
+.form_body input.att[type="radio"].att {
+    display:none; 
+}
+
+.form_body input[type="radio"].family_cnt {
+    display:none; 
 }
 
 .form_body input[type="radio"]:checked + label {
     background-color:#93c2b2;
+    text-shadow: none;
 }
 
 .form_body label.email {
@@ -196,48 +204,58 @@ label.form_button {
 	font-weight: 400;
 }
 
-label.guest_name {
+label {
 	font-size:.8rem;
     font-weight: 400;
-	width: 40px;
-	margin-left: 5px;
 }
-
+label.guest_name {
+	margin-left: 10px;
+}
+label.guest_label {
+	width: 50px;
+	margin-left: 10px;
+}
 label.guest_name_lg {
-	font-size:.8rem;
-    font-weight: 400;
 	width: 100px;
 	margin-left: 5px;
 }
 
 input[type="text"].guest_name {
-	width: 140px;
-	margin-right: 20px;
+	width: 130px;
 }
 
-#form_wrap.default {height:676px;top:-150px;}
+fieldset.family_cnt {
+	padding: 5px;
+	text-align: center;
+}
+
+fieldset.PlusOne_info {
+	text-align: center;
+}
+
+#form_wrap.default {height:675px;top:-150px;}
 #form_wrap.default form {height:530px;}
-#form_wrap.state0 {height:702px;top:-150px;}
+#form_wrap.state0 {height:705px;top:-150px;}
 #form_wrap.state0 form {height:530px;}
-#form_wrap.state1 {height:728px;top:-150px;}
+#form_wrap.state1 {height:735px;top:-150px;}
 #form_wrap.state1 form {height:588px;}
-#form_wrap.state2 {height:754px;top:-150px;}
+#form_wrap.state2 {height:765px;top:-150px;}
 #form_wrap.state2 form {height:623px;}
-#form_wrap.state3 {height:780px;top:-150px;}
+#form_wrap.state3 {height:795px;top:-150px;}
 #form_wrap.state3 form {height:658px;}
-#form_wrap.state4 {height:806px;top:-150px;}
+#form_wrap.state4 {height:825px;top:-150px;}
 #form_wrap.state4 form {height:693px;}
-#form_wrap.state5 {height:832px;top:-150px;}
+#form_wrap.state5 {height:855px;top:-150px;}
 #form_wrap.state5 form {height:693px;}
-#form_wrap.state6 {height:858px;top:-150px;}
+#form_wrap.state6 {height:885px;top:-150px;}
 #form_wrap.state6 form {height:693px;}
-#form_wrap.state7 {height:884px;top:-150px;}
+#form_wrap.state7 {height:915px;top:-150px;}
 #form_wrap.state7 form {height:693px;}
-#form_wrap.state8 {height:910px;top:-150px;}
+#form_wrap.state8 {height:945px;top:-150px;}
 #form_wrap.state8 form {height:693px;}
-#form_wrap.state9 {height: 936px;top:-150px;}
+#form_wrap.state9 {height: 975px;top:-150px;}
 #form_wrap.state9 form {height:693px;}
-#form_wrap.state10 {height: 962px;top:-150px;}
+#form_wrap.state10 {height: 1005px;top:-150px;}
 #form_wrap.state10 form {height:693px;}
 
 
@@ -277,8 +295,10 @@ input[type="text"].guest_name {
 			font-size: .6rem;
 			margin: 2px 0;
 		}
-		label.email {
+		label {
 			font-size: .6rem;
+		}
+		label.email {
 			width: 50px;
 		}
 		label.form_button {
@@ -286,22 +306,26 @@ input[type="text"].guest_name {
 			width: 30px;
 		}
 		label.guest_name {
-			font-size: .6rem;
-			margin: 5px 3px 0 0;
+			margin: 5px 0 0 5px;
 			width: 25px;
 		}
+		label.guest_label {
+			width: 37px;
+			margin-left: 0;
+		}
 		label.guest_name_lg {
-			font-size: .6rem;
 			margin: 5px 3px 0 0;
 			width: 60px;
 		}
 		label.name {
-			font-size: .6rem;
 			min-width: 105px;
 		}
 		input.guest_name {
-		 width: 75px;
-		 margin-right: 10px;
+			width: 65px;
+			margin-right: 0px;
+		}
+		input[type=text] {
+			margin-bottom: 0px;
 		}
 	}
 	
@@ -328,7 +352,7 @@ input[type="text"].guest_name {
 	#form_wrap.state3 form {height:658px;}
 	#form_wrap.state4 {height:566px;top:-100px;}
 	#form_wrap.state4 form {height:693px;}
-	#form_wrap.state5 {height:6586px;top:-100px;}
+	#form_wrap.state5 {height:586px;top:-100px;}
 	#form_wrap.state5 form {height:693px;}
 	#form_wrap.state6 {height:606px;top:-100px;}
 	#form_wrap.state6 form {height:693px;}

@@ -22,7 +22,6 @@ if ($_SESSION['counter'] == 1) {
 	$_SESSION['errors_2'] = array();
 	$_SESSION['newRsvp'] = true;
 	$_SESSION['temp'] = array();
-	$_SESSION['temp'] = array();
 } 
 
 ?>

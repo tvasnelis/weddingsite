@@ -127,11 +127,13 @@ function initMap() {
     }
 
     function addMarkerWithTimeout(index) {
+        var image = '/timandkimberly/images/map_icon.png';
       window.setTimeout(function() {
         markers.push(new google.maps.Marker({
           position: map_locations[index].position,
           title: map_locations[index].name,
           map: map,
+          icon: image,
           animation: google.maps.Animation.DROP
         }));
       }, index*300);
