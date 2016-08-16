@@ -1,9 +1,20 @@
 /*
 * Custom variables
 */
+
+@font-face {
+    font-family: Parisienne;
+    src: url(../fonts/Parisienne/Parisienne-Regular.eot); /* EOT file for IE */
+}
+
+@font-face {
+    font-family: Parisienne;
+    src: url(../fonts/Parisienne/Parisienne-Regular.ttf); /* TTF file for CSS3 browsers */
+}
+
 $main-font: 'Lato', sans-serif;
 $sub-font: 'Montserrat', sans-serif;
-$fancy-font: 'Sacramento', cursive;
+$fancy-font: 'Parisienne', cursive;
 $font-size: 16px;
  
 $black: #000;
@@ -18,7 +29,7 @@ $red: #51232d;
  
 $padding: 10px;
 $margin: 10px;
-$head-height: 6.5em;
+$head-height: 150px;
 
 /* Mixin */
 @mixin vertical-align($position: relative) {
@@ -29,9 +40,9 @@ $head-height: 6.5em;
   transform: translateY(-50%);
 }
  
-/*
-* Override Bootstrap variables
-*/
+/******************************** 
+Override Bootstrap variables
+********************************/
 $font-family-sans-serif: $main-font;
  
 @import 'bootstrap';
@@ -48,213 +59,15 @@ html {
   box-sizing: inherit;
  }
 
- 
-body {
-	margin: 0px;
-    color: $grey;
-    font-size: $font-size;  
-}
 
-h3.const {
-    text-align: center;
-    font-size: .8rem;
-    padding: 50px;
-}
-
-a {
-    color: $green;
-    text-decoration: none;
-}
-a:visited {
-    color: $green;
-    text-decoration: none;
-}
-a:active {
-    color: $green;
-    text-decoration: none;
-}
-a:hover {
-    color: $black;
-    text-decoration: none;
-}
-
-header {
-	width: 100%;
-	min-width: 320px;
-	position: fixed;
-    top: 0px;
-    z-index: 2000;
-    max-height: $head-height;
-    height: $head-height;
-    background: white;
-    margin: 0px auto;
-
-    .head_title {
-        text-align: center;
-        width: 100%;
-        color: black;
-        h1 {
-            margin: 5px auto 0;
-            font-size: 1.5rem;
-            font-weight: 600;
-            a {
-                text-decoration: none;
-                color: black;
-            }
-        }
-        h2 {
-            margin: 0px auto;
-            font-size: .8rem;
-        }
-        .accent{
-           color: $green;
-        }
-        @media screen and (min-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-            h2 {
-                font-size: .75rem;
-            }
-        }
-    }
-
-    nav {
-        text-align: center;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        margin: auto;
-        ul {
-            margin: 0;
-            padding:0;
-        }
-        li {
-            list-style: none;
-            display: inline-block;
-            margin: 0 auto;
-            font-size: .6rem;
-            a {
-                display: block;
-                color: black;
-                padding: 3px 6px 3px;
-            }
-        }
-        li.on a {
-            text-decoration: underline;
-            color: black;
-        }
-        li a:hover {
-            text-decoration: underline;
-            color: black;
-        }
-        li a:visited {
-            text-decoration: none;
-            color: black;
-        }
-
-        @media screen and (min-width: 480px) {
-            li {
-                font-size: .8rem;
-                a {
-                    padding: 3px 10px 3px;
-                }
-            } 
-        }
-        
-    }
-}
-
-#content {
-    display:block;
-	width: 100%;
-    margin: $head-height auto 0;
-}
+/******************************** 
+Color
+********************************/
 
 
-#frame-doors {
-	width: 100%;
-	min-width: 320px;
-	height: calc(100% - $head-height);
-	overflow: hidden;
-}
-
-#frame-doors img{
-	position: relative;
-	width: 600px;
-    height: calc(100% - $head-height);
-	left: 50%;
-	margin-left: -300px;
-    z-index: -1;
-
-	@media screen and (min-width: 600px) {
-        top: auto;
-        left: auto;
-        margin: 0;
-        width: 100%;
-        height: calc(100% - $head-height);
-    }
-}
-
-#frame-map {
-    width: 100%;
-    height: 400px;
-    margin: 0;
-}
-
-#map {
-    position: relative;
-    width: 100%;
-    min-width: 320px;
-    height: 400px;
-    box-shadow: 0 0 10px black;
-}
-
-.section.travel {
-    width: 60%;
-    padding: 10px;
-    margin: auto;
-}
-.section.travel h3 {
-    font-size: 0.8rem;
-    font-weight: 800;
-    color: black;
-}
-.section.travel p {
-    font-size: 0.8rem;
-    line-height: 1rem;
-    color: black;
-    padding: 5px 0;
-}
-.section.travel ul {
-    list-style-type: none;
-    padding: 5px 0;
-    margin: 0;
-}
-.section.travel a {
-    font-size: 0.8rem;
-}
-
-.section.travel a.block {
-    display: block;
-}
-
-@media (max-width: 480px) {
-    .section.travel {
-        width: 90%;
-    }
-
-}
-
-
-/*
-* Color
-*/
-
-
-/*
-* Font Definition
-*/
+/******************************** 
+Font Definition
+********************************/
 
 .main-font {
     font-family: $main-font;
@@ -268,6 +81,188 @@ header {
     font-family: $fancy-font;
 }
 
+
+/******************************** 
+Header/Nav
+********************************/
+
+.jumbotron {
+    background-color: $white;
+    padding: 10px 0;
+    margin: 0;
+    height: $head-height;
+    h1, h2, h3, a {
+        color: black;
+        text-decoration: none !important;
+    }
+    h1 {
+        font-size: 2rem;
+        font-weight: 600;
+        margin: 0 0 20px 0;
+    }
+    h2 {
+        font-size: 0.8rem;
+        margin: 0;
+    }
+    span.accent {
+        color: $green;
+    }
+    margin-bottom: 50PX;
+    
+}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: $green;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 9px !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    position: absolute;
+    top: 120px;
+    min-height: 30px;
+    .navbar-nav li a {
+        padding: 5px 15px 5px;
+        margin: auto;
+        color: $white;
+    }
+}
+
+button.navbar-toggle {
+    float: none;
+    width: 100%;
+    padding: 5px;
+    margin: auto !important;
+    border: none;
+    background-color: $green;
+}
+
+.navbar-default {
+    .navbar-toggle {
+    &:hover,
+    &:focus {
+      background-color: $green;
+    }
+    }
+}
+
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+}
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+.navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: $mediumgrey !important;
+    background-color: $green !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+
+
+.sticky {
+    position:fixed;
+    top:0;
+    border-bottom: solid 1px $white;
+}
+
+.menu-padding {
+    padding-top: 30px;
+}
+
+
+/******************************** 
+Wedding Panel
+********************************/
+
+.thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+}
+
+.thumbnail img {
+    width: 90%;
+    height: 100%;
+    margin-bottom: 10px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: rgba(0,0,0,0.8) 0px 0 15px;
+    -moz-box-shadow: rgba(0,0,0,0.8) 0 0 15px;
+    box-shadow: rgba(0,0,0,0.8) 0 0 15px;
+}
+
+#wedding {
+    p {
+        margin: 0;
+    }
+    a {
+        color: $green;
+        text-decoration: none !important;
+    }
+}
+
+/******************************** 
+Travel Panel
+********************************/
+
+#travel {
+    background-color: $green;
+    color: $white;
+    .glyphicon {
+        font-size: 50px;
+    }
+    a.icon {
+        color: $white;
+        text-decoration: none !important;
+    }
+    p.icon {
+        margin: 10px;
+    }
+    .travel_item {
+        padding: 20px;
+    }
+    .col-sm-6:first-child {
+        border-right: solid 1px $white;
+    }
+}
+
+/******************************** 
+Stay Panel
+********************************/
+
+#stay {
+    margin: 40px 0;
+    a {
+        text-decoration: none !important;
+
+    }
+    img {
+        width: 80%;
+        height: 100%;
+        margin-bottom: 10px;
+        -webkit-border-radius: 2%;
+        -moz-border-radius: 2%;
+        border-radius: 2%;
+        -webkit-box-shadow: rgba(0,0,0,0.8) 0px 0 15px;
+        -moz-box-shadow: rgba(0,0,0,0.8) 0 0 15px;
+        box-shadow: rgba(0,0,0,0.8) 0 0 15px;
+    }
+
+
+}
 
 
 
