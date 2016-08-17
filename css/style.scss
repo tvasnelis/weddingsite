@@ -26,6 +26,7 @@ $blue: #bbc9e4;
 $green: #93c2b2;
 $tan: #d1c8b7;
 $red: #51232d;
+$yellow: #d1c8b7;
  
 $padding: 10px;
 $margin: 10px;
@@ -63,7 +64,32 @@ html {
 /******************************** 
 Color
 ********************************/
+.white-text {
+    color: $white !important;
+    a {
+        color: $white;
+    }
+}
 
+.color-red {
+    color: $red;
+}
+
+.bg-green {
+    background-color: $green;
+}
+
+.bg-red {
+    background-color: $red;
+}
+
+.bg-white {
+    background-color: $white;
+}
+
+.bg-yellow {
+    background-color: $yellow;
+}
 
 /******************************** 
 Font Definition
@@ -79,6 +105,10 @@ Font Definition
 
 .fancy-font {
     font-family: $fancy-font;
+}
+
+.section-head {
+    font-size: 1rem;
 }
 
 
@@ -106,9 +136,7 @@ Header/Nav
     }
     span.accent {
         color: $green;
-    }
-    margin-bottom: 50PX;
-    
+    }    
 }
 
 .navbar {
@@ -139,15 +167,6 @@ button.navbar-toggle {
     background-color: $green;
 }
 
-.navbar-default {
-    .navbar-toggle {
-    &:hover,
-    &:focus {
-      background-color: $green;
-    }
-    }
-}
-
 .navbar .navbar-nav {
     display: inline-block;
     float: none;
@@ -156,25 +175,29 @@ button.navbar-toggle {
     text-align: center;
 }
 
-.navbar li a, .navbar .navbar-brand {
-    color: #fff !important;
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: $green;
+    color: $white;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: $green;
+    color: $mediumgrey;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:hover {
+    background-color: $green;
+    color: $mediumgrey;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:active {
+    background-color: $green;
+    color: $mediumgrey;
 }
 
-.navbar-nav li a:hover, .navbar-nav li.active a {
-    color: $mediumgrey !important;
-    background-color: $green !important;
-}
-
-.navbar-default .navbar-toggle {
-    border-color: transparent;
-    color: #fff !important;
-}
 
 
 .sticky {
     position:fixed;
     top:0;
-    border-bottom: solid 1px $white;
+    border-bottom: solid 1px $mediumgrey;
 }
 
 .menu-padding {
@@ -186,25 +209,8 @@ button.navbar-toggle {
 Wedding Panel
 ********************************/
 
-.thumbnail {
-    padding: 0 0 15px 0;
-    border: none;
-    border-radius: 0;
-}
-
-.thumbnail img {
-    width: 90%;
-    height: 100%;
-    margin-bottom: 10px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    -webkit-box-shadow: rgba(0,0,0,0.8) 0px 0 15px;
-    -moz-box-shadow: rgba(0,0,0,0.8) 0 0 15px;
-    box-shadow: rgba(0,0,0,0.8) 0 0 15px;
-}
-
 #wedding {
+    padding: 50px;
     p {
         margin: 0;
     }
@@ -214,24 +220,51 @@ Wedding Panel
     }
 }
 
+.thumbnail {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+}
+
+.thumbnail img {
+    width: 90%;
+    height: 100%;
+    margin-bottom: 20px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: rgba(0,0,0,0.8) 0px 0 15px;
+    -moz-box-shadow: rgba(0,0,0,0.8) 0 0 15px;
+    box-shadow: rgba(0,0,0,0.8) 0 0 15px;
+}
+
+
+
 /******************************** 
 Travel Panel
 ********************************/
 
-#travel {
-    background-color: $green;
-    color: $white;
+
+#travel {  
+    padding: 20px 0;  
     .glyphicon {
         font-size: 50px;
     }
-    a.icon {
-        color: $white;
-        text-decoration: none !important;
+    p {
+        text-align: left;
+        padding: 0 60px;
     }
+    a.icon {
+        text-decoration: none !important;
+        text-align: center;
+    }
+   
     p.icon {
         margin: 10px;
+        text-align: center;
     }
-    .travel_item {
+    
+    .travel-item {
         padding: 20px;
     }
     .col-sm-6:first-child {
@@ -260,10 +293,31 @@ Stay Panel
         -moz-box-shadow: rgba(0,0,0,0.8) 0 0 15px;
         box-shadow: rgba(0,0,0,0.8) 0 0 15px;
     }
+    h3 {
+        margin-top: 0;
+    }
 
 
 }
 
 
+/******************************** 
+RSVP Panel
+********************************/
 
+#rsvp {
+    min-height: 300px; 
+}
 
+.error-border {
+    border: 1px solid red;
+}
+
+/******************************** 
+Footer
+********************************/
+footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: $green;
+}
