@@ -1,6 +1,4 @@
 <?php
-require(ROOT_PATH . "inc/guest.php");
-require(ROOT_PATH . "inc/session.class.php");
 
 // Start Session
 //SessionManager::sessionStart('InstallationName');
@@ -16,12 +14,7 @@ if(isset($_SESSION['counter'])) {
 
 // initialize session variables
 if ($_SESSION['counter'] == 1) {
-	$_SESSION['user'] = new Guest;
-	$_SESSION['group'] = array();
-	$_SESSION['errors_1'] = array();
-	$_SESSION['errors_2'] = array();
-	$_SESSION['newRsvp'] = true;
-	$_SESSION['temp'] = array();
+	$_SESSION['guests'] = array();
 } 
 
 ?>

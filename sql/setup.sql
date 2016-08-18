@@ -130,7 +130,6 @@ INSERT INTO Guests (FirstName, LastName, GroupId, Guest_CatId, PlusOne) VALUES (
 INSERT INTO Guests (FirstName, LastName, GroupId, Guest_CatId, PlusOne) VALUES ('Fredrick','Mamlqvist ',75,3,NULL);
 INSERT INTO Guests (FirstName, LastName, GroupId, Guest_CatId, PlusOne) VALUES ('Ana','Mamlqvist ',75,3,NULL);
 INSERT INTO Guests (FirstName, LastName, GroupId, Guest_CatId, PlusOne) VALUES ('Robin','Hurley',76,3,NULL);
-INSERT INTO Guests (FirstName, LastName, GroupId, Guest_CatId, PlusOne) VALUES ('Plus','One',76,3,NULL);
 INSERT INTO Guests (FirstName, LastName, GroupId, Guest_CatId, PlusOne) VALUES ('Michael','Kehoe ',77,3,NULL);
 INSERT INTO Guests (FirstName, LastName, GroupId, Guest_CatId, PlusOne) VALUES ('Paula','Kehoe ',77,3,NULL);
 INSERT INTO Guests (FirstName, LastName, GroupId, Guest_CatId, PlusOne) VALUES ('James','Fitch',78,3,NULL);

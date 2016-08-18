@@ -45,21 +45,12 @@ $guests[]=$guest2;
 email_rsvp($user, $group, $guests);
 */
 
-function email_rsvp($user, $group, $guests) {
+function email_rsvp($guests) {
 
 	require(ROOT_PATH . "inc/phpmailer/PHPMailerAutoload.php");
 
 	$guest_att = 0;
-	$guest_cnt = 1;
-	if ($user->isAttending()) {
-		$guest_att += 1;
-	}
-	foreach ($group as $guest) {
-		$guest_cnt += 1;
-		if ($guest->isAttending()) {
-			$guest_att += 1;
-		}
-	}
+	$guest_cnt = 0;
 	foreach ($guests as $guest) {
 		$guest_cnt += 1;
 		if ($guest->isAttending()) {
@@ -102,25 +93,17 @@ function email_rsvp($user, $group, $guests) {
 			<tr><td>
 				<table align='center' valign='top' width='60%' border='0' cellpadding='15px' cellspacing='0' bgcolor='#fff'; font-family:Montserrat, Helvetica, sans-serif; style='width:60%; max-width:600px' class='wrapper'>	
 					<tr><td>
-						<p>Dear " . $user->FirstName . ", </p>";
+						<p>Dear " . $guests[0]->FirstName . ", </p>";
 						if ($guest_status == 'all' OR $guest_status == 'some') {
 							$message .= "<p>We are so happy you are able to join us in New Orleans!  Please confirm the information below.";				
 							$message .= "</p>";
 							$message .= "<table align='left' width='50%''><th>Attending</th>";
-							if ($user->isAttending()) {$message .= "<tr align='center'><td>" . $user->FirstName . " " . $user->LastName . "</td></tr>";}
-							foreach ($group as $guest) {
-								if ($guest->isAttending()) {$message .= "<tr align='center'><td>" . $guest->FirstName . " " . $guest->LastName . "</td></tr>";}
-							}
 							foreach ($guests as $guest) {
 								if ($guest->isAttending()) {$message .= "<tr align='center'><td>" . $guest->FirstName . " " . $guest->LastName . "</td></tr>";}
 							}
 							$message .= "</table>";
 							if ($guest_status == 'some') {
 								$message .= "<table align='left' width='50%''><th>Not Attending</th>";
-								if (!$user->isAttending()) {$message .= "<tr align='center'><td>" . $user->FirstName . " " . $user->LastName . "/td></tr>";}
-								foreach ($group as $guest) {
-									if (!$guest->isAttending()) {$message .= "<tr align='center'><td>" . $guest->FirstName . " " . $guest->LastName . "</td></tr>";}
-								}
 								foreach ($guests as $guest) {
 									if (!$guest->isAttending()) {$message .= "<tr align='center'><td>" . $guest->FirstName . " " . $guest->LastName . "</td></tr>";}
 								}
@@ -140,7 +123,6 @@ function email_rsvp($user, $group, $guests) {
 
 		";
 
-
 	//echo $message;
 
 	// define admin email address
@@ -150,7 +132,7 @@ function email_rsvp($user, $group, $guests) {
 	$mail_admin = new PHPMailer;
 
 	// verify email address 
-	if (!$mail_admin->ValidateAddress($user->Email)) {
+	if (!$mail_admin->ValidateAddress($guests[0]->Email)) {
 		echo "invalid email address.";
 		exit;
 	}
@@ -166,21 +148,7 @@ function email_rsvp($user, $group, $guests) {
 
 	// setup email 
 	$body_admin = "The following user has provided an RSVP via timandkimberly.com<br/>";
-	$body_admin .= $user->Email . "<br/>";
-	$body_admin .= "Name: " . $user->FirstName . " " . $user->LastName;
-	if ($user->Attending == 1) {
-			$body_admin .= " Attending<br/>";
-		} else {
-			$body_admin .= " Not Attending<br/>";
-		}
-	foreach ($group as $guest) {
-		$body_admin .= "Name: " . $guest->FirstName . " " . $guest->LastName;
-		if ($guest->Attending == 1) {
-			$body_admin .= " Attending<br/>";
-		} else {
-			$body_admin .= " Not Attending<br/>";
-		}
-	}
+	$body_admin .= "Email:" . $guests[0]->Email . "<br/>";
 	foreach ($guests as $guest) {
 		$body_admin .= "Name: " . $guest->FirstName . " " . $guest->LastName;
 		if ($guest->Attending == 1) {
@@ -192,7 +160,7 @@ function email_rsvp($user, $group, $guests) {
 	
 	$mail_admin->setFrom($email_admin, "Tim and Kimberly");
 	$mail_admin->addAddress($email_admin, "Tim and Kimberly"); // Add a recipient
-	$mail_admin->Subject = 'Wedding RSVP from ' . $user->FirstName . " " . $user->LastName;
+	$mail_admin->Subject = 'Wedding RSVP from ' . $guests[0]->FirstName . " " . $guests[0]->LastName;
 	$mail_admin->MsgHTML($body_admin);
 
 	// setup email to user 
@@ -208,12 +176,7 @@ function email_rsvp($user, $group, $guests) {
 	$mail_user->Password = "tkPass775";
 
 	$mail_user->setFrom($email_admin, "Tim and Kimberly");
-	$mail_user->addAddress($user->Email, $user->FirstName . " " . $user->LastName); // Add a recipient
-	foreach ($group as $guest) {
-		if (!empty($guest->Email)) {
-			$mail_user->addCC($guest->Email, $guest->FirstName . " " . $guest->LastName); // Add a recipient
-		}
-	}
+	$mail_user->addAddress($guests[0]->Email, $guests[0]->FirstName . " " . $guests[0]->LastName); // Add a recipient
 	foreach ($guests as $guest) {
 		if (!empty($guest->Email)) {
 			$mail_user->addCC($guest->Email, $guest->FirstName . " " . $guest->LastName); // Add a recipient

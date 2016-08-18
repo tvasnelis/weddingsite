@@ -60,6 +60,10 @@ html {
   box-sizing: inherit;
  }
 
+ .body {
+    min-width : 380px;
+ }
+
 
 /********************************
 Color
@@ -192,6 +196,10 @@ button.navbar-toggle {
     color: $mediumgrey;
 }
 
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: $green;
+}
+
 
 
 .sticky {
@@ -307,6 +315,7 @@ RSVP Panel
 
 #rsvp {
     min-height: 300px;
+    padding-top: 13px;
 }
 
 .error-border {
@@ -343,13 +352,24 @@ label.form_button {
 }
 
 .form_body label.name {
-  text-align: left;
+    text-align: left;
 	width: 100px;
 	font-weight: 400;
 }
 
+.form_body label.guest_label {
+    width: 120px;
+    font-weight: 400;
+}
 
-
+/********************************
+RSVP Panel
+********************************/
+#map {
+    width: 100%;
+    height: 400px;
+    box-shadow: 0 0 10px black;
+}
 
 /********************************
 Footer
