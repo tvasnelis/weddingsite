@@ -5,6 +5,6 @@
 		$db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		$db->exec("SET NAMES 'utf8'");
 	} catch (Exception $e) {
-		error_message("Database connection error. Please try again later.");
+		echo "Database connection error. Please try again later.";
 		exit;
 	}

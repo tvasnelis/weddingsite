@@ -1,13 +1,13 @@
-<?php 
+<?php
 
 $pageTitle = "Tim & Kimberly";
 $section = null;
 
+include("rsvp_control.php");
 include("inc/header.php");
 include("wedding.php");
-include("travel.php"); 
+include("travel.php");
 include("stay.php");
-include("rsvp.php");
+include("rsvp_output.php");
 include("footer.php");
 ?>
-		

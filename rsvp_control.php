@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_1'])) {
 
     // if no data found redirect to invite not found
 		if (empty($guests)) {
-		    header("location:#rsvp?status=invite_notfound");
+		    header("location:?status=invite_notfound#rsvp");
 		    exit;
 		}
 
@@ -126,42 +126,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_1'])) {
 }
 
 ?>
-
-
-
-<div id="rsvp" class="container-fluid text-center sub-font bg-yellow" href="#rsvp">
-  <div class="container">
-    <h3 class="section-head">RSVP</h3>
-    <?php
-    if (!empty($errors)) {
-      foreach ($errors as $error) {
-        echo "<p class='error sub-font'>" . $error . "</p><br>";
-      }
-    }
-    ?>
-    <div id='form_wrap'>
-        <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] . "#rsvp"; ?>" id="rsvp_form">
-          <div class="form_header">
-          </div>
-          <div class="form_body">
-              <label for="user_firstname" class="">First Name: </label>
-              <input type="text" name="user_firstname" id="user_firstname" value="<?php if (isset($user_firstname)) {echo htmlspecialchars($user_firstname);}?>" class="<?php if (isset($errors['user_firstname'])) {echo 'error-border';} ?>" />
-              <label for="user_lastname" class="">Last Name: </label>
-              <input type="text" name="user_lastname" id="user_lastname" value="<?php if (isset($user_lastname)) {echo htmlspecialchars($user_lastname);}?>" class="<?php if (isset($errors['user_lastname'])) {echo 'error-border';} ?>"/>
-              <textarea style="display:none" id="address_1" name="address_1"></textarea>
-              <p  style="display:none">Please leave this field blank.</p>
-              <input type="submit" name ="submit_1" value="Find Invitation" />
-          </div>
-        </form>
-    </div>
-    </div>
-</div>
-
-</body>
-</html>
-
-
-<pre> <?php echo "Errors:  "?></pre>
-<pre> <?php echo var_dump($errors); ?> </pre>
-<pre> <?php echo "Guests:  "?></pre>
-<pre> <?php echo var_dump($guests); ?> </pre>
