@@ -9,6 +9,7 @@ include("wedding.php");
 include("travel.php");
 include("map.php");
 include("stay.php");
+//include("slideshow.php");
 include("rsvp_output.php");
 include("footer.php");
 ?>

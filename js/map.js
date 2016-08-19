@@ -1,20 +1,20 @@
 var map_locations = [{
     "name": "New Orleans Pharmacy Museum",
-    "description": "Ceremony Venue",
+    "description": "New Orleans Pharmacy Museum - Ceremony Venue",
     "position": {
             "lat": 29.956051,
             "lng": -90.064935
     }
 }, {
     "name": "Napolean House",
-    "description": "Reception Venue",
+    "description": "Napolean House - Reception Venue",
     "position": {
             "lat": 29.955879,
             "lng": -90.065057
     }
 }, {
     "name": "Cafe Amelie",
-    "description": "Rehersal Dinner Venue",
+    "description": "***",
     "position": {
             "lat": 29.959763,
             "lng": -90.062985
@@ -55,6 +55,10 @@ function initMap() {
 
     var mapDiv = document.getElementById('map');        
     var map = new google.maps.Map(mapDiv, mapOptions);
+
+    var infowindow =  new google.maps.InfoWindow({
+        content: ''
+    });
 
     // maintain center on window resize
     google.maps.event.addDomListener(window, "resize", function() {
@@ -127,15 +131,20 @@ function initMap() {
     }
 
     function addMarkerWithTimeout(index) {
-        var image = '/timandkimberly/images/map_icon.png';
+        var image = '/images/map_icon.png';
       window.setTimeout(function() {
-        markers.push(new google.maps.Marker({
+        var marker = new google.maps.Marker({
           position: map_locations[index].position,
           title: map_locations[index].name,
           map: map,
           icon: image,
           animation: google.maps.Animation.DROP
-        }));
+        })
+
+        // add an event listener for this marker
+        bindInfoWindow(marker, map, infowindow, "<p>" + map_locations[index].description + "</p>");  
+
+        markers.push(marker);    
       }, index*300);
     }
 
@@ -153,6 +162,13 @@ function initMap() {
         marker.setAnimation(google.maps.Animation.BOUNCE);
       }
     }
+
+    function bindInfoWindow(marker, map, infowindow, html) { 
+    google.maps.event.addListener(marker, 'click', function() { 
+        infowindow.setContent(html); 
+        infowindow.open(map, marker); 
+    }); 
+} 
 
     drop();
 

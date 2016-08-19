@@ -7313,8 +7313,8 @@ html {
   box-sizing: inherit;
 }
 
-.body {
-  min-width: 380px;
+body {
+  min-width: 320px;
 }
 
 /********************************
@@ -7344,7 +7344,15 @@ Color
 }
 
 .bg-yellow {
-  background-color: #d1c8b7;
+  background-color: #d8d2a5;
+}
+
+.bg-mediumgrey {
+  background-color: #9b9b9b;
+}
+
+a:hover {
+  color: #9b9b9b;
 }
 
 /********************************
@@ -7363,7 +7371,8 @@ Font Definition
 }
 
 .section-head {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  margin-top: 0;
 }
 
 /********************************
@@ -7431,7 +7440,7 @@ button.navbar-toggle {
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   background-color: #93c2b2;
-  color: #FFF;
+  color: #9b9b9b;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
@@ -7467,7 +7476,7 @@ button.navbar-toggle {
 Wedding Panel
 ********************************/
 #wedding {
-  padding: 50px;
+  padding: 40px 0;
 }
 #wedding p {
   margin: 0;
@@ -7479,44 +7488,64 @@ Wedding Panel
 
 .thumbnail {
   padding: 0;
+  margin-bottom: 40px;
   border: none;
   border-radius: 0;
 }
 
 .thumbnail img {
-  width: 90%;
-  height: 90%;
+  width: 80%;
+  height: 80%;
   margin-bottom: 20px;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.8) 0 0 15px;
 }
 
+@media screen and (min-width: 768px) {
+  .thumbnail img {
+    width: 90%;
+    height: 90%;
+  }
+}
 /********************************
 Travel Panel
 ********************************/
-#travel {
-  padding: 20px 0;
+#travel .travel-section {
+  padding: 40px 15px;
 }
 #travel .glyphicon {
   font-size: 50px;
 }
 #travel p {
   text-align: left;
-  padding: 0 60px;
 }
 #travel a.icon {
   text-decoration: none !important;
   text-align: center;
 }
 #travel p.icon {
+  padding: 0;
   margin: 10px;
   text-align: center;
 }
 #travel .travel-item {
-  padding: 20px;
+  padding: 0;
+  margin: 20px 0;
 }
 #travel .col-sm-6:first-child {
-  border-right: solid 1px #FFF;
+  border-bottom: solid 1px #FFF;
+}
+@media screen and (min-width: 768px) {
+  #travel {
+    padding: 40px 0;
+  }
+  #travel .col-sm-6:first-child {
+    border-right: solid 1px #FFF;
+    border-bottom: none;
+  }
+  #travel .travel-item {
+    padding: 0 40px;
+  }
 }
 
 /********************************
@@ -7524,6 +7553,11 @@ Stay Panel
 ********************************/
 #stay {
   margin: 40px 0;
+}
+#stay .stay-header {
+  height: 400px;
+  text-align: left;
+  vertical-align: middle;
 }
 #stay a {
   text-decoration: none !important;
@@ -7536,7 +7570,42 @@ Stay Panel
   box-shadow: rgba(0, 0, 0, 0.8) 0 0 15px;
 }
 #stay h3 {
-  margin-top: 0;
+  margin: 0;
+  line-height: 400px;
+}
+#stay h4 {
+  margin: 0;
+}
+#stay a {
+  color: #93c2b2;
+}
+#stay .stay-location {
+  height: 200px;
+}
+#stay .stay-location .glyphicon {
+  font-size: 200px;
+  padding: 10px;
+}
+#stay .stay-location span.glyphicon-arrow-left, #stay span.glyphicon-arrow-right {
+  display: none;
+}
+#stay .stay-location span.glyphicon-arrow-up, #stay span.glyphicon-arrow-down {
+  display: block;
+}
+@media screen and (min-width: 768px) {
+  #stay .stay-header {
+    height: auto;
+    text-align: center;
+  }
+  #stay h3 {
+    line-height: normal;
+  }
+  #stay .stay-location span.glyphicon-arrow-up, #stay span.glyphicon-arrow-down {
+    display: none;
+  }
+  #stay .stay-location span.glyphicon-arrow-left, #stay span.glyphicon-arrow-right {
+    display: block;
+  }
 }
 
 /********************************
@@ -7544,67 +7613,187 @@ RSVP Panel
 ********************************/
 #rsvp {
   min-height: 300px;
-  padding-top: 13px;
+  padding: 40px 10px;
+  box-shadow: rgba(0, 0, 0, 0.6) 0 0 15px;
 }
-
-.error-border {
+#rsvp .form_body input[type=text].error-border {
   border: 1px solid red;
 }
-
-label.form_button {
+#rsvp .error-border {
+  border: 1px solid red;
+}
+#rsvp label.form_button {
   display: inline-block;
   width: 45px;
   padding: 4px 0;
-  margin: 0 3px;
+  margin: 4px 4px;
   font-size: .8rem;
   font-weight: 400;
   background-color: #eeeeee;
   text-align: center;
-  border-radius: 2px 2px;
+  border-radius: 5px 5px;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.6) 0 0 3px;
 }
-
-.form_body input[type="radio"].att {
+#rsvp label.form_button:hover, #rsvp label.form_button:active {
+  box-shadow: rgba(0, 0, 0, 0.6) 0 0 5px;
+}
+#rsvp .form_body input[type="radio"].att {
   display: none;
 }
-
-.form_body input[type="radio"].family_cnt {
+#rsvp .form_body input[type="radio"].family_cnt {
   display: none;
 }
-
-.form_body input[type="radio"]:checked + label {
+#rsvp .form_body input[type="radio"]:checked + label {
   background-color: #93c2b2;
   text-shadow: none;
+  box-shadow: rgba(0, 0, 0, 0.6) 0 0 5px;
 }
-
-.form_body label.name {
+#rsvp .form_body input[type=text] {
+  border-radius: 5px;
+  background-color: #eeeeee;
+  border: none;
+}
+#rsvp .form_body input[type=text]:focus {
+  background-color: #FFF;
+  outline: none;
+  border: solid 1px #9b9b9b;
+}
+#rsvp input[type="submit"] {
+  padding: 4px 10px;
+  margin: 20px;
+  border: none;
+  background-color: #93c2b2;
+  font-size: .8rem;
+  font-weight: 400;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.6) 0 0 3px;
+}
+#rsvp input[type="submit"]:hover, #rsvp input[type="submit"]:active {
+  box-shadow: rgba(0, 0, 0, 0.6) 0 0 5px;
+}
+#rsvp input[type="submit"]:focus {
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.6) 0 0 3px;
+}
+#rsvp .form_body .form_width {
+  width: 100%;
+  margin: 5px 0;
+}
+#rsvp label.name {
+  width: 40px;
   text-align: left;
-  width: 100px;
+  font-weight: 400;
+  margin-right: 10px;
+}
+#rsvp label.guest_name {
+  width: 155px;
+  text-align: left;
   font-weight: 400;
 }
-
-.form_body label.guest_label {
+#rsvp label.guest_label {
   width: 120px;
   font-weight: 400;
 }
+#rsvp input {
+  height: 26px;
+  padding: 0 5px;
+}
+#rsvp input.name {
+  width: 140px;
+}
+#rsvp input.email {
+  width: 200px;
+  margin: 0 10px;
+}
+#rsvp fieldset.family_guest {
+  width: 280px;
+  margin: 5px auto;
+  border: solid 1px #9b9b9b;
+  border-radius: 3px;
+  padding: 5px;
+}
+#rsvp p.header {
+  margin: 10px 0;
+}
+#rsvp .error {
+  color: red;
+}
+@media screen and (min-width: 768px) {
+  #rsvp {
+    padding: 40px 40px;
+  }
+}
 
 /********************************
-RSVP Panel
+Map Panel
 ********************************/
 #map {
   width: 100%;
   height: 400px;
-  box-shadow: 0 0 10px black;
+  box-shadow: rgba(0, 0, 0, 0.6) 0 0 15px;
+}
+
+/********************************
+Slideshow Panel
+********************************/
+/*
+This is the visible area of you carousel.
+Set a width here to define how much items are visible.
+The width can be either fixed in px or flexible in %.
+Position must be relative!
+*/
+.jcarousel {
+  position: relative;
+  overflow: hidden;
+}
+
+/*
+This is the container of the carousel items.
+You must ensure that the position is relative or absolute and
+that the width is big enough to contain all items.
+*/
+.jcarousel ul {
+  width: 20000em;
+  position: relative;
+  /* Optional, required in this case since it's a <ul> element */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+These are the item elements. jCarousel works best, if the items
+have a fixed width and height (but it's not required).
+*/
+.jcarousel li {
+  /* Required only for block elements like <li>'s */
+  float: left;
+}
+.jcarousel li img {
+  height: 300px;
 }
 
 /********************************
 Footer
 ********************************/
+footer {
+  padding: 10px;
+}
 footer .glyphicon {
   font-size: 20px;
   margin-bottom: 20px;
   color: #93c2b2;
+}
+footer .glyphicon:hover {
+  color: #9b9b9b;
+}
+footer a {
+  text-decoration: none;
+  color: #93c2b2;
+}
+footer a:hover {
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -7,7 +7,6 @@
           <p><strong>Rehearsal/Welcome</strong></p>
           <p>Friday</p>
   				<p>March 24th</p>
-  				</br>
   				<p>More info coming soon!</p>
         </div>
       </div>
@@ -23,7 +22,7 @@
       </div>
       <div class="col-sm-3">
         <div class="thumbnail">
-          <img src="images/door_sq.jpg" alt="Brunch">
+          <img src="images/napoleon.jpg" alt="Brunch">
   				<p><strong>Reception</strong></p>
   				<p>Saturday</p>
     			<p>March 25th</p>
@@ -37,7 +36,6 @@
   				<p><strong>Brunch</strong></p>
   				<p>Sunday</p>
   				<p>March 26th</p>
-  				</br>
   	    <p>More info coming soon!</p>
         </div>
       </div>
