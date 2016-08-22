@@ -7554,42 +7554,34 @@ Stay Panel
 #stay {
   margin: 40px 0;
 }
-#stay .stay-middle {
-  padding: 20px 0px;
-}
 #stay .stay-header {
-  height: 300px;
-  text-align: left;
-  vertical-align: middle;
   padding: 0px;
 }
-#stay .stay-locations {
-  height: 300px;
-}
-#stay .stay-location {
-  height: 100px;
-}
-#stay .stay-icon {
-  line-height: 100px;
-  text-align: center;
-  font-size: 75px;
+#stay .stay-img {
   padding: 0;
 }
-#stay .stay-spacer {
-  height: 100px;
+#stay .stay-location {
+  padding: 0;
 }
-#stay .stay-address {
-  height: 100px;
-}
-#stay .align-left p, #stay .align-left h4 {
+#stay .align-left {
   text-align: left;
+  padding-left: 20px;
 }
-#stay .align-right p, #stay .align-right h4 {
+#stay .align-right {
   text-align: right;
+  padding-right: 20px;
+}
+#stay .row.stay-location.sl_first {
+  margin-bottom: 40px;
+}
+#stay .sm-address {
+  height: 50%;
+}
+#stay h4 {
+  margin: 0;
 }
 #stay h3 {
-  margin: 0;
-  line-height: 300px;
+  margin: 0 0 15px 0;
 }
 #stay p {
   margin: 0;
@@ -7605,9 +7597,6 @@ Stay Panel
   border-radius: 2%;
   box-shadow: rgba(0, 0, 0, 0.8) 0 0 15px;
 }
-#stay h4 {
-  margin: 0;
-}
 #stay a {
   color: #93c2b2;
 }
@@ -7617,10 +7606,29 @@ Stay Panel
 #stay span.glyphicon-arrow-up, #stay span.glyphicon-arrow-down {
   display: block;
 }
+#stay .xs-hide {
+  display: none;
+}
+#stay .stay-location h4, #stay p {
+  font-size: 0.65rem;
+}
+@media screen and (min-width: 400px) {
+  #stay .stay-location h4, #stay p {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (min-width: 500px) {
+  #stay .stay-location h4, #stay p {
+    font-size: 1rem;
+  }
+}
 @media screen and (min-width: 768px) {
   #stay .stay-header {
     height: auto;
     text-align: center;
+  }
+  #stay .stay-location {
+    height: 100%;
   }
   #stay h3 {
     line-height: normal;
@@ -7630,6 +7638,15 @@ Stay Panel
   }
   #stay span.glyphicon-arrow-left, #stay span.glyphicon-arrow-right {
     display: block;
+  }
+  #stay .sm-hide {
+    display: none;
+  }
+  #stay .xs-hide {
+    display: block;
+  }
+  #stay .row.stay-location.sl_first {
+    margin-bottom: 0px;
   }
 }
 

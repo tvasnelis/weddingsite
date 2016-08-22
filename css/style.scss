@@ -297,7 +297,7 @@ Travel Panel
     }
 
     .col-sm-6:first-child {
-            border-bottom: solid 1px $white;
+        border-bottom: solid 1px $white;
     }
 
     @media screen and (min-width: 768px) {
@@ -319,47 +319,42 @@ Stay Panel
 
 #stay {
     margin: 40px 0;
-    .stay-middle {
-        padding: 20px 0px;
-    }
     .stay-header {
-        height: 300px;
-        text-align: left;
-        vertical-align: middle;
         padding: 0px;
     }
-    .stay-locations {
-        height: 300px;
-    }
-    .stay-location {
-        height: 100px;
-    }
-    .stay-icon {
-        line-height: 100px;
-        text-align: center;
-        font-size: 75px;
+    .stay-img {
         padding: 0;
     }
-    .stay-spacer {
-        height: 100px;
-    }
-    .stay-address {
-        height: 100px;  
-    }
-    .align-left p, .align-left h4 {
-            text-align: left;
-        }
-    .align-right p, .align-right h4 {
-        text-align: right;
+    .stay-location {
+        padding: 0;
     }
 
-    h3 {
+    .align-left {
+        text-align: left;
+        padding-left: 20px;
+    }
+    .align-right {
+        text-align: right;
+        padding-right: 20px;  
+    }
+
+    .row.stay-location.sl_first {
+        margin-bottom: 40px;
+    }
+
+    .sm-address {
+        height: 50%;
+    }
+
+    h4 {
         margin: 0;
-        line-height: 300px;
+    }
+    h3 {
+        margin: 0 0 15px 0;;
     }
     
     p {
-    margin: 0;
+        margin: 0;
     }
     a {
         text-decoration: none !important;
@@ -378,16 +373,9 @@ Stay Panel
         box-shadow: rgba(0,0,0,0.8) 0 0 15px;
     }
     
-
-    h4 {
-        margin: 0;
-    }
-
     a {
         color: $green;
     }
-
-  
 
     span.glyphicon-arrow-left, span.glyphicon-arrow-right {
         display: none;
@@ -396,10 +384,34 @@ Stay Panel
         display: block;
     }
 
+    .xs-hide {
+        display: none;
+    }
+
+    .stay-location h4, p {
+        font-size: 0.65rem;
+    }  
+
+    @media screen and (min-width: 400px) {
+        .stay-location h4, p {
+            font-size: 0.9rem;
+        } 
+    }
+
+    @media screen and (min-width: 500px) {
+        .stay-location h4, p {
+            font-size: 1rem;
+        } 
+    }
+
     @media screen and (min-width: 768px) {
         .stay-header {
             height: auto;
             text-align: center;
+        }
+
+        .stay-location {
+            height: 100%;
         }
         h3 {
             line-height: normal;
@@ -409,6 +421,15 @@ Stay Panel
         }
         span.glyphicon-arrow-left, span.glyphicon-arrow-right {
             display: block;
+        }
+        .sm-hide {
+            display: none;
+        } 
+        .xs-hide {
+            display: block;
+        }
+        .row.stay-location.sl_first {
+            margin-bottom: 0px;
         }
     }
 
