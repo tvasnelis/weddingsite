@@ -310,7 +310,7 @@ Travel Panel
             padding: 0 40px;
         }
     }
-    
+
 }
 
 /********************************
@@ -352,25 +352,12 @@ Stay Panel
         color: $green;
     }
 
-    .stay-location {
-        height: 200px;
-        .glyphicon {
-            font-size: 200px;
-            padding: 10px;
-        }
-    }
-
-    
-glyphicon.stay-location {
-        
-    }
-
-    .stay-location span.glyphicon-arrow-left, span.glyphicon-arrow-right {
+    span.glyphicon-arrow-left, span.glyphicon-arrow-right {
         display: none;
     }
-    .stay-location span.glyphicon-arrow-up, span.glyphicon-arrow-down {
-            display: block;
-        }
+    span.glyphicon-arrow-up, span.glyphicon-arrow-down {
+        display: block;
+    }
 
     @media screen and (min-width: 768px) {
         .stay-header {
@@ -380,10 +367,10 @@ glyphicon.stay-location {
         h3 {
             line-height: normal;
         }
-        .stay-location span.glyphicon-arrow-up, span.glyphicon-arrow-down {
+        span.glyphicon-arrow-up, span.glyphicon-arrow-down {
             display: none;
         }
-        .stay-location span.glyphicon-arrow-left, span.glyphicon-arrow-right {
+        span.glyphicon-arrow-left, span.glyphicon-arrow-right {
             display: block;
         }
     }
@@ -407,7 +394,7 @@ RSVP Panel
 
     .error-border {
         border: 1px solid red;
-    }   
+    }
 
     label.form_button {
         display:inline-block;
@@ -424,12 +411,12 @@ RSVP Panel
         &:active{
             -webkit-box-shadow: rgba(0,0,0,0.6) 0px 0 5px;
             -moz-box-shadow: rgba(0,0,0,0.6) 0 0 5px;
-            box-shadow: rgba(0,0,0,0.6) 0 0 5px;  
+            box-shadow: rgba(0,0,0,0.6) 0 0 5px;
         }
         -webkit-box-shadow: rgba(0,0,0,0.6) 0px 0 3px;
         -moz-box-shadow: rgba(0,0,0,0.6) 0 0 3px;
         box-shadow: rgba(0,0,0,0.6) 0 0 3px;
-        
+
     }
 
     .form_body input[type="radio"].att {
@@ -445,7 +432,7 @@ RSVP Panel
         text-shadow: none;
         -webkit-box-shadow: rgba(0,0,0,0.6) 0px 0 5px;
         -moz-box-shadow: rgba(0,0,0,0.6) 0 0 5px;
-        box-shadow: rgba(0,0,0,0.6) 0 0 5px;  
+        box-shadow: rgba(0,0,0,0.6) 0 0 5px;
     }
 
     .form_body input[type=text] {
@@ -470,7 +457,7 @@ RSVP Panel
         box-shadow: rgba(0,0,0,0.6) 0 0 3px;
         &:hover,
         &:active{
-            box-shadow: rgba(0,0,0,0.6) 0 0 5px;   
+            box-shadow: rgba(0,0,0,0.6) 0 0 5px;
         }
         &:focus {
             outline: none;
@@ -483,15 +470,15 @@ RSVP Panel
         width: 100%;
         margin: 5px 0;
     }
-            
-        
+
+
     label.name {
         width: 40px;
         text-align: left;
         font-weight: 400;
-        margin-right: 10px; 
+        margin-right: 10px;
     }
-    
+
     label.guest_name {
         width: 155px;
         text-align: left;
@@ -521,7 +508,6 @@ RSVP Panel
         margin: 5px auto;
         border: solid 1px $mediumgrey;
         border-radius: 3px;
-        
         padding: 5px;
     }
 
@@ -533,12 +519,12 @@ RSVP Panel
      color: red;
     }
 
-    
+
 
 
     @media screen and (min-width: 768px) {
         padding: 40px 40px;
-    }   
+    }
 
 
 }
@@ -598,7 +584,7 @@ have a fixed width and height (but it's not required).
     img {
         height: 300px;
     }
-    
+
 }
 
 
@@ -635,8 +621,3 @@ footer {
         }
     }
 }
-
-
-
-
-
