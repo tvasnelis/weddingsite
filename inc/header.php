@@ -20,7 +20,7 @@
 <body id="weddingSite" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 <div class="jumbotron text-center">
-    <h1 class="fancy-font"><a href="/">Tim<span class="accent"> & </span>Kimberly</a></h1>
+    <h1 class="fancy-font">Tim<span class="accent"> & </span>Kimberly</a></h1>
     <h2 class="sub-font">March 25, 2017</h2>
     <h2 class="sub-font">New Orleans, LA</h2>
 </div>

@@ -1,38 +1,40 @@
 <div id="stay" class="container-fluid text-center sub-font" href="#stay">
   <div class="container-fluid">
-    <div class="row text-center">
+    <div class="row">
 
       <div class="col-sm-4">
         <a href="http://www.hotelmonteleone.com/" target="_blank"><img src="images/montelone.jpg" alt="Hotel Monteleone"></a>
       </div>
 
-      <div class="col-sm-4">
+      <div class="col-sm-4 stay-middle">
         <div class="container-fluid">
-          <div class="row text-center">
+          <div class="row">
 
-            <div class="col-xs-4 stay-header">
+            <div class="col-xs-3 stay-header">
               <h3 class="">Sleep It Off</h3>
             </div>
 
-            <div class="col-xs-8 bg-red">
-                <div class="row text-center">
-                  <div class="col-xs-6 bg-yellow">
+            <div class="col-xs-9 stay-locations">
+                <div class="row stay-location">
+                  <div class="col-xs-2 stay-icon">
                     <span class="glyphicon glyphicon-arrow-left stay-icon"></span>
                     <span class="glyphicon glyphicon-arrow-up stay-icon"></span>
                   </div>
-                  <div class="col-xs-6 bg-mediumgrey">
+                  <div class="col-xs-10 stay-address align-left">
                     <h4><a href="http://www.hotelmonteleone.com/" target="_blank">Hotel Monteleone</a></h4>
                     <p>214 Royal St.</p>
                   </div>
                 </div>
-                <div class="row text-center">
-                  <div class="col-xs-6 bg-mediumgrey">
+                <div class="row stay-spacer">
+                </div>
+                <div class="row stay-location">
+                  <div class="col-xs-9 stay-address align-right">
                     <h4><a href="http://bienvillehouse.com/" target="_blank">Bienville House</a></h4>
                     <p>320 Decatur St.</p>
                   </div>
-                  <div class="col-xs-6 stay-icon bg-yellow">
-                    <span class="glyphicon glyphicon-arrow-right"></span>
-                    <span class="glyphicon glyphicon-arrow-down"></span>
+                  <div class="col-xs-3 stay-icon">
+                    <span class="glyphicon glyphicon-arrow-right stay-icon"></span>
+                    <span class="glyphicon glyphicon-arrow-down stay-icon"></span>
                   </div>
               </div>
             </div>
