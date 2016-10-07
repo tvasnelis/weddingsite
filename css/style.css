@@ -7562,26 +7562,16 @@ Stay Panel
 }
 #stay .stay-location {
   padding: 0;
-}
-#stay .align-left {
-  text-align: left;
-  padding-left: 20px;
-}
-#stay .align-right {
-  text-align: right;
-  padding-right: 20px;
-}
-#stay .row.stay-location.sl_first {
   margin-bottom: 40px;
 }
 #stay .sm-address {
-  height: 50%;
+  padding: 0 0 10px 0;
+}
+#stay h3 {
+  margin: 0 0 20px 0;
 }
 #stay h4 {
   margin: 0;
-}
-#stay h3 {
-  margin: 0 0 15px 0;
 }
 #stay p {
   margin: 0;
@@ -7600,26 +7590,41 @@ Stay Panel
 #stay a {
   color: #93c2b2;
 }
-#stay span.glyphicon-arrow-left, #stay span.glyphicon-arrow-right {
-  display: none;
-}
-#stay span.glyphicon-arrow-up, #stay span.glyphicon-arrow-down {
-  display: block;
-}
 #stay .xs-hide {
   display: none;
 }
-#stay .stay-location h4, #stay p {
+#stay .stay-footer {
+  width: 80%;
+  margin: auto;
+}
+#stay .stay-footer p {
+  font-size: 0.8rem;
+}
+#stay .stay-location h4 {
+  font-size: 0.8rem;
+}
+#stay .stay-location p {
   font-size: 0.65rem;
 }
-@media screen and (min-width: 400px) {
-  #stay .stay-location h4, #stay p {
+#stay span.glyphicon-arrow-left, #stay span.glyphicon-arrow-right {
+  display: block;
+  font-size: 2rem;
+  padding: 5px 0;
+}
+@media screen and (min-width: 414px) {
+  #stay .stay-location h4 {
     font-size: 0.9rem;
   }
+  #stay .stay-location p {
+    font-size: 0.7rem;
+  }
 }
-@media screen and (min-width: 500px) {
-  #stay .stay-location h4, #stay p {
-    font-size: 1rem;
+@media screen and (min-width: 1024px) {
+  #stay .stay-location h4 {
+    font-size: 1.2em;
+  }
+  #stay .stay-location p {
+    font-size: .8rem;
   }
 }
 @media screen and (min-width: 768px) {
@@ -7630,14 +7635,30 @@ Stay Panel
   #stay .stay-location {
     height: 100%;
   }
+  #stay .sm-address {
+    margin: 20px;
+  }
+  #stay .sm-footer {
+    width: 50%;
+  }
   #stay h3 {
     line-height: normal;
+  }
+  #stay h4 {
+    text-align: center;
+    padding: 0;
+  }
+  #stay p {
+    text-align: center;
+    padding: 0;
   }
   #stay span.glyphicon-arrow-up, #stay span.glyphicon-arrow-down {
     display: none;
   }
   #stay span.glyphicon-arrow-left, #stay span.glyphicon-arrow-right {
     display: block;
+    font-size: 2rem;
+    padding: 5px 0;
   }
   #stay .sm-hide {
     display: none;

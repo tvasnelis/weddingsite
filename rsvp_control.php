@@ -131,11 +131,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_1'])) {
 
       // if no data found redirect to invite not found
   		if (empty($_SESSION['guests'])) {
-  		  header('location:?status=invite_notfound#rsvp');
+  		  header('location:invite_notfound#rsvp');
   		  exit;
   		} else {
         $_SESSION['invite_found'] = true;
-        header('location:?status=invite_found#rsvp');
+        header('location:invite_found');
         exit;
       }
 

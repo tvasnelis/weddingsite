@@ -38,6 +38,7 @@
         <li><a href="#travel">TRAVEL</a></li>
         <li><a href="#stay">STAY</a></li>
         <li><a href="#rsvp">RSVP</a></li>
+        <li><a href="https://www.zola.com/registry/tk" target="_blank">REGISTRY</a></li>
       </ul>
     </div>
   </div>

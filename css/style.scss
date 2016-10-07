@@ -327,32 +327,21 @@ Stay Panel
     }
     .stay-location {
         padding: 0;
-    }
-
-    .align-left {
-        text-align: left;
-        padding-left: 20px;
-    }
-    .align-right {
-        text-align: right;
-        padding-right: 20px;  
-    }
-
-    .row.stay-location.sl_first {
         margin-bottom: 40px;
     }
 
     .sm-address {
-        height: 50%;
+        padding: 0 0 10px 0;
     }
 
-    h4 {
-        margin: 0;
-    }
     h3 {
-        margin: 0 0 15px 0;;
+        
+        margin: 0 0 20px 0;
     }
-    
+    h4 {
+        margin: 0;;
+    }
+   
     p {
         margin: 0;
     }
@@ -377,30 +366,49 @@ Stay Panel
         color: $green;
     }
 
-    span.glyphicon-arrow-left, span.glyphicon-arrow-right {
-        display: none;
-    }
-    span.glyphicon-arrow-up, span.glyphicon-arrow-down {
-        display: block;
-    }
-
     .xs-hide {
         display: none;
     }
 
-    .stay-location h4, p {
+    .stay-footer {
+        width: 80%;
+        margin: auto;
+        p {
+            font-size: 0.8rem;
+        }
+        
+    }  
+
+    .stay-location h4 {
+        font-size: 0.8rem;
+    }  
+
+    .stay-location p {
         font-size: 0.65rem;
     }  
 
-    @media screen and (min-width: 400px) {
-        .stay-location h4, p {
+    span.glyphicon-arrow-left, span.glyphicon-arrow-right {
+        display: block;
+        font-size: 2rem;
+        padding: 5px 0;
+    }
+
+
+    @media screen and (min-width: 414px) {
+        .stay-location h4 {
             font-size: 0.9rem;
+        } 
+        .stay-location p {
+            font-size: 0.7rem;
         } 
     }
 
-    @media screen and (min-width: 500px) {
-        .stay-location h4, p {
-            font-size: 1rem;
+    @media screen and (min-width: 1024px) {
+        .stay-location h4 {
+            font-size: 1.2em;
+        } 
+        .stay-location p {
+            font-size: .8rem;
         } 
     }
 
@@ -413,14 +421,30 @@ Stay Panel
         .stay-location {
             height: 100%;
         }
+        .sm-address {
+            margin: 20px;
+        }
+        .sm-footer {
+            width: 50%;
+        }
         h3 {
             line-height: normal;
+        }
+        h4 {
+            text-align: center;
+            padding: 0;
+        }
+        p {
+            text-align: center;
+            padding: 0;
         }
         span.glyphicon-arrow-up, span.glyphicon-arrow-down {
             display: none;
         }
         span.glyphicon-arrow-left, span.glyphicon-arrow-right {
             display: block;
+            font-size: 2rem;
+            padding: 5px 0;
         }
         .sm-hide {
             display: none;

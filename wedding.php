@@ -18,6 +18,7 @@
   				<p>March 25th</p>
   				<p>6pm</p>
   				<p><a href="http://www.pharmacymuseum.org" target="_blank">Pharmacy Museum</a></p>
+          <p>514 Chartres Street</p>
         </div>
       </div>
       <div class="col-sm-3">
@@ -28,6 +29,7 @@
     			<p>March 25th</p>
     			<p>8pm</p>
     			<p><a href="http://www.napoleonhouse.com/" target="_blank">Napoleon House</a></p>
+          <p>500 Chartres Street</p>
         </div>
       </div>
       <div class="col-sm-3">

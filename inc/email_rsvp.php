@@ -86,7 +86,7 @@ function email_rsvp($guests) {
 			<tr height='20px'></tr>
 			<tr><td>
 				<table align='center' valign='top' border='0' cellpadding='20px' cellspacing='0' bgcolor='#fff'; font-family:Montserrat, Helvetica, sans-serif; style='width:60%; max-width:600px' class='wrapper'>
-					<tr align='center'><td>Success!  We recevied your RSVP.</td></tr>
+					<tr align='center'><td>Success!  We received your RSVP.</td></tr>
 				</table>
 			</td></tr>
 			<tr height='20px'></tr>

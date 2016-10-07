@@ -30,10 +30,10 @@
           } else {
     				if (isset($_GET["status"]) && $_GET["status"] == "invite_notfound") {
     					echo "<p class='form_header'>I can't find you!  Please try again.</p>";
-    					echo "<p class='form_header'>Enter your name exactly as it appears on your invitation.</p>";
+    					echo "<p class='form_header'>Please enter the first and last name that appear on the outer envelope of your invitation.</p>";
     				}
             if (empty($_SESSION["guests"])) {
-              echo "<p class='sub-font form_header'>Enter your name to search for your invitation.</p>";
+              echo "<p class='sub-font form_header'>Enter your name to search for your invitation</p>";
             } else {
               echo "<p class='sub-font form_header'>Your invitation includes the following guests. Who's in!?</p>";
             }
