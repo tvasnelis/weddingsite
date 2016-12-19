@@ -3,11 +3,13 @@
     <div class="row text-center">
       <div class="col-sm-3">
         <div class="thumbnail">
-          <img src="images/door_sq.jpg" alt="Rehersal">
-          <p><strong>Rehearsal/Welcome</strong></p>
+          <img src="images/cochon.jpg" alt="Rehersal">
+          <p><strong>Rehearsal Dinner</strong></p>
           <p>Friday</p>
   				<p>March 24th</p>
-  				<p>More info coming soon!</p>
+  				<p>6pm</p>
+          <p><a href="http://www.http://cochonrestaurant.com/" target="_blank">Calcasieu @ Cochon</a></p>
+          <p>930 Tchoupitoulas Street</p>
         </div>
       </div>
       <div class="col-sm-3">
