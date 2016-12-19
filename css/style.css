@@ -7552,7 +7552,8 @@ Travel Panel
 Stay Panel
 ********************************/
 #stay {
-  margin: 40px 0;
+  padding: 40px 0;
+  background-color: #eeeeee;
 }
 #stay .stay-header {
   padding: 0px;
@@ -7858,5 +7859,4 @@ footer a {
 footer a:hover {
   text-decoration: none;
 }
-
 /*# sourceMappingURL=style.css.map */
