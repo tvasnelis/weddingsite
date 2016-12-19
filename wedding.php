@@ -3,7 +3,7 @@
     <div class="row text-center">
       <div class="col-sm-3">
         <div class="thumbnail">
-          <img src="images/cochon.jpg" alt="Rehersal">
+          <img src="images/cochon_2.jpg" alt="Rehersal">
           <p><strong>Rehearsal Dinner</strong></p>
           <p>Friday</p>
   				<p>March 24th</p>
