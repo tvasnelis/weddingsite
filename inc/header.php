@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Tim & Kimberly</title>
     <link href='https://fonts.googleapis.com/css?family=Amaranth|Sacramento|Lato:400,700|Kaushan+Script|Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- <link rel="stylesheet" type="text/css" href="css/rsvp.css"> -->
@@ -36,6 +37,7 @@
       <ul class="nav navbar-nav sub-font">
         <li><a href="#wedding">WEDDING</a></li>
         <li><a href="#travel">TRAVEL</a></li>
+        <li><a href="#todo">DO</a></li>
         <li><a href="#stay">STAY</a></li>
         <li><a href="#rsvp">RSVP</a></li>
         <li><a href="https://www.zola.com/registry/tk" target="_blank">REGISTRY</a></li>

@@ -7528,6 +7528,9 @@ Travel Panel
   margin: 10px;
   text-align: center;
 }
+#travel img.icon {
+  width: 50px;
+}
 #travel .travel-item {
   padding: 0;
   margin: 20px 0;
@@ -7859,4 +7862,5 @@ footer a {
 footer a:hover {
   text-decoration: none;
 }
+
 /*# sourceMappingURL=style.css.map */
