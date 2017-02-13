@@ -1,4 +1,4 @@
-/*DELETE FROM Guests WHERE GuestId >0;*/
+DELETE FROM Guests WHERE GuestId >1002;
 ALTER TABLE `timvasne_wedding`.`Guests` AUTO_INCREMENT = 1003;
 ALTER TABLE `timvasne_wedding`.`RSVP` AUTO_INCREMENT = 4;
 /*INSERT INTO Guests (FirstName, LastName, GroupId, Guest_CatId, PlusOne) VALUES ('Debra','Vasnelis',13,1,0);*/

@@ -628,6 +628,28 @@ Map Panel
 }
 
 
+/********************************
+Map Page
+********************************/
+#map_page_wrap {
+    width: 100%;
+    margin: 15px 0;
+}
+
+#location_info {
+    float: left;
+    width: 300px;
+    height: calc(100vh - 270px);
+}
+
+#map_page {
+
+    width: calc(100vw - 300px);
+    height: calc(100vh - 270px);
+    box-shadow: rgba(0,0,0,0.6) 0 0 15px;
+}
+
+
 
 
 
