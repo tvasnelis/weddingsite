@@ -27,14 +27,14 @@
     <h3 class="section-head">Get Ready</h3>
     <div class="row text-center">
       <div class="travel-item">
-        <p class="icon"><a href="#" class="icon" target="_blank"><span class="glyphicon glyphicon-map-marker"></span></a></p>
+        <p class="icon"><a href="#" class="icon" target="_blank"><i class="fa fa-compass fa-3x"></i></a></p>
         <p>You don't need a car! The French Quarter and surrounding neighborhoods are home to hundreds of restuarants, bars, music venues, and attractions all within easy walking distance. The historic streetcar lines can get you just about anywhere (for cheap too). If you plan to explore further, cabs are always readily available. </p>
         <!-- <a href="http://www.norta.com/Maps-Schedules/Streetcar-Schedules-Maps.aspx" class="icon" target="_blank">Streetcar Information</span></a></p> -->
       </div>
     </div>
     <div class="row text-center">
       <div class="travel-item">
-        <p class="icon"><a href="#" class="icon" target="_blank"><span class="glyphicon glyphicon-map-marker"></span></a></p>
+        <p class="icon"><a href="#" class="icon" target="_blank"><i class="fa fa-sun-o fa-3x"></i></a></p>
         <p>March is generally warm with average highs of 78 degees.  It may drop to around 60 degrees at night so maybe pack a sweater (Kimberly will be wearing one). </p>
       </div>
     </div>
