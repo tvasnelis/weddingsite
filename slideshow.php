@@ -1,53 +1,51 @@
 <html>
 	<link rel="stylesheet" href="js/unslider-master/dist/css/unslider.css">
-	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<body>
-		<div class="my-slider">
-			<ul>
-				<li><img src="images/slideshow/A00.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A01.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A02.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A03.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A04.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A05.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A06.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A07.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A08.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A09.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A10.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A11.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A12.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A13.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A14.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A15.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A16.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A17.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A18.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A19.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A20.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A21.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A22.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A23.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A24.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A25.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A26.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A27.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A28.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A29.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A30.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A31.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A32.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A33.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A34.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A35.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A36.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A37.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A38.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A39.jpg" alt="#";></li>
-				<li><img src="images/slideshow/A40.jpg" alt="#";></li>
-			</ul>
-		</div>
-	<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+	<div class="my-slider">
+		<ul>
+			<li><img src="images/slideshow/A00.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A01.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A02.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A03.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A04.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A05.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A06.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A07.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A08.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A09.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A10.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A11.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A12.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A13.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A14.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A15.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A16.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A17.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A18.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A19.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A20.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A21.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A22.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A23.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A24.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A25.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A26.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A27.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A28.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A29.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A30.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A31.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A32.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A33.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A34.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A35.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A36.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A37.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A38.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A39.jpg" alt="#";></li>
+			<li><img src="images/slideshow/A40.jpg" alt="#";></li>
+		</ul>
+	</div>
+	
 	<script src="js/unslider-master/src/js/unslider.js"></script> 
 	<script>
 		jQuery(document).ready(function($) {
@@ -121,5 +119,3 @@
 			display: block;
 		}
 	</style>
-	</body>
-</html>

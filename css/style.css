@@ -7423,7 +7423,7 @@ Header/Nav
 button.navbar-toggle {
   float: none;
   width: 100%;
-  padding: 5px;
+  padding: 9px;
   margin: auto !important;
   border: none;
   background-color: #93c2b2;
@@ -7806,17 +7806,16 @@ Map Page
 ********************************/
 #map_page_wrap {
   width: 100%;
+  height: calc(100vh - 270px);
   margin: 15px 0;
 }
 
-#location_info {
-  float: left;
-  width: 300px;
+#side_bar {
+  background-color: #93c2b2;
   height: calc(100vh - 270px);
 }
 
 #map_page {
-  width: calc(100vw - 300px);
   height: calc(100vh - 270px);
   box-shadow: rgba(0, 0, 0, 0.6) 0 0 15px;
 }

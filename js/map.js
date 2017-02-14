@@ -13,22 +13,15 @@ var map_locations = [{
             "lng": -90.065057
     }
 }, {
-    "name": "Cafe Amelie",
-    "description": "***",
-    "position": {
-            "lat": 29.959763,
-            "lng": -90.062985
-    }
-}, {
     "name": "Hotel Monteleone",
-    "description": "Hotel",
+    "description": "Hotel Monteleone",
     "position": {
             "lat": 29.954296,
             "lng": -90.067787
     }
 }, {
     "name": "Bienville House",
-    "description": "Hotel",
+    "description": "Bienville House - Hotel",
     "position": {
             "lat": 29.953831,
             "lng": -90.065279
@@ -131,7 +124,7 @@ function initMap() {
     }
 
     function addMarkerWithTimeout(index) {
-        var image = '/images/map_icon.png';
+        var image = 'http://www.googlemapsmarkers.com/v1/93c2b2/';
       window.setTimeout(function() {
         var marker = new google.maps.Marker({
           position: map_locations[index].position,

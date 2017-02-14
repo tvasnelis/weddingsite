@@ -1,16 +1,20 @@
 <?php
 include("inc/header.php");
 ?>
-	<div id="map_page_wrap">
-		<div id="location_info">
-		</div>
-	  <div id="map_page"></div>
-	    <script type="text/javascript" src="js/map_page.js"></script>
-	    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyAoAm89NdoOx95_nHcfWmxVyCkmOnUwcDk" async defer></script>
-	  </body>
-	</div>
-</html>
+<script type="text/javascript" src="js/downloadxml.js"></script>
 
-<!-- <a class="button" href="" title="">Find My Location</a> -->
+
+		<div id="map_page_wrap" class="container-fluid text-center sub-font">
+			<div class="row">
+				<div id="side_bar" class="col-sm-4 col-md-2">
+				</div>
+				<div id="map_page" class="col-sm-8 col-md-10">
+				  <script type="text/javascript" src="js/map_page.js"></script>
+				  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyAoAm89NdoOx95_nHcfWmxVyCkmOnUwcDk" async defer></script>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
 
 <?php include("footer.php"); ?>

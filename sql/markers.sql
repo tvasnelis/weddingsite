@@ -6,10 +6,11 @@ CREATE TABLE `markers` (
   `nd` VARCHAR( 60 ) NOT NULL ,
   `lat` DECIMAL( 10, 6 ) NOT NULL ,
   `lng` DECIMAL( 10, 6 ) NOT NULL,
-  `website` VARCHAR( 200 ) NOT NULL 
+  `website` VARCHAR( 200 ) NOT NULL,
+  `type` VARCHAR(50),
+  `html` VARCHAR(50)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci;
 
-LOAD DATA INFILE "C:\xampp\htdocs\timandkimberly\sql\markers.csv" IGNORE INTO TABLE `markers`
-FIELDS TERMINATED BY ',' ENCLOSED BY '' ESCAPED BY ''
- (`name`, `address`, `lat`, `lng`);
+
+ 
 
