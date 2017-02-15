@@ -38,5 +38,11 @@
         <p>March is generally warm with average highs of 78 degees.  It may drop to around 60 degrees at night so maybe pack a sweater (Kimberly will be wearing one). </p>
       </div>
     </div>
-  </div>  
-</div> 
+    <div class="row text-center">
+      <div class="travel-item">
+        <p class="icon"><a href="#" class="icon" target="_blank"><i class="fa fa-suitcase fa-3x"></i></a></p>
+        <p>We're dressing up, you should too! Semiformal attire requested (suit and tie, cocktail dresses).  Dress to impress!</p>
+      </div>
+    </div>
+  </div>
+</div>
