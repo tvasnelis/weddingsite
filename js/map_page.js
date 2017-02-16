@@ -69,7 +69,7 @@ function initMap() {
     });
 
     // Read the data from xml
-      downloadUrl('markers_generateXML.php', function(doc) {
+    downloadUrl('markers_generateXML.php', function(doc) {
         var xmlDoc = xmlParse(doc);
         var markers = xmlDoc.documentElement.getElementsByTagName("marker");
         for (var i = 0; i < markers.length; i++) {
@@ -91,10 +91,18 @@ function initMap() {
                 icon: icon.icon,
                 zIndex: Math.round(point.lat()*-100000)<<5
             });
-            google.maps.event.addListener(marker, 'click', function() {
-               infowindow.setContent(html);
-               infowindow.open(map, this);
-            });
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        var name = markers[i].getAttribute("name");
+                        var address = markers[i].getAttribute("address");
+                        var desc = markers[i].getAttribute("html");
+                        var website = markers[i].getAttribute("website");
+                        var html = "<b>" + name + "</b> <br/>" + address + "</b> <br/>" + desc +"</b> <br/><a href='" + website + "'>" + website + "</a>";
+                        infowindow.setContent(html);
+                        infowindow.open(map, marker, html);
+                        map.setCenter(this.getPosition())
+                    }
+                })(marker, i));
             // save the info we need to use later for the side_bar
             gmarkers.push(marker);
             // add a line to the side_bar html
@@ -102,13 +110,13 @@ function initMap() {
         }
         // put the assembled side_bar_html contents into the side_bar div
         document.getElementById("side_bar").innerHTML = side_bar_html;
-      });
+    });
 
     // Create the DIV to hold the control and call the constructor passing in this DIV
     var geolocationDiv = document.createElement('div');
     var geolocationControl = new GeolocationControl(geolocationDiv, map);
 
-    map.controls[google.maps.ControlPosition.TOP_CENTER].push(geolocationDiv);
+    map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(geolocationDiv);
 
     //set styles
     map.set('styles', [

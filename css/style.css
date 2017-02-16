@@ -7552,6 +7552,77 @@ Travel Panel
 }
 
 /********************************
+todo Panel
+********************************/
+#todo {
+  height: 400px;
+  padding: 0;
+  background-color: #93c2b2;
+}
+#todo .carousel {
+  height: 250px;
+}
+#todo .item {
+  height: 220px;
+}
+#todo .carousel-controls {
+  height: 30px;
+}
+#todo h4 {
+  margin: 0;
+}
+#todo p {
+  margin: 0;
+}
+#todo .todo-nav-item {
+  height: 30px;
+}
+#todo .todo-nav-item label {
+  width: 100%;
+  line-height: 30px;
+  margin: 0;
+}
+#todo .todo-nav-item label:hover {
+  background-color: black;
+}
+#todo input[type="radio"] {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  #todo {
+    height: 300px;
+  }
+  #todo .carousel {
+    height: 300px;
+  }
+  #todo .item {
+    height: 250px;
+  }
+  #todo .carousel-controls {
+    height: 50px;
+  }
+  #todo .todo-nav-item {
+    height: 75px;
+  }
+  #todo .todo-nav-item label {
+    width: 100%;
+    line-height: 75px;
+    margin: 0;
+  }
+}
+#todo .carousel-controls {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+}
+#todo .carousel-indicators {
+  top: 15px;
+}
+#todo .carousel-control.left, #todo .carousel-control.right {
+  background-image: none;
+}
+
+/********************************
 Stay Panel
 ********************************/
 #stay {
@@ -7566,7 +7637,7 @@ Stay Panel
 }
 #stay .stay-location {
   padding: 0;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 #stay .sm-address {
   padding: 0 0 10px 0;
@@ -7584,9 +7655,9 @@ Stay Panel
   text-decoration: none !important;
 }
 #stay img {
-  width: 100%;
-  height: 100%;
-  margin-bottom: 0px;
+  width: 80%;
+  height: 80%;
+  margin: 0px;
   padding: 0px;
   border-radius: 2%;
   box-shadow: rgba(0, 0, 0, 0.8) 0 0 15px;
@@ -7640,7 +7711,7 @@ Stay Panel
     height: 100%;
   }
   #stay .sm-address {
-    margin: 20px;
+    margin: 0px;
   }
   #stay .sm-footer {
     width: 50%;
@@ -7809,6 +7880,9 @@ Map Page
   height: calc(100vh - 270px);
   margin: 15px 0;
 }
+#map_page_wrap side_bar a {
+  color: white;
+}
 
 #side_bar {
   background-color: #93c2b2;
@@ -7881,5 +7955,4 @@ footer a {
 footer a:hover {
   text-decoration: none;
 }
-
 /*# sourceMappingURL=style.css.map */
