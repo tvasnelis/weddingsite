@@ -7,6 +7,7 @@ RewriteRule    ^stay$    stay.php    [NC,L]    # Handle requests for "stay"
 RewriteRule    ^experience$    experience.php    [NC,L]    # Handle requests for "experience"
 RewriteRule    ^thanks$    rsvp_2.php?status=thanks    [NC,L]    # Handle requests for "thanks"
 RewriteRule    ^admin$    admin.php    [NC,L]    # Handle requests for "admin"
+RewriteRule    ^map_page$    map_page.php    [NC,L]    # Handle requests for "wedding"
 
 RewriteRule    ^invite_found$    index.php?status=invite_found#rsvp    [NC,L]    # Handle requests for "rsvp_2.php"
 RewriteRule    ^invite_notfound$    index.php?status=invite_notfound#rsvp    [NC,L]    # Handle requests for "rsvp_2.php"

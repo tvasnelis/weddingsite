@@ -20,5 +20,5 @@ id,name,address,nd,lat,lng,website,type,html
 19,The National WWII Museum,"945 Magazine St, New Orleans, LA 70130",Central Business District,29.943018,-90.070107,http://www.nationalww2museum.org/,other,description text The National WWII Museum
 20,Hotel Monteleone,"214 Royal St, New Orleans, LA 70130",French Quarter,29.954296,-90.067787,http://www.hotelmonteleone.com/,hotel,description text Hotel Monteleone
 21,Bienville House,"320 Decatur St, New Orleans, LA 70130",French Quarter,29.953831,-90.065279,http://bienvillehouse.com/,hotel,description text Bienville House
-22,Napoleon House,"500 Chartres St, New Orleans, LA 70130",French Quarter,29.955879,-90.065057,http://www.napoleonhouse.com/,restaurant,description text Napoleon House
-23,New Orleans Pharmacy Museum,"514 Chartres St, New Orleans, LA 70130",French Quarter,29.956051,-90.064935,http://www.pharmacymuseum.org/,other,description text New Orleans Pharmacy Museum
+22,Napoleon House,"500 Chartres St, New Orleans, LA 70130",French Quarter,29.955879,-90.065057,http://www.napoleonhouse.com/,venue,description text Napoleon House
+23,New Orleans Pharmacy Museum,"514 Chartres St, New Orleans, LA 70130",French Quarter,29.956051,-90.064935,http://www.pharmacymuseum.org/,venue,description text New Orleans Pharmacy Museum
