@@ -59,7 +59,7 @@
                 <p>French Quarter</p>
               </div>
               <div class="item-text">
-                <p>In a city famous for the availability of alcohol in excess, what often gets forgotten is the historical significance of New Orleans and cocktails.  This place feels like a time warp to an era we never experienced first hand.</p>
+                <p>In a city famous for the availability of alcohol in excess, what often gets forgotten is the historical influence New Orleans has had on cocktails.  This place feels like a time warp to an era we never experienced first hand, where white tuxedoed bartenders serve up some great classic cocktails.</p>
               </div>
               <p>Signature Cocktail: French 75</p>
               <p>Tim's Drink: Creole</p>
@@ -73,11 +73,8 @@
                 <p>Uptown</p>
               </div>
               <div class="item-text">
-                <p>###</p>
+                <p>A bit of a hike from French Quarter but well worth the trip. Housed in a converted firehouse, the beautiful backbar highlights their gigantic bottle collection. Specializing in rum and whiskey, the cocktail list is lengthy and includes a lot of unfamiliar ingredients.  Be adventurous!</p>
               </div>
-              <p>###</p>
-              <p>###</p>
-              <p>###</p>
             </div>
 
             <div class="item">
@@ -87,11 +84,8 @@
                 <p>Garden District</p>
               </div>
               <div class="item-text">
-                <p>###</p>
+                <p>Located in the open-air penthouse of the historic Pontchartrain Hotel providing some spectacular views of the Mississippi River and downtown New Orleans.  Great place to check out if the weather is nice.</p>
               </div>
-              <p>###</p>
-              <p>###</p>
-              <p>###</p>
             </div>
 
             <div class="item">
@@ -101,11 +95,9 @@
                 <p>French Quarter</p>
               </div>
               <div class="item-text">
-                <p>###</p>
+                <p>A dive bar in the best way possible.  Just a few steps off Bourbon street this Irish pub hosts an ecletic group of locals and tourists.  Hidden in back is Killer Po'Boys, who serve some delicious modernized versions of the classic sandwich.</p>
               </div>
-              <p>###</p>
-              <p>###</p>
-              <p>###</p>
+              <p>Signature Cocktail: Frozen Irish Coffee</p>
             </div>
 
           </div>
@@ -198,7 +190,7 @@
               <p>Warehouse District</p>
             </div>
             <div class="item-text">
-              <p>###</p>
+              <p>Raw oysters.  Gross.</p>
             </div>
             <p>###</p>
             <p>###</p>
@@ -298,38 +290,12 @@
       <div id="carousel_tourist" class="carousel slide" data-ride="carousel" data-interval="false">
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
+          <div class="carousel-inner" role="listbox">
 
-           <div class="item">
-            <h4><a href="http://www.cafedumonde.com/" target="_blank">Cafe Du Monde</a></h4>
-            <div class="item-address">
-              <p><a href="#" target="_blank">925 Magazine Street</a></p>
-              <p>French Quarter</p>
-            </div>
-            <div class="item-text">
-              <p>###</p>
-            </div>
-            <p>###</p>
-            <p>###</p>
-            <p>###</p>
-          </div> 
-           <div class="item">
-            <h4><a href="http://www.acmeoyster.com/" target="_blank">Acme Oyster House</a></h4>
-            <div class="item-address">
-              <p><a href="#" target="_blank">925 Magazine Street</a></p>
-              <p>French Quarter</p>
-            </div>
-            <div class="item-text">
-              <p>###</p>
-            </div>
-            <p>###</p>
-            <p>###</p>
-            <p>###</p>
-          </div> 
-          <div class="item">
+          <div class="item active">
             <h4><a href="http://www.patobriens.com/patobriens/default.asp" target="_blank">Pat O'Brien's</a></h4>
             <div class="item-address">
-              <p><a href="#" target="_blank">718 St Peter Street</a></p>
+              <p><a href="#" target="_blank">718 Saint Peter Street</a></p>
               <p>French Quarter</p>
             </div>
             <div class="item-text">
@@ -338,7 +304,35 @@
             <p>###</p>
             <p>###</p>
             <p>###</p>
-          </div> 
+          </div>  
+          <div class="item">
+            <h4><a href="http://www.cafedumonde.com/" target="_blank">Cafe Du Monde</a></h4>
+            <div class="item-address">
+              <p><a href="#" target="_blank">800 Decatur Street</a></p>
+              <p>French Quarter</p>
+            </div>
+            <div class="item-text">
+              <p>###</p>
+            </div>
+            <p>###</p>
+            <p>###</p>
+            <p>###</p>
+          </div>
+          <div class="item">
+            <h4><a href="http://www.acmeoyster.com/" target="_blank">Acme Oyster House</a></h4>
+            <div class="item-address">
+              <p><a href="#" target="_blank">724 Iberville Street</a></p>
+              <p>French Quarter</p>
+            </div>
+            <div class="item-text">
+              <p>###</p>
+            </div>
+            <p>###</p>
+            <p>###</p>
+            <p>###</p>
+          </div>
+
+           
         </div>
         <div class="carousel-controls">  
           <!-- Left and right controls -->

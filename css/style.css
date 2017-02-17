@@ -7574,6 +7574,9 @@ todo Panel
 #todo p {
   margin: 0;
 }
+#todo a {
+  text-decoration: underline;
+}
 #todo .todo-nav-item {
   height: 30px;
 }
