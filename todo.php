@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <div class="todo-nav-close"> 
+  <div class="todo-nav-close">
     <input type="radio" name="todo" id="radio_landing" value="landing">
     <label for="radio_landing">&#10006</label>
   </div>
@@ -27,7 +27,7 @@
     <div id="landing" class="todo-landing">
       <h3>Have Some Fun</h3>
       <div class="landing-text">
-        <p>There is a lot that we love about New Orleans.  The music, history, art, architecture, and southern hospitality make it a truly unique place that is easily accessible and inviting.  But for us, what's really important is the amazing food and drinks.</p>
+        <p>There is a lot that we love about New Orleans.  The history, art, architecture, and southern hospitality make it a truly unique place that is easily accessible and inviting.  It's the birthplace of Jazz, but there is always great live music of all genres.  But for us, what's really important is the amazing food and drinks.</p>
         <p>We are excited that for many of our guests it will be their first time visiting.  We hope you are able to get out and explore the city and find something you love.  We look forward to sharing this experience with all of you!</p>
         <p>Explore some of our favorite places using the menu on the left or checkout the <a href="map_page" target="_blank">map.</a></p>
       </div>
@@ -73,8 +73,11 @@
                 <p>Uptown</p>
               </div>
               <div class="item-text">
-                <p>A bit of a hike from French Quarter but well worth the trip. Housed in a converted firehouse, the beautiful backbar highlights their gigantic bottle collection. Specializing in rum and whiskey, the cocktail list is lengthy and includes a lot of unfamiliar ingredients.  Be adventurous!</p>
+                <p>A bit of a hike from French Quarter but well worth the trip. Housed in a converted firehouse, the beautiful backbar highlights their gigantic bottle collection. Specializing in rum and whiskey, the cocktail list is lengthy, seasonal, and includes a lot of unfamiliar ingredients.  Be adventurous!</p>
               </div>
+              <p>Signature Cocktail: Rum Old Fashioned</p>
+              <p>Tim's Drink: Cock 'n Bull Special</p>
+              <p>Kimberly's Drink: Last Dance</p>
             </div>
 
             <div class="item">
@@ -95,13 +98,13 @@
                 <p>French Quarter</p>
               </div>
               <div class="item-text">
-                <p>A dive bar in the best way possible.  Just a few steps off Bourbon street this Irish pub hosts an ecletic group of locals and tourists.  Hidden in back is Killer Po'Boys, who serve some delicious modernized versions of the classic sandwich.</p>
+                <p>A dive bar in the best way possible.  Just a few steps off Bourbon street this Irish pub hosts an ecletic group of locals and tourists.  Hidden in back is Killer Po'Boys, who serve some delicious modern versions of the classic sandwich.</p>
               </div>
               <p>Signature Cocktail: Frozen Irish Coffee</p>
             </div>
 
           </div>
-          <div class="carousel-controls">  
+          <div class="carousel-controls">
             <!-- Left and right controls -->
             <a class="left carousel-control" href="#carousel_drink" data-slide="prev">
               <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -131,43 +134,42 @@
           <div class="item active">
             <h4><a href="https://www.sylvainnola.com/" target="_blank">Sylvain</a></h4>
             <div class="item-address">
-              <p><a href="#" target="_blank">912 Royal Street</a></p> 
+              <p><a href="https://www.google.com/maps/place/Sylvain/@29.957138,-90.064205,15z/data=!4m2!3m1!1s0x0:0x8f68425130b976cf?sa=X&ved=0ahUKEwjesPaI5pzSAhWBJiYKHWjXCWgQ_BIIejAK" target="_blank">912 Royal Street</a></p>
               <p>French Quarter</p>
             </div>
             <div class="item-text">
-              <p>###</p>
+              <p>Converted carriage house with an lively candlelit dining room and courtyard that also serves brunch.  We really enjoy the atmosphere and the food and drinks are stellar.</p>
             </div>
-            <p>###</p>
-            <p>###</p>
-            <p>###</p>
+            <p>Must Try: Gulf Fish Crudo</p>
+            <p>Other Notables:</p>
+            <p>Pan Fried Pork Shoulder, Braised Beef Cheeks</p>
+            <p>Sylvain Burger, Chick-Syl-vain Sandwich</p>
           </div>
 
           <div class="item">
             <h4><a href="http://cochonrestaurant.com/" target="_blank">Cochon/Butcher</a></h4>
             <div class="item-address">
-              <p><a href="#" target="_blank">930 Tchoupitoulas Street</a></p>
+              <p><a href="https://www.google.com/maps/place/Cochon/@29.9422644,-90.0672415,15z/data=!4m5!3m4!1s0x0:0x9b274d7b4fe89db9!8m2!3d29.9422644!4d-90.0672415" target="_blank">930 Tchoupitoulas Street</a></p>
               <p>Warehouse District</p>
             </div>
             <div class="item-text">
-              <p>###</p>
+              <p>An altar to all things swine, but the goodness isn't limited to just pork.  The seafood and sides are also great.  Nextdoor, Butcher offers up sandwiches and cured meats with some of the same great flavors in a more casual setting.  Both are can't-miss.</p>
             </div>
-            <p>###</p>
-            <p>###</p>
-            <p>###</p>
+            <p>Must Try: Louisiana Cochon, obviously</p>
+            <p>Other Notables:</p>
+            <p>Wood Fired Oysters with Chili Garlic Butter</p>
+            <p>Smoked Pork Ribs with Watermelon Pickle</p>
           </div>
 
           <div class="item">
             <h4><a href="http://coquettenola.com/" target="_blank">Coquette</a></h4>
             <div class="item-address">
-              <p><a href="#" target="_blank">2800 Magazine Street</a></p>
+              <p><a href="https://www.google.com/maps/place/Coquette/@29.9259805,-90.0824734,15z/data=!4m2!3m1!1s0x0:0xe82fe9a47dd0c5e5?sa=X&sqi=2&ved=0ahUKEwj3qbS95pzSAhVMwiYKHfBvBusQ_BIIeDAM">2800 Magazine Street</a></p>
               <p>Garden District</p>
             </div>
             <div class="item-text">
-              <p>###</p>
+              <p>The seasonal menu will change daily.  As soon as you walk in you can smell the innovative southern goodness that's cooking!  Well crafted cocktail menu and hand selected approachable wine list.</p>
             </div>
-            <p>###</p>
-            <p>###</p>
-            <p>###</p>
           </div>
           <div class="item">
             <h4><a href="http://www.pizzadomenica.com/" target="_blank">Pizza Domenica</a></h4>
@@ -176,11 +178,12 @@
               <p>Uptown</p>
             </div>
             <div class="item-text">
-              <p>###</p>
+              <p>Wood-fired pizza joint meets Chef John Besh.  More casual sister to Domenica but a delicious hang out if you get that Italian craving or need a good happy hour.</p>
             </div>
-            <p>###</p>
-            <p>###</p>
-            <p>###</p>
+            <p>Must Try: Garlic Knots</p>
+            <p>Other Notables:</p>
+            <p>Well... pick a pizza, they're all good</p>
+            <p>The Antipasti (small plates) such as Meatballs or Cauliflower Steak</p>
           </div>
 
           <div class="item">
@@ -190,15 +193,12 @@
               <p>Warehouse District</p>
             </div>
             <div class="item-text">
-              <p>Raw oysters.  Gross.</p>
+              <p>The sign out front says it all: Oysters Cocktails.  If your in the mood for oysters this is the place to check out.  Sit at the bar and watch them unload and shuck fresh oysters from the Gulf, East, and West Coast.</p>
             </div>
-            <p>###</p>
-            <p>###</p>
-            <p>###</p>
           </div>
 
         </div>
-        <div class="carousel-controls">  
+        <div class="carousel-controls">
           <!-- Left and right controls -->
           <a class="left carousel-control" href="#carousel_eat" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -229,44 +229,38 @@
           <div class="item active">
             <h4><a href="https://preservationhall.com/" target="_blank">Preservation Hall</a></h4>
             <div class="item-address">
-              <p><a href="#" target="_blank">726 Saint Peter Steet</a></p>
+              <p><a href="https://www.google.com/maps/place/Preservation+Hall/@29.9583015,-90.0653932,15z/data=!4m5!3m4!1s0x0:0x389e7b673b51d755!8m2!3d29.9583015!4d-90.0653932" target="_blank">726 Saint Peter Steet</a></p>
               <p>French Quarter</p>
             </div>
             <div class="item-text">
-              <p>###</p>
+              <p>Small, mostly standing-room-only music venue.  The Preservation Hall Jazz Band has 3 nightly shows, lines start forming early.  A really unique experience, if you only see one music venue this should be it.</p>
             </div>
-            <p>###</p>
-            <p>###</p>
-            <p>###</p>
-          </div>  
+            <p>Nightly shows at 8, 9, and 10</p>
+          </div>
           <div class="item">
             <h4><a href="https://www.spottedcatmusicclub.com/" target="_blank">The Spotted Cat</a></h4>
             <div class="item-address">
-              <p><a href="#" target="_blank">623 Frenchmen Street</a></p> 
+              <p><a href="https://www.google.com/maps/place/The+Spotted+Cat+Music+Club/@29.9640612,-90.0576677,15z/data=!4m2!3m1!1s0x0:0x210f5330be2d1ccb?sa=X&ved=0ahUKEwjFmvLv5pzSAhUM5iYKHRorAYkQ_BIIggEwDg" target="_blank">623 Frenchmen Street</a></p>
               <p>Frenchman Street</p>
             </div>
             <div class="item-text">
-              <p>###</p>
+              <p>The Quentessential Jazz Club of New Orleans has been recognized as an international destination for jazz music. Numerous movies, commercials, and print media have filmed and written about the Spotted Cat for its outstanding music and unique ambiance.</p>
             </div>
-            <p>###</p>
-            <p>###</p>
-            <p>###</p>
-          </div>  
+            <p>If you find yourself on Frenchman Street (and you should) also worth checking out for live music are d.b.a. (great beer list), Three Muses, and The Blue Nile.  Early shows (6pm) typically do not have a cover charge.</p>
+          </div>
           <div class="item">
             <h4><a href="http://www.nationalww2museum.org/" target="_blank">National WWII Museum</a></h4>
             <div class="item-address">
-              <p><a href="#" target="_blank">925 Magazine Street</a></p>
+              <p><a href="https://www.google.com/maps/place/The+National+WWII+Museum/@29.9426564,-90.070389,15z/data=!4m2!3m1!1s0x0:0x855a6fd37bed266a?sa=X&ved=0ahUKEwju5f_85pzSAhWM4SYKHU4fCAgQ_BIIlQEwEg" target="_blank">925 Magazine Street</a></p>
               <p>Central Business District</p>
             </div>
             <div class="item-text">
-              <p>###</p>
+              <p>Really well-executed museum that includes interactive features, personal artifacts, and original planes, boats, and vehicles.  Allow at least a few hours to get through everything here.</p>
             </div>
-            <p>###</p>
-            <p>###</p>
-            <p>###</p>
-          </div>    
+            <p>Don't miss "Beyond All Boundaries", a "4D" film produced and narrated by Tom Hanks.</p>
+          </div>
         </div>
-        <div class="carousel-controls">  
+        <div class="carousel-controls">
           <!-- Left and right controls -->
           <a class="left carousel-control" href="#carousel_explore" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -295,46 +289,37 @@
           <div class="item active">
             <h4><a href="http://www.patobriens.com/patobriens/default.asp" target="_blank">Pat O'Brien's</a></h4>
             <div class="item-address">
-              <p><a href="#" target="_blank">718 Saint Peter Street</a></p>
+              <p><a href="https://www.google.com/maps/place/Pat+O'Brien's/@29.958226,-90.065207,15z/data=!4m2!3m1!1s0x0:0x9e373c1d49ab690d?sa=X&ved=0ahUKEwiXmIWo55zSAhVF6yYKHffpDE0Q_BIIdTAN" target="_blank">718 Saint Peter Street</a></p>
               <p>French Quarter</p>
             </div>
             <div class="item-text">
-              <p>###</p>
+              <p>Everyone needs to try a Hurricane.  Fountain courtyard is a nice place to enjoy the weather.  Later, the piano bar gets...interesting.</p>
             </div>
-            <p>###</p>
-            <p>###</p>
-            <p>###</p>
-          </div>  
+          </div>
           <div class="item">
             <h4><a href="http://www.cafedumonde.com/" target="_blank">Cafe Du Monde</a></h4>
             <div class="item-address">
-              <p><a href="#" target="_blank">800 Decatur Street</a></p>
+              <p><a href="https://www.google.com/maps/place/Cafe+Du+Monde/@29.9574643,-90.0618811,15z/data=!4m5!3m4!1s0x0:0xd68fe7e8e35b6f7!8m2!3d29.9574643!4d-90.0618811" target="_blank">800 Decatur Street</a></p>
               <p>French Quarter</p>
             </div>
             <div class="item-text">
-              <p>###</p>
+              <p>Beignets and Cafe Au Lait are a morning tradition and a must have in New Orleans.  Cafe Du Monde is the most famous place to get them.  Open 24 hours and it will be crowded for most of them.  To skip the line, try the small take-out window in back or for an alternative, try Cafe Beignet.</p>
             </div>
-            <p>###</p>
-            <p>###</p>
-            <p>###</p>
           </div>
           <div class="item">
             <h4><a href="http://www.acmeoyster.com/" target="_blank">Acme Oyster House</a></h4>
             <div class="item-address">
-              <p><a href="#" target="_blank">724 Iberville Street</a></p>
+              <p><a href="https://www.google.com/search?q=acme+oyster+houes&oq=acme+oyster+houes&aqs=chrome..69i57l2j69i60l2j69i59l2.2228j0j7&sourceid=chrome&ie=UTF-8#safe=off&q=acme+oyster+house+new+orleans&rflfq=1&rlha=0&rllag=29951877,-90067010,327&tbm=lcl&tbs=lf_od:-1,lf_oh:-1,lf_pqs:EAE,lf:1,lf_ui:4&rlfi=hd:;si:;mv:!1m3!1d2646.733635500059!2d-90.06701035!3d29.951877500000002!2m3!1f0!2f0!3f0!3m2!1i101!2i147!4f13.1;tbs:lf_od:-1,lf_oh:-1,lf_pqs:EAE,lf:1,lf_ui:4" target="_blank">724 Iberville Street</a></p>
               <p>French Quarter</p>
             </div>
             <div class="item-text">
-              <p>###</p>
+              <p>A famous spot for oysters but a full menu of classics is also available.  There will be a line.  Check out Felix's or Royal Oyster House where there may be less of a wait.</p>
             </div>
-            <p>###</p>
-            <p>###</p>
-            <p>###</p>
           </div>
 
-           
+
         </div>
-        <div class="carousel-controls">  
+        <div class="carousel-controls">
           <!-- Left and right controls -->
           <a class="left carousel-control" href="#carousel_tourist" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -372,7 +357,7 @@
          } else {
           $(".todo-nav-close").hide();
          }
-            
+
     } );
   });
 </script>

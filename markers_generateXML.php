@@ -9,7 +9,7 @@ $parnode = $dom->appendChild($node);
 
 // query database for marker locations
 try {
-  $markers_query = $db->prepare('SELECT address, name, lat, lng, type, html, website FROM markers');
+  $markers_query = $db->prepare('SELECT address, name, lat, lng, type, html, website, img FROM markers ORDER BY name');
  	$markers_query->execute();
 } catch (Exception $e) {
   echo "Database connection error. Please try again later.";
@@ -30,6 +30,7 @@ foreach ($markers as $row) {
   $newnode->setAttribute("type", $row['type']);
   $newnode->setAttribute("html", $row['html']);
   $newnode->setAttribute("website", $row['website']);
+  $newnode->setAttribute("img", $row['img']);
 }
 
 echo $dom->saveXML();

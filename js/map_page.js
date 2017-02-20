@@ -1,9 +1,9 @@
-// this variable will collect the html which will eventually be placed in the side_bar 
-var side_bar_html = ""; 
+// this variable will collect the html which will eventually be placed in the side_bar
+var side_bar_html = "";
 
-// arrays to hold copies of the markers and html used by the side_bar 
-// because the function closure trick doesnt work there 
-var gmarkers = []; 
+// arrays to hold copies of the markers and html used by the side_bar
+// because the function closure trick doesnt work there
+var gmarkers = [];
 
 // global "map" variable
 var map = null;
@@ -50,7 +50,7 @@ function initMap() {
 
     var mapOptions = {
         zoom: 16,
-        center: new google.maps.LatLng(29.954914,-90.065112), 
+        center: new google.maps.LatLng(29.954914,-90.065112),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         zoomControl: true,
         disableDoubleClickZoom: false,
@@ -61,7 +61,7 @@ function initMap() {
         scaleControl: false
     };
 
-    map = new google.maps.Map(document.getElementById('map_page'), mapOptions);  
+    map = new google.maps.Map(document.getElementById('map_page'), mapOptions);
     var infowindow = new google.maps.InfoWindow;
 
     google.maps.event.addListener(map, 'click', function() {
@@ -97,7 +97,9 @@ function initMap() {
                         var address = markers[i].getAttribute("address");
                         var desc = markers[i].getAttribute("html");
                         var website = markers[i].getAttribute("website");
-                        var html = "<b>" + name + "</b> <br/>" + address + "</b> <br/>" + desc +"</b> <br/><a href='" + website + "'>" + website + "</a>";
+                        var img = markers[i].getAttribute("img");
+                        var html = "<b>" + name + "</b> <br/>" + address + "</b> <br/>" + desc +"</b> <br/><a href='" + website + "' target='_blank'>" + website + "</a>";
+                        var html = html + "<img src=/images/map/'" + img + "'";
                         infowindow.setContent(html);
                         infowindow.open(map, marker, html);
                         map.setCenter(this.getPosition())
@@ -174,7 +176,7 @@ function initMap() {
         }
     ]);
 
-    
+
 }
 
 // This function picks up the click and opens the corresponding info window
@@ -226,12 +228,10 @@ function geolocate() {
             //     draggable: true,
             //     animation: google.maps.Animation.DROP,
             //     map: map,
-                
+
             // });
 
             map.setCenter(pos);
         });
     }
 }
-
-

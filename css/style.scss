@@ -294,7 +294,7 @@ Travel Panel
     img.icon {
         width:50px;
     }
-    
+
     .travel-item {
         padding: 0;
         margin: 20px 0;
@@ -356,7 +356,7 @@ todo Panel
           cursor: pointer;
         }
         label:hover {
-          
+
         }
     }
 
@@ -364,10 +364,10 @@ todo Panel
         display:none;
     }
 
-    input[type="radio"]:checked+label{ 
+    input[type="radio"]:checked+label{
         background-color:$red;
         font-weight: bold;
-    } 
+    }
 
     .landing-text p {
         text-align: left;
@@ -409,7 +409,7 @@ todo Panel
         }
     }
 
-    
+
 
     @media screen and (min-width: 414px) {
 
@@ -469,13 +469,13 @@ todo Panel
 
 
     .carousel-controls{
-     position:relative; 
+     position:relative;
       width:300px;
       margin:0 auto;
     }
 
     .carousel-indicators{
-       top:15px; 
+       top:15px;
 
     }
 
@@ -508,13 +508,13 @@ Stay Panel
     }
 
     h3 {
-        
+
         margin: 0 0 20px 0;
     }
     h4 {
         margin: 0;
     }
-   
+
     p {
         margin: 0;
     }
@@ -534,7 +534,7 @@ Stay Panel
         -moz-box-shadow: rgba(0,0,0,0.8) 0 0 15px;
         box-shadow: rgba(0,0,0,0.8) 0 0 15px;
     }
-    
+
     a {
         color: $green;
     }
@@ -549,16 +549,16 @@ Stay Panel
         p {
             font-size: 0.8rem;
         }
-        
-    }  
+
+    }
 
     .stay-location h4 {
         font-size: 0.8rem;
-    }  
+    }
 
     .stay-location p {
         font-size: 0.65rem;
-    }  
+    }
 
 
 
@@ -572,19 +572,19 @@ Stay Panel
     @media screen and (min-width: 414px) {
         .stay-location h4 {
             font-size: 0.9rem;
-        } 
+        }
         .stay-location p {
             font-size: 0.7rem;
-        } 
+        }
     }
 
     @media screen and (min-width: 1024px) {
         .stay-location h4 {
             font-size: 1.2em;
-        } 
+        }
         .stay-location p {
             font-size: .8rem;
-        } 
+        }
     }
 
     @media screen and (min-width: 768px) {
@@ -623,7 +623,7 @@ Stay Panel
         }
         .sm-hide {
             display: none;
-        } 
+        }
         .xs-hide {
             display: block;
         }
@@ -806,6 +806,8 @@ Map Page
     width: 100%;
     height: calc(100vh - 270px);
     margin: 15px 0;
+    box-shadow: rgba(0,0,0,0.6) 0 0 15px;   
+
     side_bar a {
         color: white;
     }
@@ -832,12 +834,13 @@ Map Page
 
 #side_bar {
     background-color: $green;
+    //box-shadow: rgba(0,0,0,0.6) 0 0 15px;
     height: calc(100vh - 270px);
 }
 
 #map_page {
     height: calc(100vh - 270px);
-    box-shadow: rgba(0,0,0,0.6) 0 0 15px;
+    // box-shadow: rgba(0,0,0,0.6) 0 0 15px;
 }
 
 

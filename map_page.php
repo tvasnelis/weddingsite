@@ -18,3 +18,7 @@ include("inc/header.php");
 </html>
 
 <?php include("footer.php"); ?>
+
+<style type="text/css">
+		.map-detail { display: none; }
+</style>
