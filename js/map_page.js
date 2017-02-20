@@ -107,11 +107,16 @@ function initMap() {
                 })(marker, i));
             // save the info we need to use later for the side_bar
             gmarkers.push(marker);
+            // add details to map detail
+            document.getElementById('map-detail').innerHTML += '<div id="detail-' + name + '" class="detail-item" style="display: none"> <p>' + name + '</p> </div>';
             // add a line to the side_bar html
-            side_bar_html += '<a href="javascript:myclick(' + (gmarkers.length-1) + ')">' + name + '<\/a><br>'
+            side_bar_html += '<a href="#" onclick="javascript:display_detail(' + (gmarkers.length-1) + ', detail-' + name + ')">' + name + '<\/a><br>'
+
         }
         // put the assembled side_bar_html contents into the side_bar div
         document.getElementById("side_bar").innerHTML = side_bar_html;
+        // hide all details
+        //document.getElementsByClassName("detail-item").style.display = "none";
     });
 
     // Create the DIV to hold the control and call the constructor passing in this DIV
@@ -184,6 +189,22 @@ function myclick(i) {
   google.maps.event.trigger(gmarkers[i], "click");
 }
 
+function HideContent(d) {
+    document.getElementById(d).style.display = "none";
+}
+function ShowContent(d) {
+    document.getElementById(d).style.display = "block";
+}
+function ReverseDisplay(d) {
+    if(document.getElementById(d).style.display == "none") { document.getElementById(d).style.display = "block"; }
+    else { document.getElementById(d).style.display = "none"; }
+}
+
+function display_detail(i, d) {
+    myclick(i);
+    ShowContent(d);
+}
+
 function GeolocationControl(controlDiv, map) {
 
     // Set CSS for the control button
@@ -235,3 +256,5 @@ function geolocate() {
         });
     }
 }
+
+

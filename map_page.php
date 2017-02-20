@@ -12,13 +12,22 @@ include("inc/header.php");
 				  <script type="text/javascript" src="js/map_page.js"></script>
 				  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyAoAm89NdoOx95_nHcfWmxVyCkmOnUwcDk" async defer></script>
 				</div>
+				
 			</div>
 		</div>
-	</body>
-</html>
+
+		<div id="map-detail">
+			<p>TEST</p>
+		</div>
+
 
 <?php include("footer.php"); ?>
 
+
 <style type="text/css">
 		.map-detail { display: none; }
+		.detail-item { display: none; }
 </style>
+
+
+
