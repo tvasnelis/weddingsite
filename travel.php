@@ -41,7 +41,7 @@
     <div class="row text-center">
       <div class="travel-item">
         <p class="icon"><a href="#" class="icon" target="_blank"><i class="fa fa-suitcase fa-3x"></i></a></p>
-        <p>We're dressing up, you should too! Semiformal attire requested (suit and tie, cocktail dresses).  Dress to impress!</p>
+        <p>We're dressing up, and you should too! Semiformal attire requested (suit and tie, cocktail dresses) for the ceremony and reception.  Dress to impress!</p>
       </div>
     </div>
   </div>

@@ -59,7 +59,7 @@
                 <p>French Quarter</p>
               </div>
               <div class="item-text">
-                <p>In a city famous for the availability of alcohol in excess, what often gets forgotten is the historical influence New Orleans has had on cocktails.  This place feels like a time warp to an era we never experienced first hand, where white tuxedoed bartenders serve up some great classic cocktails.</p>
+                <p>In a city famous for the availability of alcohol in excess, what often gets forgotten is the historical influence New Orleans has had on cocktails.  This place feels like a time warp to an era we never experienced first hand, where white tuxedoed bartenders serve up some great cocktails.</p>
               </div>
               <p>Signature Cocktail: French 75</p>
               <p>Tim's Drink: Creole</p>
@@ -87,7 +87,7 @@
                 <p>Garden District</p>
               </div>
               <div class="item-text">
-                <p>Located in the open-air penthouse of the historic Pontchartrain Hotel providing some spectacular views of the Mississippi River and downtown New Orleans.  Great place to check out if the weather is nice.</p>
+                <p>Located in the open-air penthouse of the historic Pontchartrain Hotel providing some spectacular views of the Mississippi River and downtown New Orleans.  A great place to check out if the weather is nice.</p>
               </div>
             </div>
 
@@ -138,7 +138,7 @@
               <p>French Quarter</p>
             </div>
             <div class="item-text">
-              <p>Converted carriage house with an lively candlelit dining room and courtyard that also serves brunch.  We really enjoy the atmosphere and the food and drinks are stellar.</p>
+              <p>Converted 18th century carriage house with an lively dining room lit by street lanterns and candles.  Great food and atmosphere that is different than most other places in the Quarter.  Also serves brunch.</p>
             </div>
             <p>Must Try: Gulf Fish Crudo</p>
             <p>Other Notables:</p>
@@ -153,7 +153,7 @@
               <p>Warehouse District</p>
             </div>
             <div class="item-text">
-              <p>An altar to all things swine, but the goodness isn't limited to just pork.  The seafood and sides are also great.  Nextdoor, Butcher offers up sandwiches and cured meats with some of the same great flavors in a more casual setting.  Both are can't-miss.</p>
+              <p>An altar to all things swine, but the goodness isn't limited to just pork.  The seafood and sides are also great and they have a huge bourbon selection.  Nextdoor, Butcher offers up sandwiches and cured meats with some of the same great flavors in a more casual setting.  Both are can't-miss.</p>
             </div>
             <p>Must Try: Louisiana Cochon, obviously</p>
             <p>Other Notables:</p>
@@ -168,8 +168,11 @@
               <p>Garden District</p>
             </div>
             <div class="item-text">
-              <p>The seasonal menu will change daily.  As soon as you walk in you can smell the innovative southern goodness that's cooking!  Well crafted cocktail menu and hand selected approachable wine list.</p>
+              <p>A neighborhood restaurant that mixes classic and innovative with a focus on local ingredients.  The seasonal menu will change daily.  As soon as you walk in you can smell the innovative southern goodness that's cooking!</p>
             </div>
+            <p>Must Try: Gulf Shrimp and Grits with Chorizo</p>
+            <p>Other Notables:</p>
+            <p>Half Fried Chicken with Calabrian Chili</p>
           </div>
           <div class="item">
             <h4><a href="http://www.pizzadomenica.com/" target="_blank">Pizza Domenica</a></h4>
@@ -178,7 +181,7 @@
               <p>Uptown</p>
             </div>
             <div class="item-text">
-              <p>Wood-fired pizza joint meets Chef John Besh.  More casual sister to Domenica but a delicious hang out if you get that Italian craving or need a good happy hour.</p>
+              <p>Wood-fired pizza joint meets Chef John Besh.  More casual sister to Domenica and a delicious hang out if you get that Italian craving or need a good happy hour.</p>
             </div>
             <p>Must Try: Garlic Knots</p>
             <p>Other Notables:</p>
@@ -244,7 +247,7 @@
               <p>Frenchman Street</p>
             </div>
             <div class="item-text">
-              <p>The Quentessential Jazz Club of New Orleans has been recognized as an international destination for jazz music. Numerous movies, commercials, and print media have filmed and written about the Spotted Cat for its outstanding music and unique ambiance.</p>
+              <p>Recognized as an international destination for jazz music. Numerous movies, commercials, and print media have filmed and written about the Spotted Cat for its outstanding music and unique ambiance.</p>
             </div>
             <p>If you find yourself on Frenchman Street (and you should) also worth checking out for live music are d.b.a. (great beer list), Three Muses, and The Blue Nile.  Early shows (6pm) typically do not have a cover charge.</p>
           </div>
@@ -255,7 +258,7 @@
               <p>Central Business District</p>
             </div>
             <div class="item-text">
-              <p>Really well-executed museum that includes interactive features, personal artifacts, and original planes, boats, and vehicles.  Allow at least a few hours to get through everything here.</p>
+              <p>Really well-executed museum that includes interactive features, personal artifacts, and restored planes, boats, and other vehicles.  Allow at least a few hours to get through everything here.</p>
             </div>
             <p>Don't miss "Beyond All Boundaries", a "4D" film produced and narrated by Tom Hanks.</p>
           </div>
