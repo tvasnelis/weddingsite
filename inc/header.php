@@ -34,11 +34,11 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav sub-font">
-        <li><a href="#wedding">WEDDING</a></li>
-        <li><a href="#travel">TRAVEL</a></li>
-        <li><a href="#todo">DO</a></li>
-        <li><a href="#stay">STAY</a></li>
-        <li><a href="#rsvp">RSVP</a></li>
+        <?php echo '<li><a href= "' . BASE_URL . '#wedding" >WEDDING</a></li>' ?>
+        <?php echo '<li><a href= "' . BASE_URL . '#travel" >TRAVEL</a></li>' ?> 
+        <?php echo '<li><a href= "' . BASE_URL . '#todo" >DO</a></li>' ?> 
+        <?php echo '<li><a href= "' . BASE_URL . '#stay" >STAY</a></li>' ?> 
+        <?php echo '<li><a href= "' . BASE_URL . '#rsvp" >RSVP</a></li>' ?>  
         <li><a href="https://www.zola.com/registry/tk" target="_blank">REGISTRY</a></li>
       </ul>
     </div>

@@ -1,13 +1,14 @@
 <?php
 
-$status = "LOCAL";
+$status = "LIVE";
 
-	define("BASE_URL","/");
 	
 	if ($status == "LOCAL") {
+		define("BASE_URL","/timandkimberly");
 		define("ROOT_PATH",$_SERVER["DOCUMENT_ROOT"] . "/timandkimberly/");  // local ROOT PATH
 		define('DB_HOST', 'timandkimberly.com');  // local HOST
 	} else {
+		define("BASE_URL","/");
 		define("ROOT_PATH",$_SERVER["DOCUMENT_ROOT"] . "/");  // live ROOT PATH
 		define('DB_HOST', 'localhost');  // live HOST
 	}

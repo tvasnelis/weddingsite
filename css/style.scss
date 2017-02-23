@@ -313,6 +313,7 @@ Travel Panel
         .travel-item {
             padding: 0 40px;
         }
+        
     }
 
 }
@@ -454,6 +455,9 @@ todo Panel
             padding: 0 200px;
         }
         .item-text p {
+            padding: 0 200px;
+        }
+        .item p {
             padding: 0 200px;
         }
     }
@@ -807,41 +811,97 @@ Map Page
     height: calc(100vh - 270px);
     margin: 15px 0;
     box-shadow: rgba(0,0,0,0.6) 0 0 15px;   
-
-    side_bar a {
-        color: white;
-    }
-    a {
-        color: white;
-        text-decoration: none;
-    }
-
-    a:hover {
-        color:$gray;
-        text-decoration: none;
-    }
-
-    a:active {
-        color:$gray;
-        text-decoration: none;
-    }
-
-    a:visited {
-        color:$gray;
-        text-decoration: none;
-    }
 }
 
 #side_bar {
+    padding: 0;
     background-color: $green;
-    //box-shadow: rgba(0,0,0,0.6) 0 0 15px;
     height: calc(100vh - 270px);
 }
 
 #map_page {
     height: calc(100vh - 270px);
-    // box-shadow: rgba(0,0,0,0.6) 0 0 15px;
 }
+
+
+
+
+
+
+
+/*remove list style (circles)*/
+.goo-collapsible {  
+    list-style: none;
+    font-size:14px
+}
+ul.goo-collapsible {
+    padding-left: 0;
+}
+/*header line style and border*/
+.goo-collapsible li.header
+{
+    color: #666;
+    padding:4px 12px;
+    border: 1px solid $lightgrey;
+}
+/*set border for every line of menu and remove top border becouse we dont want double border with header border. */
+.goo-collapsible li {
+    border: 1px solid $lightgrey;
+    border-top:0;
+    margin: 0;
+    background:$green;
+}
+/*remove decoration from text links and treat it as a block.*/
+.goo-collapsible li a {
+    text-decoration:none;
+    color:#666;
+    display:block;
+    padding: 4px 12px
+}
+/*we dont want text to be underline as regular link*/
+.goo-collapsible li a:hover {
+    background: #F8F8F8;
+    text-decoration:none;
+}
+/*remove list style (circles) for submenu*/   
+.goo-collapsible li ul {
+    list-style: none;
+    background: #d3d3d3;
+    display: none;
+    margin:0;
+    padding:0;
+}
+/*remove border and set only bottom border for submenu*/   
+.goo-collapsible li ul li {
+    margin:0;
+    border:0;
+    border-bottom:1px solid $lightgrey;
+}
+/*remove bottom border from last element in submenu*/   
+.goo-collapsible li ul li:last-child {
+    border-bottom:0;
+}
+/*set padding for submenu to be inline with maimenu*/   
+.goo-collapsible li ul li a {
+    padding: 5px 10px;
+    display: block;
+    padding-left: 33px;
+    background: blue; 
+}
+/*remove text decoration for links*/
+.goo-collapsible li ul li a:hover {
+    text-decoration: none;
+    background: #d9d9d9; 
+}
+/*for menu witch have a submenu display some icom*/
+.goo-collapsible .dropdown > a {
+    //background: url(/images/arrowdown.png) no-repeat right center; 
+}
+/*set some hover color on drop down menu*/
+.goo-collapsible .dropdown > a:hover { 
+    //background: #F8F8F8 url(/images/arrowdown.png) no-repeat right center !important;
+}
+
 
 
 

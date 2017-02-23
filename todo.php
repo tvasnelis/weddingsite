@@ -332,6 +332,7 @@
           <ol class="carousel-indicators">
             <li data-target="#carousel_tourist" data-slide-to="0" class="active"></li>
             <li data-target="#carousel_tourist" data-slide-to="1"></li>
+            <li data-target="#carousel_tourist" data-slide-to="2"></li>
           </ol>
           <a class="right carousel-control" href="#carousel_tourist" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>

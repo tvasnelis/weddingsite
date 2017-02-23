@@ -10,43 +10,31 @@ var map = null;
 
 // variable to store custom icons
 var customIcons = {
-    restaurant: {
-        icon: 'http://www.googlemapsmarkers.com/v1/d8d2a5/'
-    },
     bar: {
         icon: 'http://www.googlemapsmarkers.com/v1/bbc9e4/'
     },
-    other: {
-        icon: 'http://www.googlemapsmarkers.com/v1/9b9b9b/'
+    beer: {
+        icon: 'http://www.googlemapsmarkers.com/v1/eeeeee/'
     },
-    venue: {
-        icon: 'http://www.googlemapsmarkers.com/v1/d8d2a5/'
+    entertain: {
+        icon: 'http://www.googlemapsmarkers.com/v1/9b9b9b/'
     },
     hotel: {
         icon: 'http://www.googlemapsmarkers.com/v1/51232d/'
+    },
+    restaurant: {
+        icon: 'http://www.googlemapsmarkers.com/v1/d8d2a5/'
+    },
+    tourist: {
+        icon: 'http://www.googlemapsmarkers.com/v1/eeeeee/'
+    },
+     venue: {
+        icon: 'http://www.googlemapsmarkers.com/v1/d8d2a5/'
     }
 };
 
 
 function initMap() {
-
-    var customIcons = {
-        restaurant: {
-            icon: 'http://www.googlemapsmarkers.com/v1/93c2b2/'
-        },
-        bar: {
-            icon: 'http://www.googlemapsmarkers.com/v1/bbc9e4/'
-        },
-        other: {
-            icon: 'http://www.googlemapsmarkers.com/v1/9b9b9b/'
-        },
-        venue: {
-            icon: 'http://www.googlemapsmarkers.com/v1/d8d2a5/'
-        },
-        hotel: {
-            icon: 'http://www.googlemapsmarkers.com/v1/51232d/'
-        }
-    };
 
     var mapOptions = {
         zoom: 16,
@@ -97,8 +85,9 @@ function initMap() {
                         var address = markers[i].getAttribute("address");
                         var desc = markers[i].getAttribute("html");
                         var website = markers[i].getAttribute("website");
+                        var type = markers[i].getAttribute("type");
                         var img = markers[i].getAttribute("img");
-                        var html = "<b>" + name + "</b> <br/>" + address + "</b> <br/>" + desc +"</b> <br/><a href='" + website + "' target='_blank'>" + website + "</a>";
+                        var html = "<b>" + name + "</b> <br/>" + address + "</b> <br/> <a href='" + website + "' target='_blank'>" + website + "</a>";
                         var html = html + "<img src=/images/map/'" + img + "'";
                         infowindow.setContent(html);
                         infowindow.open(map, marker, html);
@@ -108,13 +97,14 @@ function initMap() {
             // save the info we need to use later for the side_bar
             gmarkers.push(marker);
             // add details to map detail
-            document.getElementById('map-detail').innerHTML += '<div id="detail-' + name + '" class="detail-item" style="display: none"> <p>' + name + '</p> </div>';
+            //document.getElementById('map-detail').innerHTML += '<div id="detail-' + name + '" class="detail-item" style="display: none"> <p>' + name + '</p> </div>';
             // add a line to the side_bar html
-            side_bar_html += '<a href="#" onclick="javascript:display_detail(' + (gmarkers.length-1) + ', detail-' + name + ')">' + name + '<\/a><br>'
+            var ul_div = "ul-" + type;
+            document.getElementById(ul_div).innerHTML += '<a href="#" onclick="javascript:display_detail(' + (gmarkers.length-1) + ')">' + name + '<\/a>'
 
         }
         // put the assembled side_bar_html contents into the side_bar div
-        document.getElementById("side_bar").innerHTML = side_bar_html;
+        //document.getElementById("side_bar").innerHTML = side_bar_html;
         // hide all details
         //document.getElementsByClassName("detail-item").style.display = "none";
     });
@@ -200,9 +190,9 @@ function ReverseDisplay(d) {
     else { document.getElementById(d).style.display = "none"; }
 }
 
-function display_detail(i, d) {
+function display_detail(i) {
     myclick(i);
-    ShowContent(d);
+    //ShowContent(i);
 }
 
 function GeolocationControl(controlDiv, map) {

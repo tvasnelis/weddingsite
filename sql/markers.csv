@@ -1,28 +1,41 @@
 id,name,address,nd,lat,lng,website,type,html,img
 1,Cafe Amelie,"912 Royal Street, New Orleans, LA 70116",French Quarter,29.959763,-90.062985,http://www.cafeamelie.com/,restaurant,Beautiful courtyard for outdoor dining and some great food in the quiter end of the French Quarter.,cafe_amelie.jpg
 2,Sylvain,"625 Chartres Street, New Orleans, LA 70130",French Quarter,29.957154,-90.064204,https://www.sylvainnola.com/,restaurant,Converted carriage house with an lively candlelit dining room and courtyard that also serves brunch.  We really enjoy the atmosphere and the food and drinks are stellar.,sylvain.jpg
-3,Cochon,"930 Tchoupitoulas Street, New Orleans, LA 70130",Warehouse District,29.942247,-90.067123,http://cochonrestaurant.com/,restaurant,description text Cochon,#
-4,Cochon Butcher,"930 Tchoupitoulas Street, New Orleans, LA 70130",Warehouse District,29.942247,-90.067123,http://www.cochonbutcher.com/,restaurant,description text Cochon Butcher,#
-5,Coquette,"2800 Magazine Street, New Orleans, LA 70115",Garden District,29.925953,-90.082466,http://coquettenola.com/,restaurant,description text Coquette,#
-6,Pizza Domenica,"4933 Magazine Street, New Orleans, LA 70115",Uptown,29.920493,-90.108835,http://www.pizzadomenica.com/,restaurant,description text Pizza Domenica,#
-7,Seaworthy,"630 Carondelet Street, New Orleans, LA 70130",Warehouse District,29.947879,-90.072208,http://www.seaworthynola.com/,restaurant,description text Seaworthy,#
-8,Carousel Bar,"214 Royal Street, New Orleans, LA 70130",French Quarter,29.9542,-90.0677,http://hotelmonteleone.com/entertainment/carousel-bar/,bar,description text Carousel Bar,#
-9,Arnuad's French 75,"813 Bienville Street, New Orleans, LA 70112",French Quarter,29.955812,-90.068703,https://www.arnaudsrestaurant.com/bars/french-75/,bar,description text Arnuad's French 75,#
-10,Erin Rose,"811 Conti Street, New Orleans, LA 70112",French Quarter,29.956553,-90.067938,http://www.erinrosebar.com/,bar,description text Erin Rose,#
-11,Hot Tin,"2031 Saint Charles Avenue, New Orleans, LA 70130",Garden District,29.935111,-90.079721,http://hottinbar.com/,bar,description text Hot Tin,#
-12,Cure,"4905 Freret Street, New Orleans, LA 70115",Uptown,29.935023,-90.10746,http://curenola.com/,bar,description text Cure,#
-13,The Avenue Pub,"1732 Saint Charles Avenue, New Orleans, LA 70130",Garden District,29.936915,-90.07675,http://theavenuepub.com/,bar,description text The Avenue Pub,#
-14,Cafe Du Monde,"800 Decatur Street, New Orleans, LA 70116",French Quarter,29.957464,-90.061881,http://www.cafedumonde.com/,restaurant,description text Cafe Du Monde,#
-15,Cafe Beignet,"334 Royal Street, New Orleans, LA 70130",French Quarter,29.955226,-90.067079,http://www.cafebeignet.com/,restaurant,description text Cafe Beignet,#
-16,Preservation Hall,"726 Saint Peter Street, New Orleans, LA 70116",French Quarter,29.958301,-90.065396,https://preservationhall.com/,other,description text Preservation Hall,#
-17,Spotted Cat,"623 Frenchmen Street, New Orleans, LA 70116",Frenchman Street,29.964061,-90.057667,http://www.spottedcatmusicclub.com/,other,description text Spotted Cat,#
-18,dba,"618 Frenchmen Street, New Orleans, LA 70116",Frenchman Street,29.963943,-90.058028,http://www.dbaneworleans.com/,other,description text dba,#
-19,The National WWII Museum,"945 Magazine Street, New Orleans, LA 70130",Central Business District,29.943018,-90.070107,http://www.nationalww2museum.org/,other,description text The National WWII Museum,#
-20,Hotel Monteleone,"214 Royal Street, New Orleans, LA 70130",French Quarter,29.954296,-90.067787,http://www.hotelmonteleone.com/,hotel,description text Hotel Monteleone,#
-21,Bienville House,"320 Decatur Street, New Orleans, LA 70130",French Quarter,29.953831,-90.065279,http://bienvillehouse.com/,hotel,description text Bienville House,#
-22,Napoleon House,"500 Chartres Street, New Orleans, LA 70130",French Quarter,29.955879,-90.065057,http://www.napoleonhouse.com/,venue,description text Napoleon House,#
-23,New Orleans Pharmacy Museum,"514 Chartres Street, New Orleans, LA 70130",French Quarter,29.956051,-90.064935,http://www.pharmacymuseum.org/,venue,description text New Orleans Pharmacy Museum,#
-24,Acme Oyster House,"724 Iberville Street New Orleans, LA 70130",French Quarter,29.954833,-90.069176,http://www.acmeoyster.com/,tourist,description text acme oyster,#
-25,Pat O'Brien's,"718 Saint Peter Street, New Orleans, LA 70116",French Quarter,29.958226,-90.065207,http://www.patobriens.com/patobriens/default.asp,tourist,description text pat obriens,#
-26,Bacchanal Wine,"600 Poland Avenue, New Orleans, LA 70117",Bywater,29.959792,-90.0332397,http://www.bacchanalwine.com/,restaurant,description text bacchanal wine,#
-27,Shaya,"4213 Magazine Street, New Orleans, LA 70115",Uptown,29.9212,-90.099559,http://www.shayarestaurant.com/,restaurant,description text shaya,#
+3,Cochon,"930 Tchoupitoulas Street, New Orleans, LA 70130",Warehouse District,29.942298,-90.067356,http://cochonrestaurant.com/,restaurant,description text,#
+4,Cochon Butcher,"930 Tchoupitoulas Street, New Orleans, LA 70130",Warehouse District,29.942174,-90.067138,http://www.cochonbutcher.com/,restaurant,description text,#
+5,Coquette,"2800 Magazine Street, New Orleans, LA 70115",Garden District,29.925953,-90.082466,http://coquettenola.com/,restaurant,description text,#
+6,Pizza Domenica,"4933 Magazine Street, New Orleans, LA 70115",Uptown,29.920493,-90.108835,http://www.pizzadomenica.com/,restaurant,description text,#
+7,Seaworthy,"630 Carondelet Street, New Orleans, LA 70130",Warehouse District,29.947879,-90.072208,http://www.seaworthynola.com/,restaurant,description text,#
+8,Carousel Bar,"214 Royal Street, New Orleans, LA 70130",French Quarter,29.9542,-90.0677,http://hotelmonteleone.com/entertainment/carousel-bar/,bar,description text,#
+9,Arnuad's French 75,"813 Bienville Street, New Orleans, LA 70112",French Quarter,29.955812,-90.068703,https://www.arnaudsrestaurant.com/bars/french-75/,bar,description text,#
+10,Erin Rose,"811 Conti Street, New Orleans, LA 70112",French Quarter,29.956553,-90.067938,http://www.erinrosebar.com/,bar,description text,#
+11,Hot Tin,"2031 Saint Charles Avenue, New Orleans, LA 70130",Garden District,29.935111,-90.079721,http://hottinbar.com/,bar,description text,#
+12,Cure,"4905 Freret Street, New Orleans, LA 70115",Uptown,29.935023,-90.10746,http://curenola.com/,bar,description text,#
+13,The Avenue Pub,"1732 Saint Charles Avenue, New Orleans, LA 70130",Garden District,29.936915,-90.07675,http://theavenuepub.com/,beer,description text,#
+14,Cafe Du Monde,"800 Decatur Street, New Orleans, LA 70116",French Quarter,29.957464,-90.061881,http://www.cafedumonde.com/,tourist,description text,#
+15,Cafe Beignet,"334 Royal Street, New Orleans, LA 70130",French Quarter,29.955226,-90.067079,http://www.cafebeignet.com/,tourist,description text,#
+16,Preservation Hall,"726 Saint Peter Street, New Orleans, LA 70116",French Quarter,29.958301,-90.065396,https://preservationhall.com/,entertain,description text,#
+17,Spotted Cat,"623 Frenchmen Street, New Orleans, LA 70116",Frenchman Street,29.964061,-90.057667,http://www.spottedcatmusicclub.com/,entertain,description text,#
+18,dba,"618 Frenchmen Street, New Orleans, LA 70116",Frenchman Street,29.963943,-90.058028,http://www.dbaneworleans.com/,entertain,description text,#
+19,The National WWII Museum,"945 Magazine Street, New Orleans, LA 70130",Central Business District,29.943018,-90.070107,http://www.nationalww2museum.org/,entertain,description text,#
+20,Hotel Monteleone,"214 Royal Street, New Orleans, LA 70130",French Quarter,29.954296,-90.067787,http://www.hotelmonteleone.com/,hotel,description text,#
+21,Bienville House,"320 Decatur Street, New Orleans, LA 70130",French Quarter,29.953831,-90.065279,http://bienvillehouse.com/,hotel,description text,#
+22,Napoleon House,"500 Chartres Street, New Orleans, LA 70130",French Quarter,29.955879,-90.065057,http://www.napoleonhouse.com/,venue,description text,#
+23,Pharmacy Museum,"514 Chartres Street, New Orleans, LA 70130",French Quarter,29.956051,-90.064935,http://www.pharmacymuseum.org/,venue,description text,#
+24,Acme Oyster House,"724 Iberville Street New Orleans, LA 70130",French Quarter,29.954833,-90.069176,http://www.acmeoyster.com/,tourist,description text,#
+25,Pat O'Brien's,"718 Saint Peter Street, New Orleans, LA 70116",French Quarter,29.958226,-90.065207,http://www.patobriens.com/patobriens/default.asp,tourist,description text,#
+26,Bacchanal Wine,"600 Poland Avenue, New Orleans, LA 70117",Bywater,29.959792,-90.0332397,http://www.bacchanalwine.com/,restaurant,description text,#
+27,Shaya,"4213 Magazine Street, New Orleans, LA 70115",Uptown,29.9212,-90.099559,http://www.shayarestaurant.com/,restaurant,description text,#
+28,Company Burger,"4600 Freret St, New Orleans, LA 70115",Uptown,29.93472,-90.105743,https://www.thecompanyburger.com/,restaurant,description text,#
+29,Company Burger,"611 O'Keefe Ave, Unit C7 ",Downtown,29.94751,-90.0765149,https://www.thecompanyburger.com/,restaurant,description text,#
+30,The Joint ,"701 Mazant St, New Orleans, LA 70117",Bywater,29.9613209,-90.0355348,http://alwayssmokin.com/,restaurant,description text,#
+31,Three Muses,536 Frenchmen St,Frenchman Street,29.9632722,-90.0578685,http://www.3musesnola.com/,restaurant,description text,#
+32,Pho Tau Bay,"1565 Tulane Avenue New Orleans, LA",Central Business District,29.9564841,-90.0784645,photaubayrestaurant.com,restaurant,description text,
+33,Junction,"3021 St Claude Ave, New Orleans, LA 70117",Bywater,29.968124,-90.0453763,http://www.junctionnola.com/,beer,40 beers and tap specialty burgers,
+34,World of Beer,"324 Julia St. New Orleans, LA 70130",Warehouse District,29.9446786,-90.0687745,https://worldofbeer.com/Locations/WarehouseDistrict,beer,Made in Tampa!,
+35,Courtyard Brewery,"1020 Erato St New Orleans, LA 70130",Garden District,29.9390421,-90.0730073,http://www.courtyardbrewing.com/,beer,description text,
+36,NOLA Brewing,"3001 Tchoupitoulas St. | New Orleans, LA 70115",Garden District,29.9200402,-90.0812295,http://www.nolabrewing.com/tap-room/,beer,description text,
+37,Wayward Owl,"3940 Thalia St New Orleans, LA",Central City,29.952312,-90.097391,http://www.waywardowlbrewing.com/,beer,description text,
+38,Urban South Brewery,"1625 Tchoupitoulas Street New Orleans, LA",Warehouse District,29.9299437,-9000689984,http://urbansouthbrewery.com/,beer,description text,
+39,Freret Beer Room,"5018 Freret St, New Orleans, LA 70115",Uptown,29.934796,-90.108928,http://freretbeerroom.com/,beer,description text,
+40,Vessel,"3835 Iberville St New Orleans, LA 70119",Garden District,29.974142,-90.0976936,http://vesselnola.com/,restaurant,description text,
