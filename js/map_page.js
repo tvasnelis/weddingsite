@@ -199,26 +199,26 @@ function GeolocationControl(controlDiv, map) {
 
     // Set CSS for the control button
     var controlUI = document.createElement('div');
-    controlUI.style.backgroundColor = '#93c2b2';
-    controlUI.style.borderStyle = 'solid';
-    controlUI.style.borderWidth = '1px';
-    controlUI.style.borderColor = '#FFF';
-    controlUI.style.height = '28px';
-    controlUI.style.marginTop = '5px';
-    controlUI.style.cursor = 'pointer';
-    controlUI.style.textAlign = 'center';
-    controlUI.title = 'button';
+    // controlUI.style.backgroundColor = '#93c2b2';
+    // controlUI.style.borderStyle = 'solid';
+    // controlUI.style.borderWidth = '1px';
+    // controlUI.style.borderColor = '#FFF';
+    // controlUI.style.height = '28px';
+    // controlUI.style.marginTop = '5px';
+    // controlUI.style.cursor = 'pointer';
+    // controlUI.style.textAlign = 'center';
+    // controlUI.title = 'button';
     controlDiv.appendChild(controlUI);
 
     // Set CSS for the control text
     var controlText = document.createElement('div');
-    controlText.style.fontFamily = 'Arial,sans-serif';
-    controlText.style.fontSize = '10px';
-    controlText.style.color = 'white';
-    controlText.style.paddingLeft = '10px';
-    controlText.style.paddingRight = '10px';
-    controlText.style.marginTop = '8px';
-    controlText.innerHTML = 'Find My Location';
+    // controlText.style.fontFamily = 'Arial,sans-serif';
+    // controlText.style.fontSize = '10px';
+    // controlText.style.color = 'white';
+    // controlText.style.paddingLeft = '10px';
+    // controlText.style.paddingRight = '10px';
+    // controlText.style.marginTop = '8px';
+    // controlText.innerHTML = 'Find My Location';
     controlUI.appendChild(controlText);
 
     // Setup the click event listeners to geolocate user

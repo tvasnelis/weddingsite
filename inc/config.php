@@ -1,6 +1,6 @@
 <?php
 
-$status = "LIVE";
+$status = "LOCAL";
 
 	
 	if ($status == "LOCAL") {

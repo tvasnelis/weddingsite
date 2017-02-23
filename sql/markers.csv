@@ -29,7 +29,7 @@ id,name,address,nd,lat,lng,website,type,html,img
 28,Company Burger,"4600 Freret St, New Orleans, LA 70115",Uptown,29.93472,-90.105743,https://www.thecompanyburger.com/,restaurant,description text,#
 29,Company Burger,"611 O'Keefe Ave, Unit C7 ",Downtown,29.94751,-90.0765149,https://www.thecompanyburger.com/,restaurant,description text,#
 30,The Joint ,"701 Mazant St, New Orleans, LA 70117",Bywater,29.9613209,-90.0355348,http://alwayssmokin.com/,restaurant,description text,#
-31,Three Muses,536 Frenchmen St,Frenchman Street,29.9632722,-90.0578685,http://www.3musesnola.com/,restaurant,description text,#
+31,Three Muses,536 Frenchmen St,Frenchman Street,29.9632722,-90.0578685,http://www.3musesnola.com/,entertain,description text,#
 32,Pho Tau Bay,"1565 Tulane Avenue New Orleans, LA",Central Business District,29.9564841,-90.0784645,photaubayrestaurant.com,restaurant,description text,
 33,Junction,"3021 St Claude Ave, New Orleans, LA 70117",Bywater,29.968124,-90.0453763,http://www.junctionnola.com/,beer,40 beers and tap specialty burgers,
 34,World of Beer,"324 Julia St. New Orleans, LA 70130",Warehouse District,29.9446786,-90.0687745,https://worldofbeer.com/Locations/WarehouseDistrict,beer,Made in Tampa!,
@@ -39,3 +39,4 @@ id,name,address,nd,lat,lng,website,type,html,img
 38,Urban South Brewery,"1625 Tchoupitoulas Street New Orleans, LA",Warehouse District,29.9299437,-9000689984,http://urbansouthbrewery.com/,beer,description text,
 39,Freret Beer Room,"5018 Freret St, New Orleans, LA 70115",Uptown,29.934796,-90.108928,http://freretbeerroom.com/,beer,description text,
 40,Vessel,"3835 Iberville St New Orleans, LA 70119",Garden District,29.974142,-90.0976936,http://vesselnola.com/,restaurant,description text,
+41,Lafayette Cemetery No. 1,"1416 Washington Ave, New Orleans, LA 70130",Garden District,29.9287895,-90.0853719,http://www.saveourcemeteries.org/lafayette-cemetery-no-1/,entertain,description text,

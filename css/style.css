@@ -7472,6 +7472,14 @@ button.navbar-toggle {
   padding-top: 30px;
 }
 
+#todo:before {
+  display: block;
+  content: " ";
+  margin-top: -30px;
+  height: 30px;
+  visibility: hidden;
+}
+
 /********************************
 Wedding Panel
 ********************************/
@@ -7557,16 +7565,16 @@ todo Panel
 #todo {
   position: relative;
   background-color: #93c2b2;
-  height: 500px;
+  height: 630px;
   padding: 0;
   margin: 0 h4;
   margin-margin: 0 0 15px 0;
 }
 #todo .carousel {
-  height: 350px;
+  height: 450px;
 }
 #todo .item {
-  height: 320px;
+  height: 420px;
 }
 #todo .carousel-controls {
   height: 30px;
@@ -7614,7 +7622,7 @@ todo Panel
 #todo .todo-nav-close {
   position: absolute;
   right: 5px;
-  top: 130px;
+  top: 160px;
   z-index: 5;
   width: 20px;
   height: 20px;
@@ -7628,7 +7636,7 @@ todo Panel
 }
 @media screen and (min-width: 768px) {
   #todo {
-    height: 320px;
+    height: 350px;
   }
   #todo .carousel {
     height: 270px;
@@ -7651,7 +7659,7 @@ todo Panel
   #todo .todo-nav-close {
     width: 25px;
     height: 25px;
-    top: 10px;
+    top: 40px;
   }
   #todo .todo-nav-close label {
     line-height: 25px;
@@ -7979,7 +7987,7 @@ ul.goo-collapsible {
 
 /*set border for every line of menu and remove top border becouse we dont want double border with header border. */
 .goo-collapsible li {
-  border: 1px solid #eeeeee;
+  border: 1px solid #585c65;
   border-top: 0;
   margin: 0;
   background: #93c2b2;
@@ -7988,21 +7996,21 @@ ul.goo-collapsible {
 /*remove decoration from text links and treat it as a block.*/
 .goo-collapsible li a {
   text-decoration: none;
-  color: #666;
+  color: #FFF;
   display: block;
   padding: 4px 12px;
 }
 
 /*we dont want text to be underline as regular link*/
 .goo-collapsible li a:hover {
-  background: #F8F8F8;
+  background: #585c65;
   text-decoration: none;
 }
 
 /*remove list style (circles) for submenu*/
 .goo-collapsible li ul {
   list-style: none;
-  background: #d3d3d3;
+  background: #66877c;
   display: none;
   margin: 0;
   padding: 0;

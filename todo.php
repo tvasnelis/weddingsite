@@ -342,6 +342,7 @@
       </div>
     </div>
   </div>
+</div>
 
   <style type="text/css">
       .todo-detail { display: none; }
@@ -366,4 +367,4 @@
   });
 </script>
 
-</div>
+
