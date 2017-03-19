@@ -32,16 +32,22 @@
         <!-- <a href="http://www.norta.com/Maps-Schedules/Streetcar-Schedules-Maps.aspx" class="icon" target="_blank">Streetcar Information</span></a></p> -->
       </div>
     </div>
-    <div class="row text-center">
+    <!-- <div class="row text-center">
       <div class="travel-item">
         <p class="icon"><a href="#" class="icon" target="_blank"><i class="fa fa-sun-o fa-3x"></i></a></p>
         <p>March is generally warm with average highs of 78 degees.  It may drop to around 60 degrees at night so maybe pack a sweater (Kimberly will be wearing one). </p>
       </div>
-    </div>
+    </div> -->
     <div class="row text-center">
       <div class="travel-item">
         <p class="icon"><a href="#" class="icon" target="_blank"><i class="fa fa-suitcase fa-3x"></i></a></p>
         <p>We're dressing up, and you should too! Semiformal attire requested (suit and tie, cocktail dresses) for the ceremony and reception.  Dress to impress!</p>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="travel-item">
+        <p class="icon"><a href="#" class="icon" target="_blank"><i class="fa fa-camera-retro fa-3x"></i></a></p>
+        <p>During the ceremony, we want you to be able to really enjoy our wedding day, feeling truly present and in the moment with us. We're respectfully asking that everyone consider leaving all cameras and cell phones off during the ceremony. Of course, we encourage the use of cameras before, after and during your stay in New Orleans! Share your experiences and photos with us on Instagram! #timandkimberly.</p>
       </div>
     </div>
   </div>

@@ -64,6 +64,11 @@ html {
     min-width : 320px;
  }
 
+ .col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
 
 /********************************
 Color
@@ -221,12 +226,12 @@ button.navbar-toggle {
     padding-top: 30px;
 }
 
-#todo:before { 
-  display: block; 
-  content: " "; 
-  margin-top: -30px; 
-  height: 30px; 
-  visibility: hidden; 
+#todo:before {
+  display: block;
+  content: " ";
+  margin-top: -30px;
+  height: 30px;
+  visibility: hidden;
 }
 
 
@@ -277,11 +282,8 @@ Wedding Panel
 Travel Panel
 ********************************/
 
-
 #travel {
-    .travel-section {
-        padding: 40px 15px;
-    }
+
     .glyphicon {
         font-size: 50px;
     }
@@ -304,8 +306,12 @@ Travel Panel
     }
 
     .travel-item {
-        padding: 0;
+        padding: 0 20px;;
         margin: 20px 0;
+    }
+
+    .travel-section {
+        padding: 40px 0 0;
     }
 
     .col-sm-6:first-child {
@@ -313,7 +319,6 @@ Travel Panel
     }
 
     @media screen and (min-width: 768px) {
-        padding: 40px 0;
         .col-sm-6:first-child {
             border-right: solid 1px $white;
             border-bottom: none;
@@ -321,10 +326,53 @@ Travel Panel
         .travel-item {
             padding: 0 40px;
         }
-        
+
     }
 
 }
+
+/********************************
+Weather
+********************************/
+#weather {
+  padding: 40px 0;
+  ul, p {
+    padding: 0;
+    margin: 0;
+  }
+  li {
+   list-style-type: none !important;
+  }
+
+  i.icon {
+    font-size: 16px;
+    wi {
+      font-size: 22px;
+    }
+  }
+
+  .weather-icon {
+    margin-bottom: 5px;
+  }
+
+  .weather-cell {
+    padding: 5px;
+    -webkit-border-radius: 2%;
+    -moz-border-radius: 2%;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 35px -7px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 35px -7px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 35px -7px rgba(0,0,0,0.75);
+  }
+
+  @media screen and (max-width: 768px) {
+    .col {
+      margin-bottom: 25px;
+    }
+  }
+
+}
+
 
 
 /********************************
@@ -818,7 +866,7 @@ Map Page
     width: 100%;
     height: calc(100vh - 270px);
     margin: 15px 0;
-    box-shadow: rgba(0,0,0,0.6) 0 0 15px;   
+    box-shadow: rgba(0,0,0,0.6) 0 0 15px;
 }
 
 #side_bar {
@@ -834,7 +882,7 @@ Map Page
 
 
 /*remove list style (circles)*/
-.goo-collapsible {  
+.goo-collapsible {
     list-style: none;
     font-size:14px
 }
@@ -867,7 +915,7 @@ ul.goo-collapsible {
     background: $grey;
     text-decoration:none;
 }
-/*remove list style (circles) for submenu*/   
+/*remove list style (circles) for submenu*/
 .goo-collapsible li ul {
     list-style: none;
     background: #66877c;
@@ -875,34 +923,34 @@ ul.goo-collapsible {
     margin:0;
     padding:0;
 }
-/*remove border and set only bottom border for submenu*/   
+/*remove border and set only bottom border for submenu*/
 .goo-collapsible li ul li {
     margin:0;
     border:0;
     border-bottom:1px solid $lightgrey;
 }
-/*remove bottom border from last element in submenu*/   
+/*remove bottom border from last element in submenu*/
 .goo-collapsible li ul li:last-child {
     border-bottom:0;
 }
-/*set padding for submenu to be inline with maimenu*/   
+/*set padding for submenu to be inline with maimenu*/
 .goo-collapsible li ul li a {
     padding: 5px 10px;
     display: block;
     padding-left: 33px;
-    background: blue; 
+    background: blue;
 }
 /*remove text decoration for links*/
 .goo-collapsible li ul li a:hover {
     text-decoration: none;
-    background: #d9d9d9; 
+    background: #d9d9d9;
 }
 /*for menu witch have a submenu display some icom*/
 .goo-collapsible .dropdown > a {
-    //background: url(/images/arrowdown.png) no-repeat right center; 
+    //background: url(/images/arrowdown.png) no-repeat right center;
 }
 /*set some hover color on drop down menu*/
-.goo-collapsible .dropdown > a:hover { 
+.goo-collapsible .dropdown > a:hover {
     //background: #F8F8F8 url(/images/arrowdown.png) no-repeat right center !important;
 }
 
